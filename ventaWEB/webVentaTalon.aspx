@@ -190,7 +190,7 @@
                     </Columns>
                 </asp:GridView>
             </div>
-
+            <%--Footer Panel Premios--%>
             <div class="footer-panel-premios">
                 <asp:Label ID="Label7" runat="server" Text="Cantidad de talones seleccionados :  "></asp:Label>
                 <asp:Label ID="olblCantidadTotal" runat="server" Text="0"></asp:Label>
@@ -209,10 +209,11 @@
                     <asp:Label ID="olblValidacionMensajeErrorPremio" runat="server" Text="" Font-Bold="true" ForeColor="Red" Font-Size="Small"></asp:Label>
                 </div>
 
-                <div align="center">
-                    <asp:TextBox ID="otxtLeyendaPago" runat="server" Text="Usted ha conformado su compra. Si desea agregar más billetes o quitar billetes antes de confirmar la operacion , puede hacerlo presionando los botones NUMEROS y PREMIOS hasta que sea de su entera satisfaccion el monto de su compra. Pulse PAGAR para comenzar el proceso de Pago" TextMode="MultiLine" Width="100%" Height="90px" BackColor="White" Enabled="false" Font-Size="Small" Visible="false"></asp:TextBox>
-
-                    <asp:Button ID="obutRealizarPago" runat="server" Text="PAGAR" BackColor="Green" Font-Bold="true" ForeColor="White" Font-Size="XX-Large" Width="90%" Height="80px" Visible="false" />
+                <div class="msj-footer-panel-premios">
+                    <asp:TextBox ID="otxtLeyendaPago" runat="server" Text="Usted ha conformado su compra. Si desea agregar más billetes o quitar billetes antes de confirmar la operacion , puede hacerlo presionando los botones NUMEROS y PREMIOS hasta que sea de su entera satisfaccion el monto de su compra. Pulse PAGAR para comenzar el proceso de Pago" TextMode="MultiLine" BackColor="White" Enabled="false" Visible="false"></asp:TextBox>
+                </div>
+                <div style="text-align:center;">
+                    <asp:Button CssClass="btn-pago" ID="obutRealizarPago" runat="server" Text="PAGAR" Visible="false" />
                 </div>
         </asp:Panel>
 
@@ -222,11 +223,12 @@
                     <asp:Label ID="Label12" runat="server" Text="Monto a pagar :"></asp:Label>
                     <asp:Label ID="olblPagoConfirmadoMonto" runat="server" Text=""></asp:Label>
                 </div>
+                <%--Botones medios de pago--%>
                 <div class="botones-medios-de-pago">
 
-                    <asp:Button ID="obutOpcionPagoConMercadoPago" runat="server" Text="PAGAR CON MERCADO PAGO "/>
-                    <asp:Button CssClass="disminuir-texto" ID="obutTransferenciaAMercadoPago" runat="server" Text="TRANSFERENCIA A MERCADO PAGO POR ALIAS" />
-                    <asp:Button ID="obutVolverFormasDePago" runat="server" Text="Mostrar Opciones de Pago" Visible="false" />
+                    <asp:Button CssClass="btn-pago btn-metodo-pago" ID="obutOpcionPagoConMercadoPago" runat="server" Text="PAGAR CON MERCADO PAGO "/>
+                    <asp:Button CssClass="btn-pago btn-metodo-pago disminuir-texto" ID="obutTransferenciaAMercadoPago" runat="server" Text="TRANSFERENCIA A MERCADO PAGO POR ALIAS" />
+                    <asp:Button CssClass="btn-pago btn-metodo-pago" ID="obutVolverFormasDePago" runat="server" Text="Mostrar Opciones de Pago" Visible="false" />
 
                 </div>
 
@@ -236,6 +238,7 @@
                     <asp:Label ID="olblMensajeGrabacionCobranza" runat="server" Text=""></asp:Label>
                 </div>
                 </div>
+                <%-- Panel Mercado Pago --%>
                         <asp:Panel CssClass="panel-mercado-pago" ID="PanelMercadoPAgo" runat="server" Visible="false">
                             <div class="titulo-panel-mercado-pago">
                                 <asp:Label ID="olblValorEfectivo" runat="server" Text="PAGAR CON MERCADO PAGO" Width="90%"></asp:Label>
@@ -246,16 +249,12 @@
                                 <asp:TextBox ID="otxtMercadoPagoInstrucciones" runat="server" TextMode="MultiLine" Enabled="false" Text="Esta opción es válida sólo para usuarios de la plataforma MERCADO PAGO . Debe presionar el botón PAGAR CON MERCADO PAGO para ingresar a la aplicación de MERCADO PAGO para poder seleccionar el medio de pago , y luego de digitar el monto correspondiente a la compra en proceso confirmar la operación. Una vez confirmado el pago, realizar la captura de pantalla y adjuntar la imagen del comprobante para su registro y posterior validación."></asp:TextBox>
                             </div>
 
-
-
-                            <div align="center">
-                                <asp:Button ID="obutPagaConMercadoPago" runat="server" Text="  PAGAR CON MERCADO PAGO " BackColor="#00ccff" ForeColor="White" Font-Bold="true" Font-Size="Medium" Width="90%" Height="60px" />
-
-
+                            <div class="botones-medios-de-pago">
+                                <asp:Button CssClass="btn-pago" ID="obutPagaConMercadoPago" runat="server" Text="PAGAR CON MERCADO PAGO"  />
                             </div>
 
                         </asp:Panel>
-
+                <%--Panel Transferencia--%> 
                 <asp:Panel ID="PanelTransferencia" runat="server" Visible="false">
                     <div class="panel-transferencia">
                         <div align="center">
@@ -266,6 +265,7 @@
                         </div>
                         <div align="center">
                             <asp:TextBox ID="otxtDatosBancoParaTransferencia03" runat="server" BackColor="LightGray" Width="90%" Text="ALIAS : sorteo.billete.mpc " Font-Bold="true"></asp:TextBox>
+                        </div>
                         </div>
                 </asp:Panel>
 
@@ -301,7 +301,7 @@
                          </div>
                         <div class="img-transferencia">
                             <asp:Image ID="Image1" runat="server" Height="50%" ImageUrl="https://www.miprimercasa.ar/mpc/talonesWEB/mercadoPagoImagenPendiente.jpg" />
-                            <asp:Button CssClass="btn-principal" ID="obutConfirmaPago" runat="server" Text="Confirme el pago." />
+                            <asp:Button CssClass="btn-principal btn-pago" ID="obutConfirmaPago" runat="server" Text="Confirme el pago." />
                         <br />
                         <asp:Label ID="olblGestionGrabacion" runat="server" Text=""></asp:Label>
                         <asp:Label ID="olblIdPrestadorVehiculoImagen" runat="server" Text=""></asp:Label>
@@ -314,45 +314,43 @@
                 </asp:Panel>
 
             </asp:Panel>
-
+            <%-- Panel Cliente --%>
             <asp:Panel ID="PanelCliente" runat="server" Visible="false">
+                <div class="formulario-cliente">
+                    <h3>Transacción Número
+                               <asp:Label ID="olblIdSorteoTalonCobranza" runat="server" Text="" Visible="true"></asp:Label>
+
+                    </h3>
+                    <div align="center">
+                        <asp:TextBox ID="Label25" runat="server" Text="Felicitaciones !! Usted ya está participando por el / los premios mayores de los sorteos de Octubre !" Font-Size="Medium" TextMode="MultiLine" Width="90%" Enabled="false" Height="60px" BorderWidth="0"></asp:TextBox>
 
 
-                <h3>Transacción Número
-                           <asp:Label ID="olblIdSorteoTalonCobranza" runat="server" Text="" Visible="true"></asp:Label>
+                        <asp:TextBox ID="Label14" runat="server" Text="Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp" Font-Size="Small" TextMode="MultiLine" Width="90%" Enabled="false" Height="40px" BorderWidth="0"></asp:TextBox>
 
-                </h3>
-                <div align="center">
-                    <asp:TextBox ID="Label25" runat="server" Text="Felicitaciones !! Usted ya está participando por el / los premios mayores de los sorteos de Octubre !" Font-Size="Medium" TextMode="MultiLine" Width="90%" Enabled="false" Height="60px" BorderWidth="0"></asp:TextBox>
+                    </div>
+                    <%-- Formulario Cliente --%>
+                    <div>
+                        <asp:Label ID="Label15" runat="server" Text="Apellido y Nombres:"></asp:Label>
+                        <asp:TextBox ID="otxtClienteApyNom" runat="server"></asp:TextBox>
+
+                    </div>
+                    <div class="btn-formulario">
+                        <uc1:whatsappValidador runat="server" ID="whatsappValidador" />
+
+                    </div>
+                    <div class="btn-formulario">
+                        <uc1:correoElectronicoValidador runat="server" ID="correoElectronicoValidador" />
+                    </div>
 
 
-                    <asp:TextBox ID="Label14" runat="server" Text="Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp" Font-Size="Small" TextMode="MultiLine" Width="90%" Enabled="false" Height="40px" BorderWidth="0"></asp:TextBox>
-
+                    <div class="btn-formulario">
+                        <asp:Label ID="olblMensajeValidacion" runat="server" Text="" ForeColor="Red"></asp:Label>
+                    </div>
                 </div>
-
-                <div>
-                    <asp:Label ID="Label15" runat="server" Text="Apellido y Nombres:"></asp:Label>
-                    <asp:TextBox ID="otxtClienteApyNom" runat="server" Width="100%"></asp:TextBox>
-
-                </div>
-                <div>
-                    <uc1:whatsappValidador runat="server" ID="whatsappValidador" />
-
-                </div>
-
-
-                <div>
-                    <uc1:correoElectronicoValidador runat="server" ID="correoElectronicoValidador" />
-                </div>
-
-
-                <div align="center">
-                    <asp:Label ID="olblMensajeValidacion" runat="server" Text="" ForeColor="Red"></asp:Label>
-                </div>
-                <div align="center">
-                    <asp:Button ID="obutConfirmaOperacion" runat="server" Text="Confirma Operacion" CssClass="btn-success" Height="30%" Width="50%" />
-                </div>
-                <br />
+                    <div class="botones-medios-de-pago">
+                        <asp:Button ID="obutConfirmaOperacion" runat="server" Text="Confirmar Operacion" CssClass="btn-pago" />
+                    </div>
+                    <br />
 
             </asp:Panel>
 

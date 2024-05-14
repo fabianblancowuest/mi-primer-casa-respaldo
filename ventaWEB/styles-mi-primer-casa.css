@@ -2,6 +2,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 .5em 1.5em .5em;
+    font-family: sans-serif;
 }
 
 /* Header */
@@ -33,6 +34,7 @@ body {
     font-family: "Quicksand", sans-serif;
     font-weight: bold;
     margin-bottom: 10px;
+    letter-spacing: .1rem;
 }
 
 /* Subtítulo */
@@ -163,7 +165,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 2rem;
+    padding: 1.5em .6em;
 }
 
 .panel-premios select {
@@ -193,11 +195,13 @@ body {
 .panel-premios table {
     border: 1px solid black;
     border-radius: 50%;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .panel-premios td, .panel-premios th {
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-align: center;
 }
 
@@ -207,7 +211,7 @@ body {
 
 .footer-panel-premios {
     display: flex;
-    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
     font-weight: bold;
     font-family: sans-serif;
@@ -217,14 +221,46 @@ body {
     display: inline-block;
     width: 50%;
     margin-bottom: .5em;
+    padding: .5em .8em;
+
 }
 
 .footer-panel-premios #olblCantidadTotal {
-    padding-left: 40px;
+    margin-left: 60px;
 }
 
 .footer-panel-premios .total {
     display: flex;
+}
+
+@media (max-width: 768px) {
+
+    .panel-premios td, .panel-premios th {
+         font-size: 1.3rem;
+    }
+
+    .footer-panel-premios span {
+        font-size: .8rem;
+    }
+
+}
+
+/* Mensaje footer panel premios */
+
+.msj-footer-panel-premios textarea {
+    margin: 1em auto;
+    display: block;
+    width: 90%;
+    padding: .5em;
+    resize: none;
+    text-align: center;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .msj-footer-panel-premios textarea {
+        height: 120px;
+    }
 }
 
 .info-billetes {
@@ -261,7 +297,7 @@ body {
    
 }
 
-.botones-medios-de-pago input {
+.btn-pago {
     font-family: "Quicksand", sans-serif;
     border-radius: 5px;
     border: 1px solid black;
@@ -270,7 +306,8 @@ body {
     height: 80px;
     width: 500px;
     cursor: pointer;
-    background-color: aqua;
+    background-color: #28a745;
+    color: #fff;
     transition: all .2s ease-in;
 }
 
@@ -278,9 +315,35 @@ body {
     text-transform: uppercase;
 }
 
-.botones-medios-de-pago input:hover {
-    background-color: green;
-    color: white;
+.btn-pago:hover {
+    background-color: #218838;
+}
+
+.btn-pago:active {
+    background-color: #1e7e34;
+}
+
+.btn-metodo-pago {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-metodo-pago:hover {
+    background-color: #0056b3;
+}
+
+.btn-metodo-pago:active {
+    background-color: #004fa2; 
+}
+
+/* Botón confirmación pagar con mercado pago*/
+#obutPagaConMercadoPago {
+    background-color: #007bff !important;
+    color: #fff !important;
+}
+
+#obutPagaConMercadoPago:active {
+    background-color: #004fa2 !important; 
 }
 
 @media (max-width: 768px) {
@@ -292,13 +355,13 @@ body {
 /* Panel Mercado Pago */
 
 .panel-mercado-pago {
-    padding: 1.5rem;
     text-align: center;
     font-size: 1.5rem;
+    margin: .5em 0;
 }
 
 .titulo-panel-mercado-pago {
-    margin: -1em 0 1em 0;
+    margin: 0 0 1em 0;
 }
 
 .info-panel-mercado-pago textarea {
@@ -306,7 +369,6 @@ body {
     height: 80px;
     padding: .5em .3em;
     text-align: center;
-    margin-bottom: 1em;
     resize: none;
 }
 
@@ -314,6 +376,11 @@ body {
     .info-panel-mercado-pago textarea {
         height: 30vh;
     }
+
+    #obutPagaConMercadoPago {
+    background-color: #007bff !important;
+    color: #fff !important;
+}
 }
 
 .panel-upload-botones {
@@ -327,7 +394,8 @@ body {
 
 .btn-principal {
     padding: 1em 2em;
-    background-color: aqua;
+    background-color: #28a745;
+    color: #fff;
     border-radius: 5px;
     border: 1px solid black;    
     display: block;
@@ -399,7 +467,41 @@ body {
 @media(max-width: 768px) {
 
     .img-transferencia img {
-        width: 100%;   
-     }
+        width: 100%;
+    }
+}/* Panel Cliente */
+/* Formulario Cliente */
+
+.formulario-cliente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    padding: .5em;
+    margin: 0 auto;
+}
+
+
+.formulario-cliente input, .formulario-cliente span {
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+    .formulario-cliente input, .formulario-cliente span {
+        width: 100%;
+    }
+
+}
+
+.btn-formulario input[type="submit"] {
+    margin: .5em 0;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
 }
 
