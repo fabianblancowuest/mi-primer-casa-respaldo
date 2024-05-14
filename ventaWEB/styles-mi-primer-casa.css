@@ -1,0 +1,405 @@
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 .5em 1.5em .5em;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: center; 
+    height: fit-content;
+    text-align: center;
+    margin-top: -5px;
+}
+
+.logo {
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 5px;
+    top: 0;
+    left: 0;
+    width: 70px;
+
+}
+
+.header h1 {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Subtítulo */
+#Label1 {
+    font-family: "Quicksand", sans-serif;
+}
+
+.info-header textarea {
+    text-align: center;
+    resize: none;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .info-header textarea {
+        height: 60px;
+    }
+  
+}
+
+@media (max-width: 550px) {
+        .logo {
+        /*display: none;*/
+        position: static;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-top: 10px;
+            margin-bottom: -15px;
+        }
+
+        /* Subtítulo */
+        #Label1 {
+            font-family: "Quicksand", sans-serif;
+            font-size: 1.2rem;
+        }
+
+}
+
+.principal-buttons {
+	display: flex;
+    flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+    margin: 1em 0 2em 0;
+}
+
+.container-btn-sorteo,
+.container-textos-sorteo {
+	display: flex;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+.container-btn-sorteo {
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+.text {
+    font-size: 1.2rem;
+    font-weight: bold;
+	width: 120px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .text {
+        display: block;
+        width: 90vw;
+        text-align: center;
+    }
+}
+
+.btn {
+    font-size: 1.3rem;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+	width: 150px;
+	height: 80px;
+	border-radius: 10px;
+	color: white;
+    background-color: #276CB2;
+    border: 1px solid #55A6C1;
+    cursor: pointer;
+}
+
+.btn:hover {
+	background-color: #00FF00;
+    font-weight: bold;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        width: 90vw;
+    }
+}
+
+/* Panel Números  */
+
+.panel-numeros {
+}
+
+.tabla-numeros {
+    width: 95%;
+    font-family: sans-serif;
+}
+
+.tabla-numeros th, .tabla-numeros td, .tabla-numeros tr {
+    font-size: 1.6rem;
+}
+
+.tabla-checkbox input {
+   height: 20px;
+   width: 20px;
+
+}
+
+
+/*Panel Premios*/
+
+.panel-premios {
+    font-size: 1.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.panel-premios select {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .panel-premios {
+        /*flex-direction: column;*/
+    }
+
+    .panel-premios select {
+        padding-right: 30px;
+        width: 90% !important;
+        height: 30px;
+        content: '\25BC';
+        border: 4px solid black;
+        border-radius: 5px;
+    }
+
+    .select-premios {
+        padding: 0 !important;
+    }
+
+}
+
+.panel-premios table {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.panel-premios td, .panel-premios th {
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.panel-premios td{
+    padding: 1rem;
+}
+
+.footer-panel-premios {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.footer-panel-premios span {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: .5em;
+}
+
+.footer-panel-premios #olblCantidadTotal {
+    padding-left: 40px;
+}
+
+.footer-panel-premios .total {
+    display: flex;
+}
+
+.info-billetes {
+    font-size: 1rem;
+}
+
+.info-validacion {
+    margin: 1rem 0;
+}
+
+.monto-a-pagar {
+    margin: 1em 0;
+    padding: .5em 0;
+    text-align: center;
+}
+
+.monto-a-pagar span:first-child {
+    display: block;
+    font-size: 2rem;
+}
+
+.monto-a-pagar span:last-child {
+    display: block;
+}
+
+/*Medios de pago*/
+
+.botones-medios-de-pago {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2em 0;
+   
+}
+
+.botones-medios-de-pago input {
+    font-family: "Quicksand", sans-serif;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    height: 80px;
+    width: 500px;
+    cursor: pointer;
+    background-color: aqua;
+    transition: all .2s ease-in;
+}
+
+.botones-medios-de-pago input:last-of-type {
+    text-transform: uppercase;
+}
+
+.botones-medios-de-pago input:hover {
+    background-color: green;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .disminuir-texto {
+        font-size: .9rem !important;
+    }
+}
+
+/* Panel Mercado Pago */
+
+.panel-mercado-pago {
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.titulo-panel-mercado-pago {
+    margin: -1em 0 1em 0;
+}
+
+.info-panel-mercado-pago textarea {
+    width: 90%;
+    height: 80px;
+    padding: .5em .3em;
+    text-align: center;
+    margin-bottom: 1em;
+    resize: none;
+}
+
+@media (max-width: 768px) {
+    .info-panel-mercado-pago textarea {
+        height: 30vh;
+    }
+}
+
+.panel-upload-botones {
+    text-align: center;
+}
+
+.panel-upload-botones input {
+    padding: 1em 2em;
+    font-size: 1rem;
+}
+
+.btn-principal {
+    padding: 1em 2em;
+    background-color: aqua;
+    border-radius: 5px;
+    border: 1px solid black;    
+    display: block;
+    margin: 1em auto;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.btn-principal:hover {
+    background-color: green;
+    color: white;
+}
+
+
+.titulo-nro-de-transferencia span:first-child {
+    display: block;
+    text-align: center;
+    margin: 0 0 .5em 0;
+    font-family: sans-serif;
+}
+
+.nro-de-transferencia {
+    display: flex;
+    gap: 1rem;
+    padding: 1em 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-family: sans-serif;
+}
+
+#Label13, #otxtValorTransferenciaNumero {
+    display: inline-block;
+    width: 40%;
+    padding: .2em .1em;
+}
+
+#Label13 {
+    text-align: center;
+    width: fit-content;
+}
+
+@media (max-width: 768px) {
+    .nro-de-transferencia {
+        flex-direction: column;
+    }
+    #Label13, #otxtValorTransferenciaNumero {
+        width: 90vw;
+    }
+
+    .btn-principal {
+        width: 100%;
+    }
+}
+
+.img-transferencia {
+    text-align: center;
+}
+
+.img-transferencia img {
+    width: 50%;
+    height: 50%;
+}
+
+@media(max-width: 768px) {
+
+    .img-transferencia img {
+        width: 100%;   
+     }
+}
+
