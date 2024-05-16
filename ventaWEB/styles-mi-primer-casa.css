@@ -316,7 +316,7 @@ body {
     margin: 1em auto;
     display: block;
     width: 90%;
-    height: 45px;
+    height: 65px;
     padding: .7em .5em 0.5em;
     resize: none;
     text-align: center;
@@ -708,4 +708,65 @@ input #file-upload-button {
     .msj-validador-whatsapp {
         height: 150px;
     }
-}
+}
+
+/* Panel Encuesta */
+
+.panel-encuesta {
+    font-family: "Quicksand", sans-serif;
+    width: 100%;
+    font-weight: bold;
+
+}
+
+.panel-encuesta table {
+    width: 100%;
+}
+
+.titulo-panel-encuesta {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+}
+
+.titulo-seccion-encuesta {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1em 0;
+    background-color: var(--th-color);
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.seccion-encuesta {
+    font-size: 1.1rem;
+}
+
+.seccion-encuesta div:nth-child(1) {
+    background-color: lightblue;
+}
+
+.seccion-encuesta div:nth-child(even) {
+    background-color: red;
+}
+
+.seccion-encuesta tbody tr td {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    padding: 1em 0;
+    text-align: center;
+    color: rgba(0, 0, 0, .7);
+
+}
+
+.seccion-encuesta td:hover {
+    background-color: lightblue;
+}
+
+.seccion-encuesta input[type="radio"] {
+    transform: scale(1.5);
+    margin-right: .5em;
+    cursor: pointer;
+}

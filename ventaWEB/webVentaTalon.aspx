@@ -80,30 +80,7 @@
 
                     <span>
                         <asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn" />
-
-                    </span>
-                 </div>
-                 <div>
-                     <span class="text">
-                        <asp:Label ID="Label4" runat="server" Text="Paso 2 ->"></asp:Label>
-                    </span>
-                    <span>
-                        <asp:Button ID="obutPremios" runat="server" Text="Premios" CssClass="btn" Enabled="false" />
-
-                    </span>
-                 </div>
-                 <div>
-                    <span class="text">
-                        <asp:Label ID="Label5" runat="server" Text="Paso 3 "></asp:Label>
-                    </span>
-                    <span>
-                        <asp:Button ID="obutCobrar" runat="server" Text="Pagar" CssClass="btn" Enabled="false" />
-
-                    </span>
-                 </div>
-            </div>
-        </div>
-        <asp:Panel ID="PanelNumeros" runat="server">
+      <asp:Panel ID="PanelNumeros" runat="server">
             <div>
                 <asp:TextBox ID="otxtCantidad" runat="server" Text="50" Enabled="false" Visible="false"></asp:TextBox>
                 <asp:TextBox ID="otxtNumeroDesde" runat="server" Text="0" Enabled="false" Visible="false"></asp:TextBox>
@@ -156,8 +133,15 @@
             </div>
 
         </asp:Panel>
-        <%-- Panel Premio --%>
-        <asp:Panel ID="PanelPremio" runat="server" Visible="false">
+                    </span>
+                 </div>
+                 <div>
+                     <span class="text">
+                        <asp:Label ID="Label4" runat="server" Text="Paso 2 ->"></asp:Label>
+                    </span>
+                    <span>
+                        <asp:Button ID="obutPremios" runat="server" Text="Premios" CssClass="btn" Enabled="false" />
+                               <asp:Panel ID="PanelPremio" runat="server" Visible="false">
             <div align="center">
                 <asp:Label ID="Label6" runat="server" Text="Complete cada talón con el premio y luego confirme "></asp:Label>
 
@@ -224,6 +208,22 @@
                     <asp:Button CssClass="btn-pago" ID="obutRealizarPago" runat="server" Text="PAGAR" Visible="false" />
                 </div>
         </asp:Panel>
+                    </span>
+                 </div>
+                 <div>
+                    <span class="text">
+                        <asp:Label ID="Label5" runat="server" Text="Paso 3 "></asp:Label>
+                    </span>
+                    <span>
+                        <asp:Button ID="obutCobrar" runat="server" Text="Pagar" CssClass="btn" Enabled="false" />
+
+                    </span>
+                 </div>
+            </div>
+        </div>
+  
+        <%-- Panel Premio --%>
+ 
 
         <asp:Panel ID="PanelConfirmaOperacion" runat="server" Visible="false">
             <asp:Panel ID="PanelValores" runat="server" Visible="false">
@@ -362,18 +362,18 @@
 
             </asp:Panel>
 
-
-            <asp:Panel ID="PanelEncuesta" runat="server" Visible="false">
+            <%--Panel Encuesta--%> 
+            <asp:Panel class="panel-encuesta" ID="PanelEncuesta" runat="server" Visible="false">
                 <div align="center">
-                    <h4>
+                    <h4 class="titulo-panel-encuesta">
                         <asp:Label ID="Label19" runat="server" Text="ENCUESTA" Font-Bold="true"></asp:Label>
                     </h4>
 
                 </div>
 
-                <asp:Panel ID="PanelEncuesta_inversion" runat="server" BackColor="#ffff99">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_inversion" runat="server" BackColor="#ffff99">
                     <div align="center">
-                        <asp:Label ID="Label18" runat="server" Text="Quiere invertir ? En què rango de cuota se situarìa ?" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label18" runat="server" Text="Quiere invertir ? En què rango de cuota se situarìa ?"></asp:Label>
                         <asp:RadioButtonList ID="orbEncuesta_inversion" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">Hasta  $  50.000</asp:ListItem>
@@ -384,10 +384,10 @@
                         </asp:RadioButtonList>
                     </div>
                 </asp:Panel>
-                <asp:Panel ID="PanelEncuesta_esPropietario" runat="server" BackColor="#ccffcc">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esPropietario" runat="server" BackColor="#ccffcc">
                     <div align="center">
-                        <asp:Label ID="Label20" runat="server" Text="Es propietario ?" Font-Bold="true" Font-Size="X-Large"></asp:Label>
-                        <asp:RadioButtonList ID="orbEncuesta_esPropietario" runat="server">
+                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label20" runat="server" Text="Es propietario ?" ></asp:Label>
+                        <asp:RadioButtonList  ID="orbEncuesta_esPropietario" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">SI</asp:ListItem>
                             <asp:ListItem Value="2">NO</asp:ListItem>
@@ -395,20 +395,20 @@
                     </div>
                 </asp:Panel>
 
-                <asp:Panel ID="PanelEncuesta_alquila" runat="server" BackColor="#ffff99">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_alquila" runat="server" BackColor="#ffff99">
                     <div align="center">
-                        <asp:Label ID="Label21" runat="server" Text="Alquila ?" Font-Bold="true" Font-Size="X-Large"></asp:Label>
-                        <asp:RadioButtonList ID="orbEncuesta_alquila" runat="server">
+                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label21" runat="server" Text="Alquila ?"></asp:Label>
+                        <asp:RadioButtonList  ID="orbEncuesta_alquila" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">SI</asp:ListItem>
                             <asp:ListItem Value="2">NO</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
                 </asp:Panel>
-                <asp:Panel ID="PanelEncuesta_esClienteMPC" runat="server" BackColor="#ccffcc">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esClienteMPC" runat="server" BackColor="#ccffcc">
                     <div align="center">
-                        <asp:Label ID="Label22" runat="server" Text="Es cliente de MI PRIMER CASA ?" Font-Bold="true" Font-Size="X-Large"></asp:Label>
-                        <asp:RadioButtonList ID="orbEncuesta_esClienteMPC" runat="server">
+                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label22" runat="server" Text="Es cliente de MI PRIMER CASA ?"></asp:Label>
+                        <asp:RadioButtonList  ID="orbEncuesta_esClienteMPC" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">SI</asp:ListItem>
                             <asp:ListItem Value="2">NO</asp:ListItem>
@@ -416,9 +416,9 @@
                     </div>
                 </asp:Panel>
 
-                <asp:Panel ID="PanelEncuesta_enQueInvertiria" runat="server" BackColor="#ffff99">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_enQueInvertiria" runat="server" BackColor="#ffff99">
                     <div align="center">
-                        <asp:Label ID="Label23" runat="server" Text="En qué invertirìa ?" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label23" runat="server" Text="En qué invertirìa ?"></asp:Label>
                         <asp:RadioButtonList ID="orbEncuesta_enQueInvertiria" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">DEPARTAMENTO</asp:ListItem>
