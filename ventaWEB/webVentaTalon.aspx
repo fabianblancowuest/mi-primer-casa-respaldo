@@ -15,11 +15,18 @@
             margin-top: 0px;
         }
     </style>
+    <%-- Google Fonts --%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <%-- Bootstrap Icons --%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <%-- Styles Sheets --%>
     <link href="../ventaWEB/styles-mi-primer-casa.css" rel="stylesheet" />
+    <%-- Favicon --%>
     <link rel="shortcut icon" href="./mi-primer-casa-logo.png" type="image/x-icon">
+    <%-- Scripts --%>
     <script type="text/javascript">
         function OpenWindows(url) {
             window.open(url, " Título", "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no");
@@ -61,7 +68,7 @@
         <div align="center">
             <asp:Label ID="olblPar02" runat="server" Text="" Font-Size="Large" Visible="true"></asp:Label>
         </div>
-
+        <%-- Panel Sorteo --%>
         <div class="principal-buttons">
 
       
@@ -137,6 +144,7 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="Seleccione su número <br/><b> &#x2198; ⬇⬇⬇  &#x2199;</b>" SortExpression="sorteoTalonTomado">
+                                    <%-- Tabla números --%>
                                     <ItemTemplate>
                                         <asp:CheckBox ID="ochSorteoTalonTomado" runat="server" Checked='<%# Bind("sorteoTalonTomado") %>' Enabled="True" AutoPostBack="true" OnCheckedChanged="talonVendedorToma" CssClass="tabla-checkbox" />
                                     </ItemTemplate>
@@ -148,7 +156,7 @@
             </div>
 
         </asp:Panel>
-
+        <%-- Panel Premio --%>
         <asp:Panel ID="PanelPremio" runat="server" Visible="false">
             <div align="center">
                 <asp:Label ID="Label6" runat="server" Text="Complete cada talón con el premio y luego confirme "></asp:Label>
@@ -163,7 +171,7 @@
                         <asp:ControlParameter ControlID="olblSession" Name="sorteoTalonSession" PropertyName="Text" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:GridView ID="ogvSorteoVendedorTalonSeleccionado" runat="server" AutoGenerateColumns="False" DataKeyNames="idSorteoTalon" DataSourceID="odsSorteoVendedorTalonSeleccionado" CssClass="table-cemmi" Font-Size="Small">
+                <asp:GridView ID="ogvSorteoVendedorTalonSeleccionado" runat="server" AutoGenerateColumns="False" DataKeyNames="idSorteoTalon" DataSourceID="odsSorteoVendedorTalonSeleccionado" CssClass="table-cemmi">
                     <Columns>
                         <asp:TemplateField HeaderText="idSorteoTalon" InsertVisible="False" SortExpression="idSorteoTalon" Visible="False">
                             <ItemTemplate>
@@ -176,7 +184,7 @@
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="P R E M I O S" SortExpression="idSorteoPremio">
                             <ItemTemplate>
-                                <asp:DropDownList ID="oddlPremio" runat="server" DataSourceID="odsSorteoPremio" DataTextField="sorteoPremioDescripcion" DataValueField="idSorteoPremio" SelectedValue='<%# Bind("idSorteoPremio")%>' AutoPostBack="True" Font-Size="Large" Width="80%" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                                <asp:DropDownList ID="oddlPremio" runat="server" DataSourceID="odsSorteoPremio" DataTextField="sorteoPremioDescripcion" DataValueField="idSorteoPremio" SelectedValue='<%# Bind("idSorteoPremio")%>' AutoPostBack="True" Width="80%" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </ItemTemplate>
                             <ControlStyle Width="100%" />
@@ -268,7 +276,7 @@
                         </div>
                         </div>
                 </asp:Panel>
-
+                <%-- Panel Upload --%>
                 <asp:Panel ID="PanelUpload" runat="server" Visible="false">
 
 
@@ -278,7 +286,7 @@
                     <asp:TextBox ID="otxtValorTransferenciaMonto" runat="server" Width="20%" Visible="false"></asp:TextBox>
                     <asp:Button ID="obutValoresComplementar" runat="server" Text="( @ )" Visible="false" /><br />
                     <div align="center">
-                        <asp:TextBox ID="Label24" runat="server" Text="Seleccione la imagen del comprobante de pago en su dispositivo. Luego presione el botón SUBIR IMAGEN para visualiarla." TextMode="MultiLine" Width="90%" Font-Size="Small" Height="50px"></asp:TextBox>
+                        <asp:TextBox ID="Label24" runat="server" Text="Seleccione la imagen del comprobante de pago en su dispositivo. Luego presione el botón SUBIR IMAGEN para visualiarla." TextMode="MultiLine" Width="90%"></asp:TextBox>
                     </div>
 
                     <div class="panel-upload-botones">
@@ -301,7 +309,7 @@
                          </div>
                         <div class="img-transferencia">
                             <asp:Image ID="Image1" runat="server" Height="50%" ImageUrl="https://www.miprimercasa.ar/mpc/talonesWEB/mercadoPagoImagenPendiente.jpg" />
-                            <asp:Button CssClass="btn-principal btn-pago" ID="obutConfirmaPago" runat="server" Text="Confirme el pago." />
+                            <asp:Button CssClass="btn-principal btn-pago" ID="obutConfirmaPago" runat="server" Text="Confirmar Pago" />
                         <br />
                         <asp:Label ID="olblGestionGrabacion" runat="server" Text=""></asp:Label>
                         <asp:Label ID="olblIdPrestadorVehiculoImagen" runat="server" Text=""></asp:Label>
@@ -329,28 +337,28 @@
 
                     </div>
                     <%-- Formulario Cliente --%>
-                    <div>
+                    <div class="contenedor-inputs">
                         <asp:Label ID="Label15" runat="server" Text="Apellido y Nombres:"></asp:Label>
                         <asp:TextBox ID="otxtClienteApyNom" runat="server"></asp:TextBox>
 
                     </div>
-                    <div class="btn-formulario">
+                    <div class="btn-formulario contenedor-inputs">
                         <uc1:whatsappValidador runat="server" ID="whatsappValidador" />
 
                     </div>
-                    <div class="btn-formulario">
+                    <div class="btn-formulario contenedor-inputs">
                         <uc1:correoElectronicoValidador runat="server" ID="correoElectronicoValidador" />
                     </div>
 
 
-                    <div class="btn-formulario">
+                    <div class="btn-formulario contenedor-inputs">
                         <asp:Label ID="olblMensajeValidacion" runat="server" Text="" ForeColor="Red"></asp:Label>
                     </div>
                 </div>
-                    <div class="botones-medios-de-pago">
+                    <div class="botones-medios-de-pago contenedor-inputs">
                         <asp:Button ID="obutConfirmaOperacion" runat="server" Text="Confirmar Operacion" CssClass="btn-pago" />
                     </div>
-                    <br />
+   
 
             </asp:Panel>
 
@@ -443,5 +451,7 @@
            
         </asp:UpdatePanel>--%>
     </form>
+
+    <script src="app.js" type="text/javascript"></script>
 </body>
 </html>
