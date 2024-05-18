@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" MaintainScrollPositionOnPostback="true" CodeFile="webVentaTalon.aspx.vb" Inherits="ventaWEB_webVentaTalon" %>
+﻿<%@ Page Language="VB" AutoEventWireup="false" MaintainScrollPositionOnPostback="true" CodeFile="webVentaTalon.aspx.vb" Inherits="ventaWEB_webVentaTalon" ContentType="text/html; charset=UTF-8" %>
 
 <%@ Register Src="~/Administracion/whatsappValidador.ascx" TagPrefix="uc1" TagName="whatsappValidador" %>
 <%@ Register Src="~/Administracion/correoElectronicoValidador.ascx" TagPrefix="uc1" TagName="correoElectronicoValidador" %>
@@ -7,7 +7,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <%-- Título --%>
     <title>Venta de billetes sorteo día de la Madre Mi Primer Casa - 20 de Octubre de 2024 - </title>
+    <%-- Metadatos --%>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" />
     <%--  <meta http-equiv ="refresh" content ="5" />--%>
     <style type="text/css">
@@ -16,16 +19,16 @@
         }
     </style>
     <%-- Google Fonts --%>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet" />
     <%-- Bootstrap Icons --%>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <%-- Styles Sheets --%>
     <link href="../ventaWEB/styles-mi-primer-casa.css" rel="stylesheet" />
     <%-- Favicon --%>
-    <link rel="shortcut icon" href="./mi-primer-casa-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./mi-primer-casa-logo-wbg.png" type="image/x-icon" />
     <%-- Scripts --%>
     <script type="text/javascript">
         function OpenWindows(url) {
@@ -43,14 +46,14 @@
             <ContentTemplate>
         --%>
         <div class="header">
-            <img class="logo" src="mi-primer-casa-logo.png" alt="mi-primer-casa-logo"/>
+            <img class="logo" src="mi-primer-casa-logo-wbg.png" alt="mi-primer-casa-logo" />
             <h1>
-            <asp:Label ID="Label2" runat="server" Text="Mi Primer Casa S.A." Font-Bold="true"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Mi Primer Casa S.A." Font-Bold="true"></asp:Label>
             </h1>
         </div>
         <div align="center">
             <h2>
-            <asp:Label ID="Label1" runat="server" Text="Bienvenido a la plataforma de ventas de billetes para el sorteo del día de la Madre del año 2024."></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Bienvenido a la plataforma de ventas de billetes para el sorteo del día de la Madre del año 2024."></asp:Label>
             </h2>
         </div>
 
@@ -65,163 +68,177 @@
             <asp:TextBox ID="olblInformacionVenta" runat="server" TextMode="MultiLine" Enabled="false"></asp:TextBox>
             <%-- <asp:Label ID="olblInformacionVenta" runat="server" Text="" Font-Bold ="true" Font-Size="Medium"  ></asp:Label>--%>
         </div>
-        <div align="center">
-            <asp:Label ID="olblPar02" runat="server" Text="" Font-Size="Large" Visible="true"></asp:Label>
+        <div class="msj-personas-comprando">
+            <asp:Label ID="olblPar02" runat="server" Text="" Visible="true"></asp:Label>
         </div>
         <%-- Panel Sorteo --%>
         <div class="principal-buttons">
 
-      
-             <div class="container-btn-sorteo">
-                 <div>
-                     <span class="text">
+
+            <div class="container">
+                <div class="panel-numeros-mas-boton">
+                    <%--                     <span class="text">
                         <asp:Label ID="Label3" runat="server" Text="Paso 1 ->"></asp:Label>
-                    </span>
+                    </span>--%>
 
-                    <span>
-                        <asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn" />
-      <asp:Panel ID="PanelNumeros" runat="server">
-            <div>
-                <asp:TextBox ID="otxtCantidad" runat="server" Text="50" Enabled="false" Visible="false"></asp:TextBox>
-                <asp:TextBox ID="otxtNumeroDesde" runat="server" Text="0" Enabled="false" Visible="false"></asp:TextBox>
-            </div>
+                    <div>
+                            <asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn btn-numeros" />
 
-            <div align="center" class="panel-numeros">
+                        <asp:Panel ID="PanelNumeros" runat="server">
+                            <%-- Botón Panel Números --%>
+                            <div>
+                                <asp:TextBox ID="otxtCantidad" runat="server" Text="50" Enabled="false" Visible="false"></asp:TextBox>
+                                <asp:TextBox ID="otxtNumeroDesde" runat="server" Text="0" Enabled="false" Visible="false"></asp:TextBox>
+                            </div>
 
-                <asp:Label CssClass="info-billetes" ID="olblBilletesSeleccionadosCantidad" runat="server" Text="" ForeColor="Blue" Font-Bold="true" Visible="true"></asp:Label>
+                            <div align="center" class="panel-numeros">
 
-                <asp:Label CssClass="info-billetes" ID="olblBilletesSeleccionados" runat="server" Text="" ForeColor="Blue" Font-Bold="true" Visible="true"></asp:Label>
-                <p class="info-validacion">
-                    <asp:Label CssClass="info-billetes" ID="olblValidacionMensajeError" runat="server" Text="" ForeColor="Red" Font-Bold="true"></asp:Label>
-                    <asp:Label CssClass="info-billetes" ID="olblGestionCodigo" runat="server" Text="" ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>
-                    <asp:Label CssClass="info-billetes" ID="olblGestionDescripcion" runat="server" Text="" ForeColor="Red" Font-Bold="true"></asp:Label>
-                </p>
+                                <asp:Label CssClass="info-billetes" ID="olblBilletesSeleccionadosCantidad" runat="server" Text="" ForeColor="Blue" Font-Bold="true" Visible="true"></asp:Label>
 
-                        <asp:SqlDataSource ID="odssorteoTalonVendedorVenta" runat="server" ConnectionString="<%$ ConnectionStrings:STRSYSTEM %>" SelectCommand="sorteoTalonVendedorVentaWEB" SelectCommandType="StoredProcedure">
-                            <SelectParameters>
-                                <asp:ControlParameter ControlID="IdOperador" Name="idOperador" PropertyName="Text" Type="Int32" />
-                                <asp:ControlParameter ControlID="olblIdSorteo" Name="idSorteo" PropertyName="Text" Type="Int32" />
-                                <asp:ControlParameter ControlID="otxtCantidad" Name="cantidadVisualiza" PropertyName="Text" Type="Int32" />
-                                <asp:ControlParameter ControlID="otxtNumeroDesde" Name="numeroDesde" PropertyName="Text" Type="Int32" />
-                                <asp:ControlParameter ControlID="olblSession" Name="sorteoTalonSession" PropertyName="Text" Type="String" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
-                        <asp:GridView ID="ogvSorteoTalonVendedorVenta" runat="server" AutoGenerateColumns="False" DataKeyNames="idSorteoTalon" DataSourceID="odssorteoTalonVendedorVenta" CssClass="table-cemmi tabla-numeros">
-                            <Columns>
-                                <asp:TemplateField HeaderText="idSorteoTalon" InsertVisible="False" SortExpression="idSorteoTalon" Visible="False">
-                                    <EditItemTemplate>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("idSorteoTalon") %>'></asp:Label>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="olblIdSorteoTalon" runat="server" Text='<%# Bind("idSorteoTalon") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="sorteoTalonNumero" HeaderText="Números Disponibles" SortExpression="sorteoTalonNumero">
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:TemplateField HeaderText="Seleccione su número <br/><b> &#x2198; ⬇⬇⬇  &#x2199;</b>" SortExpression="sorteoTalonTomado">
-                                    <%-- Tabla números --%>
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="ochSorteoTalonTomado" runat="server" Checked='<%# Bind("sorteoTalonTomado") %>' Enabled="True" AutoPostBack="true" OnCheckedChanged="talonVendedorToma" CssClass="tabla-checkbox" />
-                                    </ItemTemplate>
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-            </div>
+                                <asp:Label CssClass="info-billetes" ID="olblBilletesSeleccionados" runat="server" Text="" ForeColor="Blue" Font-Bold="true" Visible="true"></asp:Label>
+                                <p class="info-validacion">
+                                    <asp:Label CssClass="msj-talon" ID="olblValidacionMensajeError" runat="server" Text="" ForeColor="Red" Font-Bold="true"></asp:Label>
+                                    <asp:Label CssClass="msj-talon" ID="olblGestionCodigo" runat="server" Text="" Font-Bold="true" Visible="false"></asp:Label>
+                                    <asp:Label CssClass="msj-talon" ID="olblGestionDescripcion" runat="server" Text="" Font-Bold="true"></asp:Label>
+                                </p>
 
-        </asp:Panel>
-                    </span>
-                 </div>
-                 <div>
-                     <span class="text">
+                                <asp:SqlDataSource ID="odssorteoTalonVendedorVenta" runat="server" ConnectionString="<%$ ConnectionStrings:STRSYSTEM %>" SelectCommand="sorteoTalonVendedorVentaWEB" SelectCommandType="StoredProcedure">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="IdOperador" Name="idOperador" PropertyName="Text" Type="Int32" />
+                                        <asp:ControlParameter ControlID="olblIdSorteo" Name="idSorteo" PropertyName="Text" Type="Int32" />
+                                        <asp:ControlParameter ControlID="otxtCantidad" Name="cantidadVisualiza" PropertyName="Text" Type="Int32" />
+                                        <asp:ControlParameter ControlID="otxtNumeroDesde" Name="numeroDesde" PropertyName="Text" Type="Int32" />
+                                        <asp:ControlParameter ControlID="olblSession" Name="sorteoTalonSession" PropertyName="Text" Type="String" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
+                                <asp:GridView ID="ogvSorteoTalonVendedorVenta" runat="server" AutoGenerateColumns="False" DataKeyNames="idSorteoTalon" DataSourceID="odssorteoTalonVendedorVenta" CssClass="table-cemmi tabla-numeros">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="idSorteoTalon" InsertVisible="False" SortExpression="idSorteoTalon" Visible="False">
+                                            <EditItemTemplate>
+                                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("idSorteoTalon") %>'></asp:Label>
+                                            </EditItemTemplate>
+                                            <ItemTemplate>
+                                                <asp:Label ID="olblIdSorteoTalon" runat="server" Text='<%# Bind("idSorteoTalon") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="sorteoTalonNumero" HeaderText="Números Disponibles" SortExpression="sorteoTalonNumero">
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField HeaderText="Seleccione su número <br/><b> &#x2198; ⬇⬇⬇  &#x2199;</b>" SortExpression="sorteoTalonTomado">
+                                            <%-- Tabla números --%>
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="ochSorteoTalonTomado" runat="server" Checked='<%# Bind("sorteoTalonTomado") %>' Enabled="True" AutoPostBack="true" OnCheckedChanged="talonVendedorToma" CssClass="tabla-checkbox" />
+                                            </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+
+                        </asp:Panel>
+                    </div>
+                </div>
+
+
+                <div class="container-premios">
+                    <%--<span class="text">
                         <asp:Label ID="Label4" runat="server" Text="Paso 2 ->"></asp:Label>
-                    </span>
-                    <span>
-                        <asp:Button ID="obutPremios" runat="server" Text="Premios" CssClass="btn" Enabled="false" />
-                               <asp:Panel ID="PanelPremio" runat="server" Visible="false">
-            <div align="center">
-                <asp:Label ID="Label6" runat="server" Text="Complete cada talón con el premio y luego confirme "></asp:Label>
+                    </span>--%>
+                    <div>
 
-            </div>
+                        <%-- Botón Premios --%>
+                        <div id="btn-premios-container" class="btn-premios-container">
+                            <asp:Button ID="obutPremios" runat="server" Text="Premios" CssClass="btn btn-premios" Enabled="false" />
+                        </div>
 
-            <div class="panel-premios">
-                <asp:SqlDataSource ID="odsSorteoPremio" runat="server" ConnectionString="<%$ ConnectionStrings:STRSYSTEM %>" SelectCommand="SORTEOPREMIOTraeroddlDescending" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                        
+                        <%-- Panel Premios --%>
 
-                <asp:SqlDataSource ID="odsSorteoVendedorTalonSeleccionado" runat="server" ConnectionString="<%$ ConnectionStrings:STRSYSTEM %>" SelectCommand="SorteoVendedorTalonSeleccionadoWEB" SelectCommandType="StoredProcedure">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="olblSession" Name="sorteoTalonSession" PropertyName="Text" Type="String" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-                <asp:GridView ID="ogvSorteoVendedorTalonSeleccionado" runat="server" AutoGenerateColumns="False" DataKeyNames="idSorteoTalon" DataSourceID="odsSorteoVendedorTalonSeleccionado" CssClass="table-cemmi">
-                    <Columns>
-                        <asp:TemplateField HeaderText="idSorteoTalon" InsertVisible="False" SortExpression="idSorteoTalon" Visible="False">
-                            <ItemTemplate>
-                                <asp:Label ID="olblIdSorteoTalon" runat="server" Text='<%# Bind("idSorteoTalon") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="sorteoTalonNumero" HeaderText="NUMERO" SortExpression="sorteoTalonNumero">
-                            <ControlStyle Width="20%" />
-                            <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
-                        </asp:BoundField>
-                        <asp:TemplateField HeaderText="P R E M I O S" SortExpression="idSorteoPremio">
-                            <ItemTemplate>
-                                <asp:DropDownList ID="oddlPremio" runat="server" DataSourceID="odsSorteoPremio" DataTextField="sorteoPremioDescripcion" DataValueField="idSorteoPremio" SelectedValue='<%# Bind("idSorteoPremio")%>' AutoPostBack="True" Width="80%" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                                </asp:DropDownList>
-                            </ItemTemplate>
-                            <ControlStyle Width="100%" />
-                            <HeaderStyle Width="60%" />
-                            <ItemStyle CssClass="select-premios" Width="60%" HorizontalAlign="Center" Font-Size="X-Small" />
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="Precio" HeaderText="PRECIO" ReadOnly="True" SortExpression="sorteoTalonMonto" DataFormatString="{0:c}">
-                            <ControlStyle Width="20%" />
-                            <ItemStyle HorizontalAlign="Right" Font-Bold="True" />
-                        </asp:BoundField>
-                    </Columns>
-                </asp:GridView>
-            </div>
-            <%--Footer Panel Premios--%>
-            <div class="footer-panel-premios">
-                <asp:Label ID="Label7" runat="server" Text="Cantidad de talones seleccionados :  "></asp:Label>
-                <asp:Label ID="olblCantidadTotal" runat="server" Text="0"></asp:Label>
-            </div>
+                        <asp:Panel ID="PanelPremio" runat="server" Visible="false">
+                            
+                            <div align="center">
+                                <asp:Label ID="Label6" runat="server" Text="Complete cada talón con el premio y luego confirme "></asp:Label>
+
+                            </div>
+
+                            <div class="panel-premios">
+                                <asp:SqlDataSource ID="odsSorteoPremio" runat="server" ConnectionString="<%$ ConnectionStrings:STRSYSTEM %>" SelectCommand="SORTEOPREMIOTraeroddlDescending" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+
+                                <asp:SqlDataSource ID="odsSorteoVendedorTalonSeleccionado" runat="server" ConnectionString="<%$ ConnectionStrings:STRSYSTEM %>" SelectCommand="SorteoVendedorTalonSeleccionadoWEB" SelectCommandType="StoredProcedure">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="olblSession" Name="sorteoTalonSession" PropertyName="Text" Type="String" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
+                                <asp:GridView ID="ogvSorteoVendedorTalonSeleccionado" runat="server" AutoGenerateColumns="False" DataKeyNames="idSorteoTalon" DataSourceID="odsSorteoVendedorTalonSeleccionado" CssClass="table-cemmi">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="idSorteoTalon" InsertVisible="False" SortExpression="idSorteoTalon" Visible="False">
+                                            <ItemTemplate>
+                                                <asp:Label ID="olblIdSorteoTalon" runat="server" Text='<%# Bind("idSorteoTalon") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="sorteoTalonNumero" HeaderText="NUMERO" SortExpression="sorteoTalonNumero">
+                                            <ControlStyle Width="20%" />
+                                            <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField HeaderText="P R E M I O S" SortExpression="idSorteoPremio">
+                                            <ItemTemplate>
+                                                <asp:DropDownList ID="oddlPremio" runat="server" DataSourceID="odsSorteoPremio" DataTextField="sorteoPremioDescripcion" DataValueField="idSorteoPremio" SelectedValue='<%# Bind("idSorteoPremio")%>' AutoPostBack="True" Width="80%" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                                                </asp:DropDownList>
+                                            </ItemTemplate>
+                                            <ControlStyle Width="100%" />
+                                            <HeaderStyle Width="60%" />
+                                            <ItemStyle CssClass="select-premios" Width="60%" HorizontalAlign="Center" Font-Size="X-Small" />
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="Precio" HeaderText="PRECIO" ReadOnly="True" SortExpression="sorteoTalonMonto" DataFormatString="{0:c}">
+                                            <ControlStyle Width="20%" />
+                                            <ItemStyle HorizontalAlign="Right" Font-Bold="True" />
+                                        </asp:BoundField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                            <%--Footer Panel Premios--%>
+                            <div class="footer-panel-premios">
+                                <asp:Label ID="Label7" runat="server" Text="Cantidad de talones seleccionados :  "></asp:Label>
+                                <asp:Label ID="olblCantidadTotal" runat="server" Text="0"></asp:Label>
+                            </div>
 
 
-            <div class="footer-panel-premios">
-                <asp:Label ID="Label8" runat="server" Text="Importe de los talones seleccionados : "></asp:Label>
-                <div class="total">
-                    <asp:Label ID="Label9" runat="server" Text="$"></asp:Label>
-                    <asp:Label ID="olblMontoTotal" runat="server" Text="0"></asp:Label>
+                            <div class="footer-panel-premios">
+                                <asp:Label ID="Label8" runat="server" Text="Importe de los talones seleccionados : "></asp:Label>
+                                <div class="total">
+                                    <asp:Label ID="Label9" runat="server" Text="$"></asp:Label>
+                                    <asp:Label ID="olblMontoTotal" runat="server" Text="0"></asp:Label>
+                                </div>
+                            </div>
+                            <div>
+                                <asp:Label ID="olblValidacionMensajeErrores" runat="server" Text="0" Font-Bold="true" ForeColor="Red" Visible="false" Font-Size="Small"></asp:Label>
+                                <asp:Label CssClass="msj-error-premios" ID="olblValidacionMensajeErrorPremio" runat="server" Text=""></asp:Label>
+                            </div>
+
+                            <div class="msj-footer-panel-premios">
+                                <asp:TextBox ID="otxtLeyendaPago" runat="server" Text="Usted ha conformado su compra. Si desea agregar más billetes o quitar billetes antes de confirmar la operacion , puede hacerlo presionando los botones NUMEROS y PREMIOS hasta que sea de su entera satisfaccion el monto de su compra. Pulse PAGAR para comenzar el proceso de Pago" TextMode="MultiLine" BackColor="White" Enabled="false" Visible="false"></asp:TextBox>
+                            </div>
+                            <%-- Boton Verde Pagar --%>
+                            <div style="text-align: center;">
+                                <asp:Button CssClass="btn-pago" ID="obutRealizarPago" runat="server" Text="PAGAR" Visible="false" />
+                            </div>
+                        </asp:Panel>
+                    </div>
                 </div>
-            </div>
                 <div>
-                    <asp:Label ID="olblValidacionMensajeErrores" runat="server" Text="0" Font-Bold="true" ForeColor="Red" Visible="false" Font-Size="Small"></asp:Label>
-                    <asp:Label ID="olblValidacionMensajeErrorPremio" runat="server" Text="" Font-Bold="true" ForeColor="Red" Font-Size="Small"></asp:Label>
-                </div>
-
-                <div class="msj-footer-panel-premios">
-                    <asp:TextBox ID="otxtLeyendaPago" runat="server" Text="Usted ha conformado su compra. Si desea agregar más billetes o quitar billetes antes de confirmar la operacion , puede hacerlo presionando los botones NUMEROS y PREMIOS hasta que sea de su entera satisfaccion el monto de su compra. Pulse PAGAR para comenzar el proceso de Pago" TextMode="MultiLine" BackColor="White" Enabled="false" Visible="false"></asp:TextBox>
-                </div>
-                <div style="text-align:center;">
-                    <asp:Button CssClass="btn-pago" ID="obutRealizarPago" runat="server" Text="PAGAR" Visible="false" />
-                </div>
-        </asp:Panel>
-                    </span>
-                 </div>
-                 <div>
-                    <span class="text">
+<%--                    <span class="text">
                         <asp:Label ID="Label5" runat="server" Text="Paso 3 "></asp:Label>
-                    </span>
+                    </span>--%>
                     <span>
                         <asp:Button ID="obutCobrar" runat="server" Text="Pagar" CssClass="btn" Enabled="false" />
 
                     </span>
-                 </div>
+                </div>
             </div>
         </div>
-  
+
         <%-- Panel Premio --%>
  
 
@@ -329,11 +346,11 @@
                                <asp:Label ID="olblIdSorteoTalonCobranza" runat="server" Text="" Visible="true"></asp:Label>
 
                     </h3>
-                    <div align="center">
-                        <asp:TextBox ID="Label25" runat="server" Text="Felicitaciones !! Usted ya está participando por el / los premios mayores de los sorteos de Octubre !" Font-Size="Medium" TextMode="MultiLine" Width="90%" Enabled="false" Height="60px" BorderWidth="0"></asp:TextBox>
+                    <div class="transaccion-cliente">
+                        <asp:TextBox CssClass="msj-felicitaciones" ID="Label25" runat="server" Text="¡¡Felicitaciones!! 🎉 ¡Usted ya está participando por los premios mayores de los sorteos de Octubre! 🎁" TextMode="MultiLine" Enabled="false" BorderWidth="0"></asp:TextBox>
 
 
-                        <asp:TextBox ID="Label14" runat="server" Text="Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp" Font-Size="Small" TextMode="MultiLine" Width="90%" Enabled="false" Height="40px" BorderWidth="0"></asp:TextBox>
+                        <asp:TextBox ID="Label14" runat="server" Text="Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp." TextMode="MultiLine" Enabled="false" BorderWidth="0"></asp:TextBox>
 
                     </div>
                     <%-- Formulario Cliente --%>
@@ -371,10 +388,10 @@
 
                 </div>
 
-                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_inversion" runat="server" BackColor="#ffff99">
-                    <div align="center">
-                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label18" runat="server" Text="Quiere invertir ? En què rango de cuota se situarìa ?"></asp:Label>
-                        <asp:RadioButtonList ID="orbEncuesta_inversion" runat="server">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_inversion" runat="server">
+                    <div align="center" class="section-1">
+                        <asp:Label CssClass="titulo-seccion-encuesta titulo-1" ID="Label18" runat="server" Text="¿Quiere invertir? ¿En qué rango de cuota se situaría?"></asp:Label>
+                        <asp:RadioButtonList CssClass="seccion-1" ID="orbEncuesta_inversion" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">Hasta  $  50.000</asp:ListItem>
                             <asp:ListItem Value="2">Hasta  $  70.000</asp:ListItem>
@@ -384,10 +401,10 @@
                         </asp:RadioButtonList>
                     </div>
                 </asp:Panel>
-                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esPropietario" runat="server" BackColor="#ccffcc">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esPropietario" runat="server">
                     <div align="center">
-                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label20" runat="server" Text="Es propietario ?" ></asp:Label>
-                        <asp:RadioButtonList  ID="orbEncuesta_esPropietario" runat="server">
+                        <asp:Label CssClass="titulo-seccion-encuesta titulo-2" ID="Label20" runat="server" Text="¿Es propietario?" ></asp:Label>
+                        <asp:RadioButtonList CssClass="seccion-2"  ID="orbEncuesta_esPropietario" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">SI</asp:ListItem>
                             <asp:ListItem Value="2">NO</asp:ListItem>
@@ -395,19 +412,19 @@
                     </div>
                 </asp:Panel>
 
-                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_alquila" runat="server" BackColor="#ffff99">
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_alquila" runat="server">
                     <div align="center">
-                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label21" runat="server" Text="Alquila ?"></asp:Label>
-                        <asp:RadioButtonList  ID="orbEncuesta_alquila" runat="server">
+                        <asp:Label CssClass="titulo-seccion-encuesta titulo-3" ID="Label21" runat="server" Text="¿Alquila?"></asp:Label>
+                        <asp:RadioButtonList CssClass="seccion-3" ID="orbEncuesta_alquila" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">SI</asp:ListItem>
                             <asp:ListItem Value="2">NO</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
                 </asp:Panel>
-                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esClienteMPC" runat="server" BackColor="#ccffcc">
-                    <div align="center">
-                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label22" runat="server" Text="Es cliente de MI PRIMER CASA ?"></asp:Label>
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esClienteMPC" runat="server">
+                    <div align="center" class="seccion-4">
+                        <asp:Label CssClass="titulo-seccion-encuesta titulo-4" ID="Label22" runat="server" Text="¿Es cliente de MI PRIMER CASA?"></asp:Label>
                         <asp:RadioButtonList  ID="orbEncuesta_esClienteMPC" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">SI</asp:ListItem>
@@ -416,9 +433,9 @@
                     </div>
                 </asp:Panel>
 
-                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_enQueInvertiria" runat="server" BackColor="#ffff99">
-                    <div align="center">
-                        <asp:Label CssClass="titulo-seccion-encuesta" ID="Label23" runat="server" Text="En qué invertirìa ?"></asp:Label>
+                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_enQueInvertiria" runat="server">
+                    <div align="center" class="seccion-5">
+                        <asp:Label CssClass="titulo-seccion-encuesta titulo-5" ID="Label23" runat="server" Text="¿En qué invertiría?"></asp:Label>
                         <asp:RadioButtonList ID="orbEncuesta_enQueInvertiria" runat="server">
                             <asp:ListItem Selected="True" Value="0">No contesta</asp:ListItem>
                             <asp:ListItem Value="1">DEPARTAMENTO</asp:ListItem>
@@ -451,7 +468,10 @@
            
         </asp:UpdatePanel>--%>
     </form>
-
+       
+     <%-- Sweet Alert --%>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <%-- Script JS --%>
     <script src="app.js" type="text/javascript"></script>
 </body>
 </html>

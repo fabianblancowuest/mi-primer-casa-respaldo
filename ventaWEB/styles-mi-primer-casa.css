@@ -84,8 +84,33 @@ body {
 
 }
 
+.contenedor-principal {
+    width: 100%;
+}
+
+.msj-personas-comprando {
+    text-align: center;
+    margin: .5em 0;
+    font-family:Tahoma, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, .7);
+}
+
+
+.msj-talon:nth-child(2) {
+    font-size: .9rem;
+    color: #24943D;
+    letter-spacing: 1px;
+}
+
 .principal-buttons {
-	display: flex;
+
+}
+
+.container {
+    display: flex;
     flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
@@ -103,13 +128,39 @@ body {
     width: 100vw;
     flex-wrap: wrap;
 }
-
-.text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: 120px;
-    text-align: center;
+.container-panel-numeros {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
 }
+
+.container-premios {
+    width: 100%;
+}
+
+.btn-numeros, .btn-premios {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.info-validacion-numeros {
+    text-align: center;
+    margin: 1em auto;
+}
+
+.info-billetes {
+    display: block;
+    font-size: 1rem;
+}
+
+.info-billetes:nth-child(2) {
+    letter-spacing: 1px;
+    font-size: .9rem;
+}
+
 
 @media (max-width: 768px) {
     .text {
@@ -126,25 +177,30 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     padding: 10px 20px;
-    width: 160px;
+    margin: 1em auto;
+    width: 280px;
     height: 80px;
 	border-radius: 5px;
 	color: white;
-    background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%) !important;
     background: linear-gradient(to right, #00b4db, #0083b0) !important; 
     border: 1px solid #55A6C1;
     cursor: pointer;
     transition: all .3s ease-in;
 }
 
-/* Id botones premios */
-/*#obutPremios, #obutCobrar {
-    cursor: not-allowed;
-}*/
 
+#obutCobrar {
+    display: none;
+}
+
+.btn-disabled {
+    background-color: #e0e0e0 !important; 
+    color: #a0a0a0;
+    cursor: not-allowed; 
+}
 
 .btn:hover {
-	background-color: #45a049 !important;
+	background-color: green !important;
     color: white !important;
     transform: scale(1.015);
 
@@ -167,6 +223,18 @@ body {
 /* Panel Números  */
 
 .panel-numeros {
+    margin: 1em 0;
+    width: 100%;
+}
+
+
+.panel-numeros-mas-boton {
+    width: 100%;
+}
+
+.btn-premios-container {
+    position: relative;
+    z-index: 999;
 }
 
 .tabla-numeros {
@@ -207,6 +275,11 @@ body {
     justify-content: center;
     padding: 1.5em .6em;
 
+}
+
+.encabezado-panel-premios {
+    width: 100%;
+    text-align: center;
 }
 
 .panel-premios select {
@@ -317,10 +390,18 @@ body {
     display: block;
     width: 90%;
     height: 65px;
-    padding: .7em .5em 0.5em;
+    padding: 1.2em .5em 0;
     resize: none;
     text-align: center;
     border-radius: 5px;
+}
+
+.msj-error-premios {
+    color: red;
+    font-size: small;
+    font-weight: bold;
+    display: block;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -333,14 +414,6 @@ body {
     .msj-footer-panel-premios textarea {
         height: 120px;
     }
-}
-
-.info-billetes {
-    font-size: 1rem;
-}
-
-.info-validacion {
-    margin: 1rem 0;
 }
 
 .monto-a-pagar {
@@ -613,6 +686,42 @@ input #file-upload-button {
 
 /* Panel Cliente */
 
+.transaccion-cliente {
+    text-align: center;
+}
+
+
+.transaccion-cliente textarea {
+    font-size: 1rem;
+    font-family: "Quicksand", sans-serif;
+    background: var(--th-color);
+    background-color: #C8E6C9;
+    background-color: #A0BEA1;
+    background-color: #32CD32;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 5px black;
+    font-weight: bold;
+    height: 60px;
+    width: 90%;
+    padding: .5em;
+    padding-top: 1.5em !important;
+    border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+    
+    .transaccion-cliente textarea {
+        height: 85px;
+    }
+}
+
+@media (max-width: 768px) {
+    .transaccion-cliente textarea {
+        font-size: .9rem;
+    }
+    
+}
 /* Formulario Cliente */
 
 .formulario-cliente {
@@ -710,22 +819,26 @@ input #file-upload-button {
     }
 }
 
-/* Panel Encuesta */
+ /*Panel Encuesta*/ 
 
 .panel-encuesta {
     font-family: "Quicksand", sans-serif;
     width: 100%;
     font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
 .panel-encuesta table {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .titulo-panel-encuesta {
     font-size: 2.8rem;
     letter-spacing: 2px;
+    width: 100%;
 }
 
 .titulo-seccion-encuesta {
@@ -736,7 +849,8 @@ input #file-upload-button {
     padding: 1em 0;
     background-color: var(--th-color);
     color: #fff;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    border: 3px solid rgba(0, 0, 0, .5);
 }
 
 .seccion-encuesta {
@@ -753,11 +867,13 @@ input #file-upload-button {
 
 .seccion-encuesta tbody tr td {
     display: block;
-    width: 100%;
+    width: 99.8%;
     background-color: #fff;
     padding: 1em 0;
     text-align: center;
     color: rgba(0, 0, 0, .7);
+    border: .5px solid rgba(0, 0, 0, .5);
+    font-weight: bold;
 
 }
 
@@ -765,8 +881,70 @@ input #file-upload-button {
     background-color: lightblue;
 }
 
+.seccion-encuesta td:active {
+    background-color: cadetblue;
+    color: #fff;
+}
+
 .seccion-encuesta input[type="radio"] {
-    transform: scale(1.5);
+    width: 20px;
+    height: 20px;
     margin-right: .5em;
     cursor: pointer;
 }
+
+.seccion-encuesta input[type="radio"]:checked {
+    background-color: grey;
+}
+
+.highlight {
+   background-color: yellow;
+
+}
+
+.titulo-1 {
+    background-color: #4292F5;
+}
+
+.section-1 tbody tr td {
+    background-color: #A3CFFF;
+
+}
+
+.titulo-2 {
+    background-color: #425AF5;
+}
+
+.seccion-2 tbody tr td {
+    background-color: #D6ECF3;
+
+}
+
+.titulo-3 {
+    background-color:var(--th-color);
+
+}
+
+.seccion-3 tbody tr td {
+    background-color:#A6E6FD;
+
+}
+
+.titulo-4 {
+   background-color: #4292F5;
+
+}
+
+.seccion-4 tbody tr td {
+    background-color: #A3CFFF;
+}
+
+.titulo-5 {
+    background-color: #425AF5;
+
+}
+
+.seccion-5 tbody tr td {
+    background-color: #D6ECF3;
+}
+

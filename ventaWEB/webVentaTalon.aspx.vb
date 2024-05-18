@@ -98,7 +98,7 @@ Partial Class ventaWEB_webVentaTalon
                         While reader.Read
                             olblGestionCodigo.text = reader.Item("gestionCodigo")
                             olblGestionDescripcion.Text = reader.Item("gestionDescripcion")
-                            olblPar02.Text = reader.Item("sessionesConcurrentes").ToString + " personas comprando"
+                            olblPar02.Text = reader.Item("sessionesConcurrentes").ToString + " persona(s) comprando"
                             If RTrim(LTrim(olblGestionCodigo.Text)) = "0" Then
 
                                 If sorteoTalonTomado.Checked = True Then
@@ -421,6 +421,9 @@ Partial Class ventaWEB_webVentaTalon
     End Sub
 
     Protected Sub obutConfirmaOperacion_Click(sender As Object, e As EventArgs) Handles obutConfirmaOperacion.Click
+        PanelEncuesta.Visible = True
+
+
         Dim habilita As Integer
         habilita = 1
 
@@ -448,7 +451,7 @@ Partial Class ventaWEB_webVentaTalon
 
             End If
             If Len(LTrim(RTrim(whatsappValidador.WhatsAppValidado()))) = 0 Then
-                olblMensajeValidacion.Text = LTrim(RTrim(olblMensajeValidacion.Text)) + "- Debe completar teléfomo del cliente -"
+            olblMensajeValidacion.Text = LTrim(RTrim(olblMensajeValidacion.Text)) + "- Debe completar teléfono del cliente -"
                 habilita = 0
             End If
             'If Len(LTrim(RTrim(otxtClienteCorreoElectronico.Text))) = 0 Then
@@ -463,10 +466,10 @@ Partial Class ventaWEB_webVentaTalon
             End If
 
 
-            If habilita = 1 And olblIdSorteoTalonCobranza.Text <> "0" Then
-                ventaConfirmada()
+        'If habilita = 1 And olblIdSorteoTalonCobranza.Text <> "0" Then
+        ventaConfirmada()
 
-            End If
+        ' End If
 
     End Sub
     Protected Sub ventaConfirmada()
