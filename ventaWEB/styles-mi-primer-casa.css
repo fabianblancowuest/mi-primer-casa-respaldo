@@ -567,7 +567,6 @@ input #file-upload-button {
     resize: none;
 }
 
-
 .panel-upload-botones {
     display: block;
     text-align: center;
@@ -578,7 +577,9 @@ input #file-upload-button {
     font-size: 1rem;
 }
 
-@media (max-width: 768px) {
+
+
+@media (max-width: 380px) {
     .panel-upload-botones {
         display: block;
         width: 100%;
@@ -586,13 +587,19 @@ input #file-upload-button {
     }
 
     .info-panel-mercado-pago textarea {
-        height: 30vh;
+        height: 200px;
     }
 
     #obutPagaConMercadoPago {
     background-color: #007bff !important;
     color: #fff !important;
+    }
 }
+
+@media (max-width: 768px)  {
+    .info-panel-mercado-pago textarea {
+        height: 160px;
+    }
 }
 
 .btn-principal {
