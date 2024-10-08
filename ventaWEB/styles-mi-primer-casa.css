@@ -2,6 +2,10 @@
     --th-color : #337AB7;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 body {
     max-width: 1200px;
     margin: 0 auto;
@@ -83,6 +87,42 @@ body {
         }
 
 }
+
+/*Botón al whatsapp*/
+.btn-whatsapp {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-whatsapp i {
+    font-size: 40px;
+    color: green;
+}
+
+/*Chevrón - Flecha indicadora de scroll*/
+.scroll-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.chevron {
+  font-size: 24px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 
 .contenedor-principal {
     width: 100%;
