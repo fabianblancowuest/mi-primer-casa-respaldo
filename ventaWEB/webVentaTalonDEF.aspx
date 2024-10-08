@@ -102,7 +102,7 @@
 
                     <%-- Botón que dirija al whatsapp --%>
                     <div class="btn-whatsapp">
-                        <a href="https://wa.me/543704779106" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/543704779106?text=¡Hola! Tengo una consulta" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-whatsapp"></i>
                         </a>
                     </div>
@@ -151,9 +151,11 @@
                     </span>--%>
 
                     <div id="panel-numeros">
-                        <a href="#panel-numeros">
-                            <asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn btn-numeros" />
-                        </a>
+                            <%--<asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn btn-numeros" />--%>
+
+                        <%-- Botón Números --%>
+                        <asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn btn-numeros" OnClientClick="scrollToSection(); return false;" />
+
 
                         <asp:Panel ID="PanelNumeros" runat="server">
                             <%-- Botón Panel Números --%>

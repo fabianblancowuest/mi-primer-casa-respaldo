@@ -262,6 +262,10 @@ body {
 
 /* Panel Números  */
 
+#panel-numeros {
+    padding-top: 2px;
+}
+
 .panel-numeros {
     margin: 1em 0;
     width: 100%;
