@@ -108,8 +108,9 @@
                     </div>
 
                     <%-- Chevrón - Flecha indicadora que hay que hacer scroll --%>
-                    <div class="scroll-indicator">
-                        <i class="chevron">&#x25BC;</i>
+                    <div id="chevron" class="chevron" style="display: none;">
+                        <%--<div class="arrow"></div>--%>
+                        <img class="arrow" src="./chevron.webp"/>
                     </div>
 
 
@@ -154,7 +155,7 @@
                             <%--<asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn btn-numeros" />--%>
 
                         <%-- Botón Números --%>
-                        <asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn btn-numeros" OnClientClick="scrollToSection(); return false;" />
+                        <asp:Button ID="obutNumeros" runat="server" Text="Números" CssClass="btn btn-numeros" OnClientClick="scrollToSection('panel-numeros'); return false;" />
 
 
                         <asp:Panel ID="PanelNumeros" runat="server">
@@ -208,10 +209,10 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
-                                <div>
-                                    <asp:Button ID="obutRango01" runat="server" Text="Muestra 10 números " />
-                                      <asp:Button ID="obutRango02" runat="server" Text="Muestra 30 números" />
-
+                                <%-- Footer Panel Números --%>
+                                <div class="footer-panel-numeros">
+                                    <asp:Button CssClass="btn-footer-panel-numeros" ID="obutRango01" runat="server" Text="Muestra 10 números" />
+                                    <asp:Button CssClass="btn-footer-panel-numeros" ID="obutRango02" runat="server" Text="Muestra 30 números" />
                                 </div>
                             </div>
 
@@ -220,7 +221,7 @@
                 </div>
 
 
-                <div class="container-premios">
+                <div class="container-premios" id="panel-premios">
                     <%--<span class="text">
                         <asp:Label ID="Label4" runat="server" Text="Paso 2 ->"></asp:Label>
                     </span>--%>
@@ -228,7 +229,7 @@
 
                         <%-- Botón Premios --%>
                         <div id="btn-premios-container" class="btn-premios-container">
-                            <asp:Button ID="obutPremios" runat="server" Text="Premios" CssClass="btn btn-premios" Enabled="false" />
+                            <asp:Button ID="obutPremios" runat="server" Text="Premios" CssClass="btn btn-premios" Enabled="false" OnClientClick="scrollToSection('panel-premios'); return false;" />
                         </div>
 
                         
@@ -264,7 +265,7 @@
                                             <ItemTemplate>
                                                 <asp:DropDownList ID="oddlPremio" runat="server" DataSourceID="odsSorteoPremio" DataTextField="sorteoPremioDescripcion" DataValueField="idSorteoPremio" SelectedValue='<%# Bind("idSorteoPremio")%>' AutoPostBack="True" Width="80%" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                                                 </asp:DropDownList>
-                                            </ItemTemplate>
+                                            </ItemTemplate>                         
                                             <ControlStyle Width="100%" />
                                             <HeaderStyle Width="60%" />
                                             <ItemStyle CssClass="select-premios" Width="60%" HorizontalAlign="Center" Font-Size="X-Small" />
