@@ -458,13 +458,15 @@
                 <asp:Panel ID="PanelTransferencia" runat="server" Visible="false">
                     <div class="panel-transferencia">
                         <div align="center">
-                            <asp:TextBox ID="otxtDatosBancoParaTransferencia01" runat="server" BackColor="LightGray" Width="90%" Text="Datos cuenta en MERCADO PAGO" Font-Bold="true"></asp:TextBox>
+                            <asp:TextBox ID="otxtDatosBancoParaTransferencia01" runat="server" BackColor="LightGray" Width="90%" Text="Datos cuenta en MERCADO PAGO" Font-Bold="true"  ClientIDMode="Static"></asp:TextBox>
                         </div>
                         <div align="center">
-                            <asp:TextBox ID="otxtDatosBancoParaTransferencia02" runat="server" BackColor="LightGray" Width="90%" Text="CVU : 0000003100050215684489" Font-Bold="true"></asp:TextBox>
+                            <asp:TextBox ID="otxtDatosBancoParaTransferencia02" runat="server" BackColor="LightGray" Width="90%" Text="CVU : 0000003100050215684489" Font-Bold="true"  ClientIDMode="Static"></asp:TextBox>
+                            <button onclick="copyToClipboard('otxtDatosBancoParaTransferencia02')">Copiar CVU</button>
                         </div>
                         <div align="center">
-                            <asp:TextBox ID="otxtDatosBancoParaTransferencia03" runat="server" BackColor="LightGray" Width="90%" Text="ALIAS : sorteo.billete.mpc " Font-Bold="true"></asp:TextBox>
+                            <asp:TextBox ID="otxtDatosBancoParaTransferencia03" runat="server" BackColor="LightGray" Width="90%" Text="ALIAS : sorteo.billete.mpc " Font-Bold="true"  ClientIDMode="Static"></asp:TextBox>
+                            <button onclick="copyToClipboard('otxtDatosBancoParaTransferencia03')">Copiar Alias</button>
                         <br />
                             <br />
                         
