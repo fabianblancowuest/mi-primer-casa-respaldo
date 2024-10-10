@@ -10,7 +10,7 @@ window.addEventListener("scroll", function () {
 		chevron.style.display = "none"; // Oculta el chevron
 	}
 
-	// Verifica si el usuario ha llegado al final de la p�gina
+	// Verifica si el usuario ha llegado al final de la página
 	if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
 		chevron.style.display = "none"; // Oculta el chevron
 	}
@@ -18,8 +18,8 @@ window.addEventListener("scroll", function () {
 
 // Agrega un evento para hacer scroll al hacer clic en el chevron
 document.getElementById("chevron").addEventListener("click", function () {
-	const scrollAmount = 300; // Ajusta este valor para el tama�o del desplazamiento
-	const nextScrollY = window.scrollY + scrollAmount; // La posici�n siguiente
+	const scrollAmount = 300; // Ajusta este valor para el tamaño del desplazamiento
+	const nextScrollY = window.scrollY + scrollAmount; // La posición siguiente
 	const maxScrollY = document.body.scrollHeight - window.innerHeight; // Altura total menos altura de la ventana
 
 	// Desplazar solo si no se ha llegado al final
@@ -51,8 +51,27 @@ function copyToClipboard(textboxId, prefix) {
 		tempInput.select();
 		document.execCommand("copy");
 		document.body.removeChild(tempInput);
+
 		alert(prefix + " copiado: " + textToCopy);
 	} else {
 		alert("No se encontró el texto para copiar.");
 	}
+}
+
+//Deshabilitar todos los textareas
+
+let textareas = document.getElementsByTagName("textarea");
+
+for (let i = 0; i < textareas.length; i++) {
+	textareas[i].disabled = true;
+}
+
+let panelTransferencia = document.getElementById("PanelTransferencia");
+const inputsTransferencia = panelTransferencia.querySelectorAll("input");
+
+console.log(inputsTransferencia);
+console.log("Hola mundo");
+
+for (let i = 0; i < inputsTransferencia.length; i++) {
+	inputsTransferencia[i].disabled = true;
 }

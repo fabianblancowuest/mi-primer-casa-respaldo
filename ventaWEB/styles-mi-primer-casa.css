@@ -45,7 +45,7 @@ body {
 	color: rgba(0, 0, 0, 0.8);
 }
 
-/* Subt�tulo */
+/* Subtítulo */
 #Label1 {
 	font-family: "Quicksand", sans-serif;
 	color: rgba(0, 0, 0, 0.8);
@@ -76,14 +76,14 @@ body {
 		margin-bottom: -15px;
 	}
 
-	/* Subt�tulo */
+	/* Subtítulo */
 	#Label1 {
 		font-family: "Quicksand", sans-serif;
 		font-size: 1.2rem;
 	}
 }
 
-/*Bot�n al whatsapp*/
+/*Botón al whatsapp*/
 .btn-whatsapp {
 	margin-top: 20px;
 	display: flex;
@@ -95,7 +95,7 @@ body {
 	color: green;
 }
 
-/*Chevr�n - Flecha indicadora de scroll*/
+/*Chevrón - Flecha indicadora de scroll*/
 .chevron {
 	position: fixed;
 	bottom: 20px;
@@ -113,7 +113,7 @@ body {
 	border-radius: 5px;
 }
 
-/* Animaci�n de parpadeo */
+/* Animación de parpadeo */
 @keyframes pulse {
 	0% {
 		opacity: 0;
@@ -254,7 +254,7 @@ body {
 	}
 }
 
-/* Panel N�meros  */
+/* Panel Números  */
 
 #panel-numeros {
 	padding-top: 2px;
@@ -547,7 +547,7 @@ img {
 	background-color: #004fa2;
 }
 
-/* Bot�n confirmaci�n pagar con mercado pago*/
+/* Botón confirmación pagar con mercado pago*/
 #obutPagaConMercadoPago {
 	background-color: #007bff !important;
 	color: #fff !important;
@@ -574,7 +574,7 @@ img {
 	padding: 0.1em 0.5em;
 }
 
-/* Bot�n Seleccionar Archivo */
+/* Botón Seleccionar Archivo */
 #FileUpLoad2 {
 	display: block;
 	margin: 0 auto;
@@ -679,6 +679,19 @@ input #file-upload-button {
 	color: white;
 }
 
+/*Panel Transferencia*/
+
+.panel-transferencia {
+	/*display: flex;
+	flex-direction: column;
+	gap: 1rem;*/
+}
+
+.panel-transferencia input {
+	width: 100%;
+	height: fit-content;
+}
+
 .titulo-nro-de-transferencia span:first-child {
 	display: block;
 	text-align: center;
@@ -720,12 +733,17 @@ input #file-upload-button {
 
 /*Botones copíar alias y cvu*/
 .btn-copiar-cvu-alias {
+	display: block;
 	margin: 10px 0;
 	border: none;
 	padding: 5px 10px;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: transform 0.3s ease-in-out;
+}
+
+.btn-copiar-cvu-alias:hover {
+	transform: scale(1.025);
 }
 
 @media (max-width: 768px) {

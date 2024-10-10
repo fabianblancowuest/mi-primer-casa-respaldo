@@ -125,7 +125,7 @@
 
                                         <%-- Botón que dirija al whatsapp --%>
                                             <div class="btn-whatsapp">
-                                                <a href="https://wa.me/543704779106?text=¡Hola! Tengo una consulta"
+                                                <a href="https://wa.me/543704779106?text=¡Hola! Necesito más información. ¿Podrían llamarme?"
                                                     target="_blank" rel="noopener noreferrer">
                                                     <i class="bi bi-whatsapp"></i>
                                                 </a>
@@ -135,7 +135,6 @@
                                                 <div id="chevron" class="chevron" style="display: none;">
                                                     <%--<div class="arrow">
                                                 </div>--%>
-                                                <img class="arrow" src="./chevron.webp" />
                                     </div>
 
 
@@ -562,187 +561,181 @@
                                                                 </div>
 
                                             </asp:Panel>--%>
-
-
-
                                         </asp:Panel>
 
-
-                                        <%--Panel Encuesta--%>
-                                            <asp:Panel class="panel-encuesta" ID="PanelEncuesta" runat="server"
-                                                Visible="false">
+                                        <%--Panel Transferencia--%>
+                                            <asp:Panel ID="PanelTransferencia" CssClass="panel-transferencia"
+                                                runat="server" Visible="false">
                                                 <div align="center">
-                                                    <h4 class="titulo-panel-encuesta">
-                                                        <asp:Label ID="Label19" runat="server" Text="ENCUESTA"
-                                                            Font-Bold="true"></asp:Label>
-                                                    </h4>
-
+                                                    <asp:TextBox ID="otxtDatosBancoParaTransferencia01" runat="server"
+                                                        BackColor="LightGray" Width="90%"
+                                                        Text="Datos cuenta en MERCADO PAGO" Font-Bold="true"
+                                                        ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                                <div align="center">
+                                                    <asp:TextBox ID="otxtDatosBancoParaTransferencia02" runat="server"
+                                                        BackColor="LightGray" Width="90%"
+                                                        Text="CVU : 0000003100050215684489" Font-Bold="true"
+                                                        ClientIDMode="Static"></asp:TextBox>
+                                                    <button class="btn-copiar-cvu-alias"
+                                                        onclick="copyToClipboard('otxtDatosBancoParaTransferencia02', 'CVU')">Copiar
+                                                        CVU</button>
+                                                </div>
+                                                <div align="center">
+                                                    <asp:TextBox ID="otxtDatosBancoParaTransferencia03" runat="server"
+                                                        BackColor="LightGray" Width="90%"
+                                                        Text="ALIAS : sorteo.billete.mpc " Font-Bold="true"
+                                                        ClientIDMode="Static"></asp:TextBox>
+                                                    <button class="btn-copiar-cvu-alias"
+                                                        onclick="copyToClipboard('otxtDatosBancoParaTransferencia03', 'ALIAS')">Copiar
+                                                        Alias</button>
                                                 </div>
 
-                                                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_inversion"
-                                                    runat="server">
-                                                    <div align="center" class="section-1">
-                                                        <asp:Label CssClass="titulo-seccion-encuesta titulo-1"
-                                                            ID="Label18" runat="server"
-                                                            Text="¿Quiere invertir? ¿En qué rango de cuota se situaría?">
-                                                        </asp:Label>
-                                                        <asp:RadioButtonList CssClass="seccion-1"
-                                                            ID="orbEncuesta_inversion" runat="server">
-                                                            <asp:ListItem Selected="True" Value="0">No contesta
-                                                            </asp:ListItem>
-                                                            <asp:ListItem Value="1">Hasta $ 50.000</asp:ListItem>
-                                                            <asp:ListItem Value="2">Hasta $ 70.000</asp:ListItem>
-                                                            <asp:ListItem Value="3">Hasta $ 90.000</asp:ListItem>
-                                                            <asp:ListItem Value="4">Hasta $ 120.000</asp:ListItem>
-                                                            <asp:ListItem Value="5">Mas de $ 120.000</asp:ListItem>
-                                                        </asp:RadioButtonList>
-                                                    </div>
-                                                </asp:Panel>
-                                                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esPropietario"
-                                                    runat="server">
+                                                <div align="center">
+                                                    <asp:TextBox ID="TextBox1" runat="server" BackColor="LightGray"
+                                                        Width="90%"
+                                                        Text="Una vez que realice la transferencia a la cuenta de la Empresa, deberá enviar la captura de pantalla de la misma al teléfono del Vendedor asignado , para que este confeccione los billetes seleccionado con sus datos y los ingrese en la urna luego de corroborar la acreditaciónm de la operación"
+                                                        Font-Bold="true"></asp:TextBox>
+                                                </div>
+                                                <div align="center">
+                                                    <asp:TextBox ID="TextBox2" runat="server" BackColor="LightGray"
+                                                        Width="90%"
+                                                        Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
+                                                        Font-Bold="true"></asp:TextBox>
+                                                </div>
+                                                <div align="center">
+                                                    <asp:Button ID="obutConfirmaOperacion" runat="server"
+                                                        Text="Confirmar Operacion" CssClass="btn-pago" />
+                                                </div>
+                                            </asp:Panel>
+
+
+                                            <%--Panel Encuesta--%>
+                                                <asp:Panel class="panel-encuesta" ID="PanelEncuesta" runat="server"
+                                                    Visible="false">
                                                     <div align="center">
-                                                        <asp:Label CssClass="titulo-seccion-encuesta titulo-2"
-                                                            ID="Label20" runat="server" Text="¿Es propietario?">
-                                                        </asp:Label>
-                                                        <asp:RadioButtonList CssClass="seccion-2"
-                                                            ID="orbEncuesta_esPropietario" runat="server">
-                                                            <asp:ListItem Selected="True" Value="0">No contesta
-                                                            </asp:ListItem>
-                                                            <asp:ListItem Value="1">SI</asp:ListItem>
-                                                            <asp:ListItem Value="2">NO</asp:ListItem>
-                                                        </asp:RadioButtonList>
+                                                        <h4 class="titulo-panel-encuesta">
+                                                            <asp:Label ID="Label19" runat="server" Text="ENCUESTA"
+                                                                Font-Bold="true"></asp:Label>
+                                                        </h4>
+
                                                     </div>
+
+                                                    <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_inversion"
+                                                        runat="server">
+                                                        <div align="center" class="section-1">
+                                                            <asp:Label CssClass="titulo-seccion-encuesta titulo-1"
+                                                                ID="Label18" runat="server"
+                                                                Text="¿Quiere invertir? ¿En qué rango de cuota se situaría?">
+                                                            </asp:Label>
+                                                            <asp:RadioButtonList CssClass="seccion-1"
+                                                                ID="orbEncuesta_inversion" runat="server">
+                                                                <asp:ListItem Selected="True" Value="0">No contesta
+                                                                </asp:ListItem>
+                                                                <asp:ListItem Value="1">Hasta $ 50.000</asp:ListItem>
+                                                                <asp:ListItem Value="2">Hasta $ 70.000</asp:ListItem>
+                                                                <asp:ListItem Value="3">Hasta $ 90.000</asp:ListItem>
+                                                                <asp:ListItem Value="4">Hasta $ 120.000</asp:ListItem>
+                                                                <asp:ListItem Value="5">Mas de $ 120.000</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </asp:Panel>
+                                                    <asp:Panel CssClass="seccion-encuesta"
+                                                        ID="PanelEncuesta_esPropietario" runat="server">
+                                                        <div align="center">
+                                                            <asp:Label CssClass="titulo-seccion-encuesta titulo-2"
+                                                                ID="Label20" runat="server" Text="¿Es propietario?">
+                                                            </asp:Label>
+                                                            <asp:RadioButtonList CssClass="seccion-2"
+                                                                ID="orbEncuesta_esPropietario" runat="server">
+                                                                <asp:ListItem Selected="True" Value="0">No contesta
+                                                                </asp:ListItem>
+                                                                <asp:ListItem Value="1">SI</asp:ListItem>
+                                                                <asp:ListItem Value="2">NO</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </asp:Panel>
+
+                                                    <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_alquila"
+                                                        runat="server">
+                                                        <div align="center">
+                                                            <asp:Label CssClass="titulo-seccion-encuesta titulo-3"
+                                                                ID="Label21" runat="server" Text="¿Alquila?">
+                                                            </asp:Label>
+                                                            <asp:RadioButtonList CssClass="seccion-3"
+                                                                ID="orbEncuesta_alquila" runat="server">
+                                                                <asp:ListItem Selected="True" Value="0">No contesta
+                                                                </asp:ListItem>
+                                                                <asp:ListItem Value="1">SI</asp:ListItem>
+                                                                <asp:ListItem Value="2">NO</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </asp:Panel>
+                                                    <asp:Panel CssClass="seccion-encuesta"
+                                                        ID="PanelEncuesta_esClienteMPC" runat="server">
+                                                        <div align="center" class="seccion-4">
+                                                            <asp:Label CssClass="titulo-seccion-encuesta titulo-4"
+                                                                ID="Label22" runat="server"
+                                                                Text="¿Es cliente de MI PRIMER CASA?"></asp:Label>
+                                                            <asp:RadioButtonList ID="orbEncuesta_esClienteMPC"
+                                                                runat="server">
+                                                                <asp:ListItem Selected="True" Value="0">No contesta
+                                                                </asp:ListItem>
+                                                                <asp:ListItem Value="1">SI</asp:ListItem>
+                                                                <asp:ListItem Value="2">NO</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </asp:Panel>
+
+                                                    <asp:Panel CssClass="seccion-encuesta"
+                                                        ID="PanelEncuesta_enQueInvertiria" runat="server">
+                                                        <div align="center" class="seccion-5">
+                                                            <asp:Label CssClass="titulo-seccion-encuesta titulo-5"
+                                                                ID="Label23" runat="server" Text="¿En qué invertiría?">
+                                                            </asp:Label>
+                                                            <asp:RadioButtonList ID="orbEncuesta_enQueInvertiria"
+                                                                runat="server">
+                                                                <asp:ListItem Selected="True" Value="0">No contesta
+                                                                </asp:ListItem>
+                                                                <asp:ListItem Value="1">DEPARTAMENTO</asp:ListItem>
+                                                                <asp:ListItem Value="2">TERRENO</asp:ListItem>
+                                                                <asp:ListItem Value="3">CASA</asp:ListItem>
+
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </asp:Panel>
                                                 </asp:Panel>
 
-                                                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_alquila"
-                                                    runat="server">
+
+
+                                                <asp:Panel ID="PanelAlta" runat="server" Visible="false">
                                                     <div align="center">
-                                                        <asp:Label CssClass="titulo-seccion-encuesta titulo-3"
-                                                            ID="Label21" runat="server" Text="¿Alquila?"></asp:Label>
-                                                        <asp:RadioButtonList CssClass="seccion-3"
-                                                            ID="orbEncuesta_alquila" runat="server">
-                                                            <asp:ListItem Selected="True" Value="0">No contesta
-                                                            </asp:ListItem>
-                                                            <asp:ListItem Value="1">SI</asp:ListItem>
-                                                            <asp:ListItem Value="2">NO</asp:ListItem>
-                                                        </asp:RadioButtonList>
                                                     </div>
+
+                                                    <div align="center">
+                                                        <asp:TextBox CssClass="msj-felicitaciones" ID="Label25"
+                                                            runat="server"
+                                                            Text="¡¡Felicitaciones!! 🎉 ¡Usted ya está participando por los premios mayores de los sorteos de Octubre! 🎁"
+                                                            TextMode="MultiLine" Enabled="false" BorderWidth="0">
+                                                        </asp:TextBox>
+                                                        <div class="botones-medios-de-pago contenedor-inputs">
+                                                        </div>
+
+
+
+                                                        <asp:Label ID="olblOperacionRealizada" runat="server" Text=""
+                                                            Font-Bold="true" ForeColor="#0033cc"></asp:Label>
+                                                        <br />
+                                                        <asp:Button ID="obutOperacionRealizada" runat="server"
+                                                            Text="Volver para nueva compra" CssClass="btn-primary"
+                                                            Height="30%" Width="50%" Visible="false" />
+
+                                                    </div>
+
                                                 </asp:Panel>
-                                                <asp:Panel CssClass="seccion-encuesta" ID="PanelEncuesta_esClienteMPC"
-                                                    runat="server">
-                                                    <div align="center" class="seccion-4">
-                                                        <asp:Label CssClass="titulo-seccion-encuesta titulo-4"
-                                                            ID="Label22" runat="server"
-                                                            Text="¿Es cliente de MI PRIMER CASA?"></asp:Label>
-                                                        <asp:RadioButtonList ID="orbEncuesta_esClienteMPC"
-                                                            runat="server">
-                                                            <asp:ListItem Selected="True" Value="0">No contesta
-                                                            </asp:ListItem>
-                                                            <asp:ListItem Value="1">SI</asp:ListItem>
-                                                            <asp:ListItem Value="2">NO</asp:ListItem>
-                                                        </asp:RadioButtonList>
-                                                    </div>
                                                 </asp:Panel>
 
-                                                <asp:Panel CssClass="seccion-encuesta"
-                                                    ID="PanelEncuesta_enQueInvertiria" runat="server">
-                                                    <div align="center" class="seccion-5">
-                                                        <asp:Label CssClass="titulo-seccion-encuesta titulo-5"
-                                                            ID="Label23" runat="server" Text="¿En qué invertiría?">
-                                                        </asp:Label>
-                                                        <asp:RadioButtonList ID="orbEncuesta_enQueInvertiria"
-                                                            runat="server">
-                                                            <asp:ListItem Selected="True" Value="0">No contesta
-                                                            </asp:ListItem>
-                                                            <asp:ListItem Value="1">DEPARTAMENTO</asp:ListItem>
-                                                            <asp:ListItem Value="2">TERRENO</asp:ListItem>
-                                                            <asp:ListItem Value="3">CASA</asp:ListItem>
 
-                                                        </asp:RadioButtonList>
-                                                    </div>
-                                                </asp:Panel>
-                                            </asp:Panel>
-
-
-
-                                            <asp:Panel ID="PanelAlta" runat="server" Visible="false">
-                                                <div align="center">
-                                                </div>
-
-                                                <div align="center">
-                                                    <asp:TextBox CssClass="msj-felicitaciones" ID="Label25"
-                                                        runat="server"
-                                                        Text="¡¡Felicitaciones!! 🎉 ¡Usted ya está participando por los premios mayores de los sorteos de Octubre! 🎁"
-                                                        TextMode="MultiLine" Enabled="false" BorderWidth="0">
-                                                    </asp:TextBox>
-                                                    <div class="botones-medios-de-pago contenedor-inputs">
-                                                    </div>
-
-
-
-                                                    <asp:Label ID="olblOperacionRealizada" runat="server" Text=""
-                                                        Font-Bold="true" ForeColor="#0033cc"></asp:Label>
-                                                    <br />
-                                                    <asp:Button ID="obutOperacionRealizada" runat="server"
-                                                        Text="Volver para nueva compra" CssClass="btn-primary"
-                                                        Height="30%" Width="50%" Visible="false" />
-
-                                                </div>
-
-                                            </asp:Panel>
-                                            </asp:Panel>
-
-                                            <%--Panel Transferencia--%>
-                                                <asp:Panel ID="PanelTransferencia" runat="server" Visible="false">
-                                                    <div class="panel-transferencia">
-                                                        <div align="center">
-                                                            <asp:TextBox ID="otxtDatosBancoParaTransferencia01"
-                                                                runat="server" BackColor="LightGray" Width="90%"
-                                                                Text="Datos cuenta en MERCADO PAGO" Font-Bold="true"
-                                                                ClientIDMode="Static"></asp:TextBox>
-                                                        </div>
-                                                        <div align="center">
-                                                            <asp:TextBox ID="otxtDatosBancoParaTransferencia02"
-                                                                runat="server" BackColor="LightGray" Width="90%"
-                                                                Text="CVU : 0000003100050215684489" Font-Bold="true"
-                                                                ClientIDMode="Static"></asp:TextBox>
-                                                            <button
-                                                                onclick="copyToClipboard('otxtDatosBancoParaTransferencia02', 'CVU')">Copiar
-                                                                CVU</button>
-                                                        </div>
-                                                        <div align="center">
-                                                            <asp:TextBox ID="otxtDatosBancoParaTransferencia03"
-                                                                runat="server" BackColor="LightGray" Width="90%"
-                                                                Text="ALIAS : sorteo.billete.mpc " Font-Bold="true"
-                                                                ClientIDMode="Static"></asp:TextBox>
-                                                            <button
-                                                                onclick="copyToClipboard('otxtDatosBancoParaTransferencia03', 'ALIAS')">Copiar
-                                                                Alias</button>
-                                                            <br />
-                                                            <br />
-
-                                                        </div>
-
-                                                        <div align="center">
-                                                            <asp:TextBox ID="TextBox1" runat="server"
-                                                                BackColor="LightGray" Width="90%"
-                                                                Text="Una vez que realice la transferencia a la cuenta de la Empresa, deberá enviar la captura de pantalla de la misma al teléfono del Vendedor asignado , para que este confeccione los billetes seleccionado con sus datos y los ingrese en la urna luego de corroborar la acreditaciónm de la operación"
-                                                                Font-Bold="true"></asp:TextBox>
-                                                        </div>
-                                                        <div align="center">
-                                                            <asp:TextBox ID="TextBox2" runat="server"
-                                                                BackColor="LightGray" Width="90%"
-                                                                Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
-                                                                Font-Bold="true"></asp:TextBox>
-                                                        </div>
-                                                        <div align="center">
-                                                            <br />
-                                                            <br />
-                                                            <asp:Button ID="obutConfirmaOperacion" runat="server"
-                                                                Text="Confirmar Operacion" CssClass="btn-pago" />
-                                                        </div>
-                                                    </div>
-                                                </asp:Panel>
                                                 <%-- Panel Upload --%>
 
                                                     <%-- </ContentTemplate>
