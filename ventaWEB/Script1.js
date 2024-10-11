@@ -60,18 +60,47 @@ function copyToClipboard(textboxId, prefix) {
 
 //Deshabilitar todos los textareas
 
-let textareas = document.getElementsByTagName("textarea");
+//let textareas = document.getElementsByTagName('textarea');
 
-for (let i = 0; i < textareas.length; i++) {
-	textareas[i].disabled = true;
-}
+//for (let i = 0; i < textareas.length; i++) {
+//    textareas[i].disabled = true;
+//}
 
-let panelTransferencia = document.getElementById("PanelTransferencia");
-const inputsTransferencia = panelTransferencia.querySelectorAll("input");
+//let panelTransferencia = document.getElementById("PanelTransferencia");
+//const inputsTransferencia = panelTransferencia.querySelectorAll("input");
 
-console.log(inputsTransferencia);
-console.log("Hola mundo");
+//console.log(inputsTransferencia);
+//console.log("Hola mundo");
 
-for (let i = 0; i < inputsTransferencia.length; i++) {
-	inputsTransferencia[i].disabled = true;
-}
+//for (let i = 0; i < inputsTransferencia.length; i++) {
+//    inputsTransferencia[i].disabled = true;
+//}
+
+//Modal premios de la encuesta
+
+document.addEventListener("DOMContentLoaded", () => {
+	const modal = document.getElementById("myModal");
+	const openModalBtn = document.getElementById("openModalBtn");
+	const closeModalBtn = document.getElementById("closeModalBtn");
+
+	// Asegura de que el modal esté oculto al cargar la página
+	modal.style.display = "none";
+
+	// Abre el modal cuando se hace clic en el botón
+	openModalBtn.addEventListener("click", (event) => {
+		event.preventDefault(); // Previene que el botón recargue la página
+		modal.style.display = "flex";
+	});
+
+	// Cierra el modal cuando se hace clic en el botón de cerrar
+	closeModalBtn.addEventListener("click", () => {
+		modal.style.display = "none";
+	});
+
+	// Cierra el modal cuando se hace clic fuera del contenido del modal
+	window.addEventListener("click", (event) => {
+		if (event.target === modal) {
+			modal.style.display = "none";
+		}
+	});
+});
