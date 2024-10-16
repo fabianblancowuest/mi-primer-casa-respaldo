@@ -34,23 +34,23 @@ document.getElementById("chevron").addEventListener("click", function () {
 function scrollToSection(sectionId) {
 	document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
 }
-//Deshabilitar todos los textareas
+// Deshabilitar todos los textareas
 
-//let textareas = document.getElementsByTagName('textarea');
+let textareas = document.getElementsByTagName("textarea");
 
-//for (let i = 0; i < textareas.length; i++) {
-//    textareas[i].disabled = true;
-//}
+for (let i = 0; i < textareas.length; i++) {
+	textareas[i].disabled = true;
+}
 
-//let panelTransferencia = document.getElementById("PanelTransferencia");
-//const inputsTransferencia = panelTransferencia.querySelectorAll("input");
+let panelTransferencia = document.getElementById("PanelTransferencia");
+const inputsTransferencia = panelTransferencia.querySelectorAll("input");
 
-//console.log(inputsTransferencia);
-//console.log("Hola mundo");
+console.log(inputsTransferencia);
+console.log("Hola mundo");
 
-//for (let i = 0; i < inputsTransferencia.length; i++) {
-//    inputsTransferencia[i].disabled = true;
-//}
+for (let i = 0; i < inputsTransferencia.length; i++) {
+	inputsTransferencia[i].disabled = true;
+}
 
 function copyToClipboard(textboxId, prefix) {
 	const textBox = document.getElementById(textboxId);
