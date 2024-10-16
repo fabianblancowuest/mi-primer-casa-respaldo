@@ -34,6 +34,23 @@ document.getElementById("chevron").addEventListener("click", function () {
 function scrollToSection(sectionId) {
 	document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
 }
+//Deshabilitar todos los textareas
+
+//let textareas = document.getElementsByTagName('textarea');
+
+//for (let i = 0; i < textareas.length; i++) {
+//    textareas[i].disabled = true;
+//}
+
+//let panelTransferencia = document.getElementById("PanelTransferencia");
+//const inputsTransferencia = panelTransferencia.querySelectorAll("input");
+
+//console.log(inputsTransferencia);
+//console.log("Hola mundo");
+
+//for (let i = 0; i < inputsTransferencia.length; i++) {
+//    inputsTransferencia[i].disabled = true;
+//}
 
 function copyToClipboard(textboxId, prefix) {
 	const textBox = document.getElementById(textboxId);
@@ -58,26 +75,6 @@ function copyToClipboard(textboxId, prefix) {
 	}
 }
 
-//Deshabilitar todos los textareas
-
-//let textareas = document.getElementsByTagName('textarea');
-
-//for (let i = 0; i < textareas.length; i++) {
-//    textareas[i].disabled = true;
-//}
-
-//let panelTransferencia = document.getElementById("PanelTransferencia");
-//const inputsTransferencia = panelTransferencia.querySelectorAll("input");
-
-//console.log(inputsTransferencia);
-//console.log("Hola mundo");
-
-//for (let i = 0; i < inputsTransferencia.length; i++) {
-//    inputsTransferencia[i].disabled = true;
-//}
-
-//Modal premios de la encuesta
-
 document.addEventListener("DOMContentLoaded", () => {
 	const modal = document.getElementById("myModal");
 	const openModalBtn = document.getElementById("openModalBtn");
@@ -90,17 +87,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	openModalBtn.addEventListener("click", (event) => {
 		event.preventDefault(); // Previene que el botón recargue la página
 		modal.style.display = "flex";
+		document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
 	});
 
 	// Cierra el modal cuando se hace clic en el botón de cerrar
 	closeModalBtn.addEventListener("click", () => {
 		modal.style.display = "none";
+		document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
 	});
 
 	// Cierra el modal cuando se hace clic fuera del contenido del modal
 	window.addEventListener("click", (event) => {
 		if (event.target === modal) {
 			modal.style.display = "none";
+			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
 		}
 	});
 });
+
+const btnConfirOp = document.getElementById("obutConfirmaOperacion");
+btnConfirOp.addEventListener("click", () => {});
