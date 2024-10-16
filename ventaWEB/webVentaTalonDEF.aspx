@@ -571,32 +571,32 @@
                                                         runat="server" BackColor="LightGray" Width="90%"
                                                         Text="Datos cuenta en MERCADO PAGO" Font-Bold="true"
                                                         ClientIDMode="Static"></asp:TextBox>--%>
-                                                        <p name="otxtDatosBancoParaTransferencia01" type="text"
-                                                            id="otxtDatosBancoParaTransferencia01"
-                                                            style="background-color: LightGrey; font-weight: bold; width: 90%;">
-                                                            Datos cuenta en MERCADO PAGO</p>
+                                                        <p class="cuenta-mp" name="otxtDatosBancoParaTransferencia01"
+                                                            id="otxtDatosBancoParaTransferencia01">Datos cuenta en
+                                                            MERCADO PAGO</p>
                                                 </div>
                                                 <div align="center">
                                                     <%-- <asp:TextBox ID="otxtDatosBancoParaTransferencia02"
                                                         runat="server" BackColor="LightGray" Width="90%"
                                                         Text="CVU : 0000003100050215684489" Font-Bold="true"
                                                         ClientIDMode="Static"></asp:TextBox>--%>
-                                                        <p name="otxtDatosBancoParaTransferencia02" type="text"
-                                                            id="otxtDatosBancoParaTransferencia02"
-                                                            style="background-color: LightGrey; font-weight: bold; width: 90%;">
-                                                            "CVU : 0000003100050215684489</p>
-                                                        <button class="btn-copiar-cvu-alias"
-                                                            onclick="copyToClipboard('otxtDatosBancoParaTransferencia02', 'CVU')">Copiar
+                                                        <p class="cuenta-mp" name="otxtDatosBancoParaTransferencia02"
+                                                            id="otxtDatosBancoParaTransferencia02">"CVU :
+                                                            0000003100050215684489</p>
+                                                        <button class="btn-pago btn-copiar-cvu-alias"
+                                                            onclick="copyToClipboard(event, 'otxtDatosBancoParaTransferencia02', 'CVU')">Copiar
                                                             CVU</button>
                                                 </div>
                                                 <div align="center">
-                                                    <asp:TextBox ID="otxtDatosBancoParaTransferencia03" runat="server"
-                                                        BackColor="LightGray" Width="90%"
+                                                    <%--<asp:TextBox ID="otxtDatosBancoParaTransferencia03"
+                                                        runat="server" BackColor="LightGray" Width="90%"
                                                         Text="ALIAS : sorteo.billete.mpc " Font-Bold="true"
-                                                        ClientIDMode="Static"></asp:TextBox>
-                                                    <button class="btn-copiar-cvu-alias"
-                                                        onclick="copyToClipboard('otxtDatosBancoParaTransferencia03', 'ALIAS')">Copiar
-                                                        Alias</button>
+                                                        ClientIDMode="Static"></asp:TextBox>--%>
+                                                        <p class="cuenta-mp" id="otxtDatosBancoParaTransferencia03">
+                                                            "ALIAS : sorteo.billete.mpc"</p>
+                                                        <button class="btn-pago btn-copiar-cvu-alias"
+                                                            onclick="copyToClipboard(event, 'otxtDatosBancoParaTransferencia03', 'ALIAS')">Copiar
+                                                            Alias</button>
                                                 </div>
                                                 <div>
                                                     <div align="center">
@@ -629,185 +629,201 @@
                                             </asp:Panel>
 
                                             <%-- Botón mostrar premio de encuesta --%>
-                                                <button id="openModalBtn" class="open-modal-btn btn"
-                                                    type="button">Mostrar premios</button>
+                                                <%--<button id="openModalBtn" class="open-modal-btn btn"
+                                                    type="button">Mostrar premios</button>--%>
 
-                                                <div id="myModal" class="modal">
-                                                    <div class="modal-content">
-                                                        <span id="closeModalBtn" class="close-modal">&times;</span>
-                                                        <div class="modal-images">
-                                                            <figure>
-                                                                <img src="premios-sorteo/heladera.jpg"
-                                                                    alt="Heladera con freezer Midea">
-                                                                <figcaption>
-                                                                    <p>Heladera con Congelador Midea</p>
-                                                                    <p>MDRT294FGG23</p>
-                                                                    <p>300 Litros</p>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure>
-                                                                <img src="premios-sorteo/cocina.jpeg"
-                                                                    alt="Cocina Atlas">
-                                                                <figcaption>
-                                                                    <p>Cocina Atlas Coliseum Plus</p>
-                                                                    <p>Cuatro hornallas</p>
-                                                                    <p>Tapa de vidrio</p>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure>
-                                                                <img src="premios-sorteo/freidora.jpg"
-                                                                    alt="Freidora de aire Marylan">
-                                                                <figcaption>
-                                                                    <p>Air Fryer Marylan</p>
-                                                                    <p>1400Watts</p>
-                                                                    <p>5.5 Litros</p>
-                                                                    <p>Hasta 200 grados</p>
-                                                                    <p>Apagado automático</p>
-                                                                </figcaption>
-                                                            </figure>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-                                                <%--Panel Encuesta--%>
-                                                    <asp:Panel class="panel-encuesta" ID="PanelEncuesta" runat="server"
-                                                        Visible="false">
-                                                        <div align="center">
-                                                            <h4 class="titulo-panel-encuesta">
-                                                                <asp:Label ID="Label19" runat="server" Text="ENCUESTA"
-                                                                    Font-Bold="true"></asp:Label>
-                                                            </h4>
-
+                                                    <%-- Modal premios de encuesta --%>
+                                                        <div id="myModal" class="modal">
+                                                            <div class="modal-content">
+                                                                <span id="closeModalBtn"
+                                                                    class="close-modal">&times;</span>
+                                                                <div class="modal-images">
+                                                                    <figure>
+                                                                        <img src="premios-sorteo/heladera.jpg"
+                                                                            alt="Heladera con freezer Midea">
+                                                                        <figcaption>
+                                                                            <p>Heladera con Congelador Midea</p>
+                                                                            <p>MDRT294FGG23</p>
+                                                                            <p>300 Litros</p>
+                                                                        </figcaption>
+                                                                    </figure>
+                                                                    <figure>
+                                                                        <img src="premios-sorteo/cocina.jpeg"
+                                                                            alt="Cocina Atlas">
+                                                                        <figcaption>
+                                                                            <p>Cocina Atlas Coliseum Plus</p>
+                                                                            <p>Cuatro hornallas</p>
+                                                                            <p>Tapa de vidrio</p>
+                                                                        </figcaption>
+                                                                    </figure>
+                                                                    <figure>
+                                                                        <img src="premios-sorteo/freidora.jpg"
+                                                                            alt="Freidora de aire Marylan">
+                                                                        <figcaption>
+                                                                            <p>Air Fryer Marylan</p>
+                                                                            <p>1400Watts</p>
+                                                                            <p>5.5 Litros</p>
+                                                                            <p>Hasta 200 grados</p>
+                                                                            <p>Apagado automático</p>
+                                                                        </figcaption>
+                                                                    </figure>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
-                                                        <asp:Panel CssClass="seccion-encuesta"
-                                                            ID="PanelEncuesta_inversion" runat="server">
-                                                            <div align="center" class="section-1">
-                                                                <asp:Label CssClass="titulo-seccion-encuesta titulo-1"
-                                                                    ID="Label18" runat="server"
-                                                                    Text="¿Quiere invertir? ¿En qué rango de cuota se situaría?">
-                                                                </asp:Label>
-                                                                <asp:RadioButtonList CssClass="seccion-1"
-                                                                    ID="orbEncuesta_inversion" runat="server">
-                                                                    <asp:ListItem Selected="True" Value="0">No contesta
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="1">Hasta $ 50.000
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="2">Hasta $ 70.000
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="3">Hasta $ 90.000
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="4">Hasta $ 120.000
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="5">Mas de $ 120.000
-                                                                    </asp:ListItem>
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </asp:Panel>
-                                                        <asp:Panel CssClass="seccion-encuesta"
-                                                            ID="PanelEncuesta_esPropietario" runat="server">
-                                                            <div align="center">
-                                                                <asp:Label CssClass="titulo-seccion-encuesta titulo-2"
-                                                                    ID="Label20" runat="server" Text="¿Es propietario?">
-                                                                </asp:Label>
-                                                                <asp:RadioButtonList CssClass="seccion-2"
-                                                                    ID="orbEncuesta_esPropietario" runat="server">
-                                                                    <asp:ListItem Selected="True" Value="0">No contesta
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="1">SI</asp:ListItem>
-                                                                    <asp:ListItem Value="2">NO</asp:ListItem>
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </asp:Panel>
-
-                                                        <asp:Panel CssClass="seccion-encuesta"
-                                                            ID="PanelEncuesta_alquila" runat="server">
-                                                            <div align="center">
-                                                                <asp:Label CssClass="titulo-seccion-encuesta titulo-3"
-                                                                    ID="Label21" runat="server" Text="¿Alquila?">
-                                                                </asp:Label>
-                                                                <asp:RadioButtonList CssClass="seccion-3"
-                                                                    ID="orbEncuesta_alquila" runat="server">
-                                                                    <asp:ListItem Selected="True" Value="0">No contesta
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="1">SI</asp:ListItem>
-                                                                    <asp:ListItem Value="2">NO</asp:ListItem>
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </asp:Panel>
-                                                        <asp:Panel CssClass="seccion-encuesta"
-                                                            ID="PanelEncuesta_esClienteMPC" runat="server">
-                                                            <div align="center" class="seccion-4">
-                                                                <asp:Label CssClass="titulo-seccion-encuesta titulo-4"
-                                                                    ID="Label22" runat="server"
-                                                                    Text="¿Es cliente de MI PRIMER CASA?"></asp:Label>
-                                                                <asp:RadioButtonList ID="orbEncuesta_esClienteMPC"
-                                                                    runat="server">
-                                                                    <asp:ListItem Selected="True" Value="0">No contesta
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="1">SI</asp:ListItem>
-                                                                    <asp:ListItem Value="2">NO</asp:ListItem>
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </asp:Panel>
-
-                                                        <asp:Panel CssClass="seccion-encuesta"
-                                                            ID="PanelEncuesta_enQueInvertiria" runat="server">
-                                                            <div align="center" class="seccion-5">
-                                                                <asp:Label CssClass="titulo-seccion-encuesta titulo-5"
-                                                                    ID="Label23" runat="server"
-                                                                    Text="¿En qué invertiría?"></asp:Label>
-                                                                <asp:RadioButtonList ID="orbEncuesta_enQueInvertiria"
-                                                                    runat="server">
-                                                                    <asp:ListItem Selected="True" Value="0">No contesta
-                                                                    </asp:ListItem>
-                                                                    <asp:ListItem Value="1">DEPARTAMENTO</asp:ListItem>
-                                                                    <asp:ListItem Value="2">TERRENO</asp:ListItem>
-                                                                    <asp:ListItem Value="3">CASA</asp:ListItem>
-
-                                                                </asp:RadioButtonList>
-                                                            </div>
-                                                        </asp:Panel>
-                                                    </asp:Panel>
 
 
+                                                        <%--Panel Encuesta--%>
+                                                            <asp:Panel class="panel-encuesta" ID="PanelEncuesta"
+                                                                runat="server" Visible="false">
+                                                                <div align="center">
+                                                                    <h4 class="titulo-panel-encuesta">
+                                                                        <asp:Label ID="Label19" runat="server"
+                                                                            Text="ENCUESTA" Font-Bold="true">
+                                                                        </asp:Label>
+                                                                    </h4>
 
-                                                    <asp:Panel ID="PanelAlta" runat="server" Visible="false">
-                                                        <div align="center">
-                                                        </div>
+                                                                </div>
 
-                                                        <div align="center">
-                                                            <asp:TextBox CssClass="msj-felicitaciones" ID="Label25"
-                                                                runat="server"
-                                                                Text="¡¡Felicitaciones!! 🎉 ¡Usted ya está participando por los premios mayores de los sorteos de Octubre! 🎁"
-                                                                TextMode="MultiLine" Enabled="false" BorderWidth="0">
-                                                            </asp:TextBox>
-                                                            <div class="botones-medios-de-pago contenedor-inputs">
-                                                            </div>
+                                                                <asp:Panel CssClass="seccion-encuesta"
+                                                                    ID="PanelEncuesta_inversion" runat="server">
+                                                                    <div align="center" class="section-1">
+                                                                        <asp:Label
+                                                                            CssClass="titulo-seccion-encuesta titulo-1"
+                                                                            ID="Label18" runat="server"
+                                                                            Text="¿Quiere invertir? ¿En qué rango de cuota se situaría?">
+                                                                        </asp:Label>
+                                                                        <asp:RadioButtonList CssClass="seccion-1"
+                                                                            ID="orbEncuesta_inversion" runat="server">
+                                                                            <asp:ListItem Selected="True" Value="0">No
+                                                                                contesta</asp:ListItem>
+                                                                            <asp:ListItem Value="1">Hasta $ 50.000
+                                                                            </asp:ListItem>
+                                                                            <asp:ListItem Value="2">Hasta $ 70.000
+                                                                            </asp:ListItem>
+                                                                            <asp:ListItem Value="3">Hasta $ 90.000
+                                                                            </asp:ListItem>
+                                                                            <asp:ListItem Value="4">Hasta $ 120.000
+                                                                            </asp:ListItem>
+                                                                            <asp:ListItem Value="5">Mas de $ 120.000
+                                                                            </asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </asp:Panel>
+                                                                <asp:Panel CssClass="seccion-encuesta"
+                                                                    ID="PanelEncuesta_esPropietario" runat="server">
+                                                                    <div align="center">
+                                                                        <asp:Label
+                                                                            CssClass="titulo-seccion-encuesta titulo-2"
+                                                                            ID="Label20" runat="server"
+                                                                            Text="¿Es propietario?"></asp:Label>
+                                                                        <asp:RadioButtonList CssClass="seccion-2"
+                                                                            ID="orbEncuesta_esPropietario"
+                                                                            runat="server">
+                                                                            <asp:ListItem Selected="True" Value="0">No
+                                                                                contesta</asp:ListItem>
+                                                                            <asp:ListItem Value="1">SI</asp:ListItem>
+                                                                            <asp:ListItem Value="2">NO</asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </asp:Panel>
+
+                                                                <asp:Panel CssClass="seccion-encuesta"
+                                                                    ID="PanelEncuesta_alquila" runat="server">
+                                                                    <div align="center">
+                                                                        <asp:Label
+                                                                            CssClass="titulo-seccion-encuesta titulo-3"
+                                                                            ID="Label21" runat="server"
+                                                                            Text="¿Alquila?"></asp:Label>
+                                                                        <asp:RadioButtonList CssClass="seccion-3"
+                                                                            ID="orbEncuesta_alquila" runat="server">
+                                                                            <asp:ListItem Selected="True" Value="0">No
+                                                                                contesta</asp:ListItem>
+                                                                            <asp:ListItem Value="1">SI</asp:ListItem>
+                                                                            <asp:ListItem Value="2">NO</asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </asp:Panel>
+                                                                <asp:Panel CssClass="seccion-encuesta"
+                                                                    ID="PanelEncuesta_esClienteMPC" runat="server">
+                                                                    <div align="center" class="seccion-4">
+                                                                        <asp:Label
+                                                                            CssClass="titulo-seccion-encuesta titulo-4"
+                                                                            ID="Label22" runat="server"
+                                                                            Text="¿Es cliente de MI PRIMER CASA?">
+                                                                        </asp:Label>
+                                                                        <asp:RadioButtonList
+                                                                            ID="orbEncuesta_esClienteMPC"
+                                                                            runat="server">
+                                                                            <asp:ListItem Selected="True" Value="0">No
+                                                                                contesta</asp:ListItem>
+                                                                            <asp:ListItem Value="1">SI</asp:ListItem>
+                                                                            <asp:ListItem Value="2">NO</asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </asp:Panel>
+
+                                                                <asp:Panel CssClass="seccion-encuesta"
+                                                                    ID="PanelEncuesta_enQueInvertiria" runat="server">
+                                                                    <div align="center" class="seccion-5">
+                                                                        <asp:Label
+                                                                            CssClass="titulo-seccion-encuesta titulo-5"
+                                                                            ID="Label23" runat="server"
+                                                                            Text="¿En qué invertiría?"></asp:Label>
+                                                                        <asp:RadioButtonList
+                                                                            ID="orbEncuesta_enQueInvertiria"
+                                                                            runat="server">
+                                                                            <asp:ListItem Selected="True" Value="0">No
+                                                                                contesta</asp:ListItem>
+                                                                            <asp:ListItem Value="1">DEPARTAMENTO
+                                                                            </asp:ListItem>
+                                                                            <asp:ListItem Value="2">TERRENO
+                                                                            </asp:ListItem>
+                                                                            <asp:ListItem Value="3">CASA</asp:ListItem>
+
+                                                                        </asp:RadioButtonList>
+                                                                    </div>
+                                                                </asp:Panel>
+                                                            </asp:Panel>
 
 
 
-                                                            <asp:Label ID="olblOperacionRealizada" runat="server"
-                                                                Text="" Font-Bold="true" ForeColor="#0033cc">
-                                                            </asp:Label>
-                                                            <br />
-                                                            <asp:Button ID="obutOperacionRealizada" runat="server"
-                                                                Text="Volver para nueva compra" CssClass="btn-primary"
-                                                                Height="30%" Width="50%" Visible="false" />
+                                                            <asp:Panel ID="PanelAlta" runat="server" Visible="false">
+                                                                <div align="center">
+                                                                </div>
 
-                                                        </div>
+                                                                <div align="center">
+                                                                    <asp:TextBox CssClass="msj-felicitaciones"
+                                                                        ID="Label25" runat="server"
+                                                                        Text="¡¡Felicitaciones!! 🎉 ¡Usted ya está participando por los premios mayores de los sorteos de Octubre! 🎁"
+                                                                        TextMode="MultiLine" Enabled="false"
+                                                                        BorderWidth="0"></asp:TextBox>
+                                                                    <div
+                                                                        class="botones-medios-de-pago contenedor-inputs">
+                                                                    </div>
 
-                                                    </asp:Panel>
-                                                    </asp:Panel>
 
 
-                                                    <%-- Panel Upload --%>
+                                                                    <asp:Label ID="olblOperacionRealizada"
+                                                                        runat="server" Text="" Font-Bold="true"
+                                                                        ForeColor="#0033cc"></asp:Label>
+                                                                    <br />
+                                                                    <asp:Button ID="obutOperacionRealizada"
+                                                                        runat="server" Text="Volver para nueva compra"
+                                                                        CssClass="btn-primary" Height="30%" Width="50%"
+                                                                        Visible="false" />
 
-                                                        <%-- </ContentTemplate>
+                                                                </div>
 
-                                                            </asp:UpdatePanel>--%>
+                                                            </asp:Panel>
+                                                            </asp:Panel>
+
+
+                                                            <%-- Panel Upload --%>
+
+                                                                <%-- </ContentTemplate>
+
+                                                                    </asp:UpdatePanel>--%>
                 </form>
 
                 <%-- Sweet Alert --%>
