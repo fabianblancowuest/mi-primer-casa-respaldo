@@ -34,27 +34,28 @@ document.getElementById("chevron").addEventListener("click", function () {
 function scrollToSection(sectionId) {
 	document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
 }
-// Deshabilitar todos los textareas
+//Deshabilitar todos los textareas
 
-let textareas = document.getElementsByTagName("textarea");
+//let textareas = document.getElementsByTagName('textarea');
 
-for (let i = 0; i < textareas.length; i++) {
-	textareas[i].disabled = true;
-}
+//for (let i = 0; i < textareas.length; i++) {
+//    textareas[i].disabled = true;
+//}
 
-let panelTransferencia = document.getElementById("PanelTransferencia");
-const inputsTransferencia = panelTransferencia.querySelectorAll("input");
+//let panelTransferencia = document.getElementById("PanelTransferencia");
+//const inputsTransferencia = panelTransferencia.querySelectorAll("input");
 
-console.log(inputsTransferencia);
-console.log("Hola mundo");
+//console.log(inputsTransferencia);
+//console.log("Hola mundo");
 
-for (let i = 0; i < inputsTransferencia.length; i++) {
-	inputsTransferencia[i].disabled = true;
-}
+//for (let i = 0; i < inputsTransferencia.length; i++) {
+//    inputsTransferencia[i].disabled = true;
+//}
 
-function copyToClipboard(textboxId, prefix) {
+function copyToClipboard(event, textboxId, prefix) {
+	event.preventDefault();
 	const textBox = document.getElementById(textboxId);
-	const text = textBox.value;
+	const text = textBox.innerText;
 
 	// Extraer el texto después del prefijo y el espacio
 	let textToCopy = text.split(prefix + " : ")[1];
@@ -76,15 +77,16 @@ function copyToClipboard(textboxId, prefix) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+	const btnConfirmarOp = document.getElementById("obutConfirmaOperacion");
 	const modal = document.getElementById("myModal");
-	const openModalBtn = document.getElementById("openModalBtn");
+	//const openModalBtn = document.getElementById("openModalBtn");
 	const closeModalBtn = document.getElementById("closeModalBtn");
 
 	// Asegura de que el modal esté oculto al cargar la página
 	modal.style.display = "none";
 
 	// Abre el modal cuando se hace clic en el botón
-	openModalBtn.addEventListener("click", (event) => {
+	btnConfirmarOp.addEventListener("click", (event) => {
 		event.preventDefault(); // Previene que el botón recargue la página
 		modal.style.display = "flex";
 		document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
@@ -104,6 +106,3 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
-
-const btnConfirOp = document.getElementById("obutConfirmaOperacion");
-btnConfirOp.addEventListener("click", () => {});
