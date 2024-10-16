@@ -567,19 +567,27 @@
                                             <asp:Panel ID="PanelTransferencia" CssClass="panel-transferencia"
                                                 runat="server" Visible="false">
                                                 <div align="center">
-                                                    <asp:TextBox ID="otxtDatosBancoParaTransferencia01" runat="server"
-                                                        BackColor="LightGray" Width="90%"
+                                                    <%--<asp:TextBox ID="otxtDatosBancoParaTransferencia01"
+                                                        runat="server" BackColor="LightGray" Width="90%"
                                                         Text="Datos cuenta en MERCADO PAGO" Font-Bold="true"
-                                                        ClientIDMode="Static"></asp:TextBox>
+                                                        ClientIDMode="Static"></asp:TextBox>--%>
+                                                        <p name="otxtDatosBancoParaTransferencia01" type="text"
+                                                            id="otxtDatosBancoParaTransferencia01"
+                                                            style="background-color: LightGrey; font-weight: bold; width: 90%;">
+                                                            Datos cuenta en MERCADO PAGO</p>
                                                 </div>
                                                 <div align="center">
-                                                    <asp:TextBox ID="otxtDatosBancoParaTransferencia02" runat="server"
-                                                        BackColor="LightGray" Width="90%"
+                                                    <%-- <asp:TextBox ID="otxtDatosBancoParaTransferencia02"
+                                                        runat="server" BackColor="LightGray" Width="90%"
                                                         Text="CVU : 0000003100050215684489" Font-Bold="true"
-                                                        ClientIDMode="Static"></asp:TextBox>
-                                                    <button class="btn-copiar-cvu-alias"
-                                                        onclick="copyToClipboard('otxtDatosBancoParaTransferencia02', 'CVU')">Copiar
-                                                        CVU</button>
+                                                        ClientIDMode="Static"></asp:TextBox>--%>
+                                                        <p name="otxtDatosBancoParaTransferencia02" type="text"
+                                                            id="otxtDatosBancoParaTransferencia02"
+                                                            style="background-color: LightGrey; font-weight: bold; width: 90%;">
+                                                            "CVU : 0000003100050215684489</p>
+                                                        <button class="btn-copiar-cvu-alias"
+                                                            onclick="copyToClipboard('otxtDatosBancoParaTransferencia02', 'CVU')">Copiar
+                                                            CVU</button>
                                                 </div>
                                                 <div align="center">
                                                     <asp:TextBox ID="otxtDatosBancoParaTransferencia03" runat="server"
@@ -590,23 +598,34 @@
                                                         onclick="copyToClipboard('otxtDatosBancoParaTransferencia03', 'ALIAS')">Copiar
                                                         Alias</button>
                                                 </div>
+                                                <div>
+                                                    <div align="center">
+                                                        <asp:TextBox ID="TextBox1" runat="server" BackColor="LightGray"
+                                                            Width="90%"
+                                                            Text="Una vez que realice la transferencia a la cuenta de la Empresa, deberá enviar la captura de pantalla de la misma al teléfono del Vendedor asignado , para que este confeccione los billetes seleccionado con sus datos y los ingrese en la urna luego de corroborar la acreditaciónm de la operación"
+                                                            Font-Bold="true" TextMode="MultiLine"></asp:TextBox>
 
-                                                <div align="center">
-                                                    <asp:TextBox ID="TextBox1" runat="server" BackColor="LightGray"
-                                                        Width="90%"
-                                                        Text="Una vez que realice la transferencia a la cuenta de la Empresa, deberá enviar la captura de pantalla de la misma al teléfono del Vendedor asignado , para que este confeccione los billetes seleccionado con sus datos y los ingrese en la urna luego de corroborar la acreditaciónm de la operación"
-                                                        Font-Bold="true"></asp:TextBox>
+                                                    </div>
+                                                    <div align="center">
+                                                        <asp:TextBox ID="TextBox2" runat="server" BackColor="LightGray"
+                                                            Width="90%"
+                                                            Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
+                                                            Font-Bold="true" TextMode="MultiLine"></asp:TextBox>
+                                                    </div>
+                                                    <div align="center">
+                                                        <asp:Button ID="obutConfirmaOperacion" runat="server"
+                                                            Text="Confirmar Operacion" CssClass="btn-pago" />
+                                                    </div>
+
+                                                    <div class="transaccion-cliente texto-compra-confirmada">
+                                                        <p>
+                                                            Felicitaciones por su compra - Rellene la encuesta y
+                                                            participe del sorteo de 3 electrodomesticos: foto de
+                                                            heladera, cocina, freidora. 28 de diciembre 2024.
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <div align="center">
-                                                    <asp:TextBox ID="TextBox2" runat="server" BackColor="LightGray"
-                                                        Width="90%"
-                                                        Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
-                                                        Font-Bold="true"></asp:TextBox>
-                                                </div>
-                                                <div align="center">
-                                                    <asp:Button ID="obutConfirmaOperacion" runat="server"
-                                                        Text="Confirmar Operacion" CssClass="btn-pago" />
-                                                </div>
+
                                             </asp:Panel>
 
                                             <%-- Botón mostrar premio de encuesta --%>
@@ -617,9 +636,35 @@
                                                     <div class="modal-content">
                                                         <span id="closeModalBtn" class="close-modal">&times;</span>
                                                         <div class="modal-images">
-                                                            <img src="premios-sorteo/heladera.jpg" alt="Imagen 1">
-                                                            <img src="premios-sorteo/cocina.jpeg" alt="Imagen 2">
-                                                            <img src="premios-sorteo/freidora.jpg" alt="Imagen 3">
+                                                            <figure>
+                                                                <img src="premios-sorteo/heladera.jpg"
+                                                                    alt="Heladera con freezer Midea">
+                                                                <figcaption>
+                                                                    <p>Heladera con Congelador Midea</p>
+                                                                    <p>MDRT294FGG23</p>
+                                                                    <p>300 Litros</p>
+                                                                </figcaption>
+                                                            </figure>
+                                                            <figure>
+                                                                <img src="premios-sorteo/cocina.jpeg"
+                                                                    alt="Cocina Atlas">
+                                                                <figcaption>
+                                                                    <p>Cocina Atlas Coliseum Plus</p>
+                                                                    <p>Cuatro hornallas</p>
+                                                                    <p>Tapa de vidrio</p>
+                                                                </figcaption>
+                                                            </figure>
+                                                            <figure>
+                                                                <img src="premios-sorteo/freidora.jpg"
+                                                                    alt="Freidora de aire Marylan">
+                                                                <figcaption>
+                                                                    <p>Air Fryer Marylan</p>
+                                                                    <p>1400Watts</p>
+                                                                    <p>5.5 Litros</p>
+                                                                    <p>Hasta 200 grados</p>
+                                                                    <p>Apagado automático</p>
+                                                                </figcaption>
+                                                            </figure>
                                                         </div>
                                                     </div>
                                                 </div>

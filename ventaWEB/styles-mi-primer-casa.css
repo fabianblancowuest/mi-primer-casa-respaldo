@@ -1,5 +1,5 @@
 :root {
-	--th-color: #337ab7;
+	--th-color : #337AB7;
 }
 
 a {
@@ -9,7 +9,7 @@ a {
 body {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 0.5em 1.5em 0.5em;
+	padding: 0 .5em 1.5em .5em;
 	font-family: sans-serif;
 }
 
@@ -18,8 +18,8 @@ body {
 .header {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
+	align-items:center;
+	justify-content: center; 
 	height: fit-content;
 	text-align: center;
 	margin-top: -5px;
@@ -32,6 +32,7 @@ body {
 	top: 0;
 	left: 0;
 	width: 70px;
+
 }
 
 .header h1 {
@@ -41,14 +42,16 @@ body {
 	font-family: "Quicksand", sans-serif;
 	font-weight: bold;
 	margin-bottom: 10px;
-	letter-spacing: 0.1rem;
-	color: rgba(0, 0, 0, 0.8);
+	letter-spacing: .1rem;
+	color: rgba(0, 0, 0, .8);
+
 }
 
 /* Subtítulo */
 #Label1 {
 	font-family: "Quicksand", sans-serif;
-	color: rgba(0, 0, 0, 0.8);
+	color: rgba(0, 0, 0, .8);
+
 }
 
 .info-header textarea {
@@ -60,27 +63,29 @@ body {
 
 @media (max-width: 768px) {
 	.info-header textarea {
-		height: 60px;
+			height: 60px;
 	}
+
 }
 
 @media (max-width: 550px) {
-	.logo {
-		/*display: none;*/
-		position: static;
-	}
+			.logo {
+			/*display: none;*/
+			position: static;
+			}
 
-	.header h1 {
-		font-size: 2rem;
-		margin-top: 10px;
-		margin-bottom: -15px;
-	}
+			.header h1 {
+					font-size: 2rem;
+					margin-top: 10px;
+					margin-bottom: -15px;
+			}
 
-	/* Subtítulo */
-	#Label1 {
-		font-family: "Quicksand", sans-serif;
-		font-size: 1.2rem;
-	}
+			/* Subtítulo */
+			#Label1 {
+					font-family: "Quicksand", sans-serif;
+					font-size: 1.2rem;
+			}
+
 }
 
 /*Botón al whatsapp*/
@@ -98,9 +103,9 @@ body {
 /*Chevrón - Flecha indicadora de scroll*/
 .chevron {
 	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	cursor: pointer;
+	bottom: 20px; 
+	right: 20px; 
+	cursor: pointer; 
 }
 
 .arrow {
@@ -116,10 +121,10 @@ body {
 /* Animación de parpadeo */
 @keyframes pulse {
 	0% {
-		opacity: 0;
+			opacity: 0; 
 	}
 	100% {
-		opacity: 1;
+			opacity: 1;
 	}
 }
 
@@ -129,36 +134,38 @@ body {
 
 .msj-personas-comprando {
 	text-align: center;
-	margin: 0.5em 0;
-	font-family: Tahoma, sans-serif;
+	margin: .5em 0;
+	font-family:Tahoma, sans-serif;
 	font-size: 1rem;
 	font-weight: bold;
 	letter-spacing: 1px;
-	color: rgba(0, 0, 0, 0.7);
+	color: rgba(0, 0, 0, .7);
 }
 
+
 .msj-talon:nth-child(2) {
-	font-size: 0.9rem;
-	color: #24943d;
+	font-size: .9rem;
+	color: #24943D;
 	letter-spacing: 1px;
 }
 
 .principal-buttons {
+
 }
 
 .container {
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
-	justify-content: center;
+width: 100%;
+justify-content: center;
 	margin: 1em 0 2em 0;
 }
 
 .container-btn-sorteo,
 .container-textos-sorteo {
-	display: flex;
-	justify-content: center;
-	gap: 1.5rem;
+display: flex;
+justify-content: center;
+gap: 1.5rem;
 }
 
 .container-btn-sorteo {
@@ -176,12 +183,12 @@ body {
 	width: 100%;
 }
 
-.btn-numeros,
-.btn-premios {
+.btn-numeros, .btn-premios {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
+
 
 .info-validacion-numeros {
 	text-align: center;
@@ -195,14 +202,15 @@ body {
 
 .info-billetes:nth-child(2) {
 	letter-spacing: 1px;
-	font-size: 0.9rem;
+	font-size: .9rem;
 }
+
 
 @media (max-width: 768px) {
 	.text {
-		display: block;
-		width: 90vw;
-		text-align: center;
+			display: block;
+			width: 90vw;
+			text-align: center;
 	}
 }
 
@@ -216,28 +224,30 @@ body {
 	margin: 1em auto;
 	width: 280px;
 	height: 80px;
-	border-radius: 5px;
-	color: white;
-	background: linear-gradient(to right, #00b4db, #0083b0) !important;
-	border: 1px solid #55a6c1;
+border-radius: 5px;
+color: white;
+	background: linear-gradient(to right, #00b4db, #0083b0) !important; 
+	border: 1px solid #55A6C1;
 	cursor: pointer;
-	transition: all 0.3s ease-in;
+	transition: all .3s ease-in;
 }
+
 
 #obutCobrar {
 	display: none;
 }
 
 .btn-disabled {
-	background-color: #e0e0e0 !important;
+	background-color: #e0e0e0 !important; 
 	color: #a0a0a0;
-	cursor: not-allowed;
+	cursor: not-allowed; 
 }
 
 .btn:hover {
-	background-color: green !important;
+background-color: green !important;
 	color: white !important;
 	transform: scale(1.015);
+
 }
 
 .boton:active {
@@ -247,10 +257,10 @@ body {
 
 @media (max-width: 768px) {
 	.btn {
-		width: 90vw;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
+			width: 90vw;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
 	}
 }
 
@@ -264,6 +274,7 @@ body {
 	margin: 1em 0;
 	width: 100%;
 }
+
 
 .panel-numeros-mas-boton {
 	width: 100%;
@@ -279,15 +290,13 @@ body {
 	font-family: sans-serif;
 }
 
-.tabla-numeros th,
-.tabla-numeros td,
-.tabla-numeros tr {
+.tabla-numeros th, .tabla-numeros td, .tabla-numeros tr {
 	font-size: 1.6rem;
 }
 
 .panel-numeros td {
-	padding: 0.5em;
-	color: rgba(0, 0, 0, 0.6);
+	padding: .5em;
+	color: rgba(0, 0, 0, .6);
 	font-weight: bold;
 	/*letter-spacing: .50px;*/
 	border-right: none;
@@ -299,9 +308,10 @@ body {
 }
 
 .tabla-checkbox input {
-	cursor: pointer;
-	height: 20px;
-	width: 20px;
+ cursor: pointer;
+ height: 20px;
+ width: 20px;
+
 }
 
 .footer-panel-numeros {
@@ -314,11 +324,12 @@ body {
 .btn-footer-panel-numeros {
 	padding: 5px 10px !important;
 	cursor: pointer;
-	transition: all 0.3s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 
 .btn-footer-panel-numeros:hover {
 	transform: scale(1.025);
+
 }
 
 /*Panel Premios*/
@@ -328,7 +339,8 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	padding: 1.5em 0.6em;
+	padding: 1.5em .6em;
+
 }
 
 img {
@@ -352,44 +364,44 @@ img {
 
 @media (max-width: 768px) {
 	.panel-premios {
-		flex-direction: column;
-		padding-left: 0;
-		padding-right: 0;
+			flex-direction: column;
+			padding-left: 0;
+			padding-right: 0;
+
 	}
 
 	.panel-premios select {
-		width: 100% !important;
-		height: 30px;
-		content: "\25BC";
-		border: 1px solid black;
-		border-radius: 5px;
+			width: 100% !important;
+			height: 30px;
+			content: '\25BC';
+			border: 1px solid black;
+			border-radius: 5px;
 	}
 
 	.select-premios {
-		padding: 0 !important;
+			padding: 0 !important;
 	}
+
 }
 
 .panel-premios table {
-	border: 2px solid rgba(0, 0, 0, 0.7);
+	border: 2px solid rgba(0, 0, 0, .7);
 	border-radius: 50%;
 	width: 100%;
 	margin: 0 auto;
 }
 
-.panel-premios td,
-.panel-premios th {
+.panel-premios td, .panel-premios th {
 	padding: 1em 2.5em;
 	font-size: 1.4rem;
 	text-align: center;
 }
 
-.panel-premios td {
+.panel-premios td{
 	padding: 1rem;
 }
 
-.panel-premios th,
-.panel-numeros th {
+.panel-premios th, .panel-numeros th {
 	background-color: var(--th-color);
 	color: #fff;
 }
@@ -405,8 +417,9 @@ img {
 .footer-panel-premios span {
 	display: inline-block;
 	width: 50%;
-	margin-bottom: 0.5em;
-	padding: 0.5em 0.8em;
+	margin-bottom: .5em;
+	padding: .5em .8em;
+
 }
 
 .footer-panel-premios #olblCantidadTotal {
@@ -420,7 +433,7 @@ img {
 	text-align: center;
 }
 
-.total span:first-of-type {
+.total span:first-of-type  {
 	width: fit-content;
 }
 
@@ -429,19 +442,20 @@ img {
 }
 
 @media (max-width: 768px) {
-	.panel-premios td,
-	.panel-premios th {
-		font-size: 0.95rem;
-		padding: 0.5em;
+
+	.panel-premios td, .panel-premios th {
+			 font-size: .95rem;
+			 padding: .5em;
 	}
 
 	.panel-premios td select {
-		font-size: 0.8rem;
+			font-size: .8rem;
 	}
 
 	.footer-panel-premios span {
-		font-size: 0.8rem;
+			font-size: .8rem;
 	}
+
 }
 
 /* Mensaje footer panel premios */
@@ -451,7 +465,7 @@ img {
 	display: block;
 	width: 90%;
 	height: 65px;
-	padding: 1.2em 0.5em 0;
+	padding: 1.2em .5em 0;
 	resize: none;
 	text-align: center;
 	border-radius: 5px;
@@ -467,19 +481,19 @@ img {
 
 @media (max-width: 768px) {
 	.msj-footer-panel-premios textarea {
-		height: 90px;
+			height: 90px;
 	}
 }
 
 @media (max-width: 550px) {
 	.msj-footer-panel-premios textarea {
-		height: 120px;
+			height: 120px;
 	}
 }
 
 .monto-a-pagar {
 	margin: 1em 0;
-	padding: 0.5em 0;
+	padding: .5em 0;
 	text-align: center;
 }
 
@@ -500,6 +514,7 @@ img {
 	justify-content: center;
 	gap: 1rem;
 	margin: 2em 0;
+ 
 }
 
 .btn-pago {
@@ -513,12 +528,12 @@ img {
 	cursor: pointer;
 	background-color: #28a745;
 	color: #fff;
-	transition: all 0.2s ease-in;
+	transition: all .2s ease-in;
 }
 
 @media (max-width: 768px) {
 	.btn-pago {
-		width: 100%;
+			width: 100%;
 	}
 }
 
@@ -544,7 +559,7 @@ img {
 }
 
 .btn-metodo-pago:active {
-	background-color: #004fa2;
+	background-color: #004fa2; 
 }
 
 /* Botón confirmación pagar con mercado pago*/
@@ -554,12 +569,12 @@ img {
 }
 
 #obutPagaConMercadoPago:active {
-	background-color: #004fa2 !important;
+	background-color: #004fa2 !important; 
 }
 
 @media (max-width: 768px) {
 	.disminuir-texto {
-		font-size: 0.9rem !important;
+			font-size: .9rem !important;
 	}
 }
 
@@ -568,10 +583,10 @@ img {
 /* Textarea del panel upload */
 #Label24 {
 	disable: true;
-	font-size: 0.9rem;
+	font-size: .9rem;
 	resize: none;
 	text-align: center;
-	padding: 0.1em 0.5em;
+	padding: .1em .5em;
 }
 
 /* Botón Seleccionar Archivo */
@@ -593,24 +608,26 @@ input #file-upload-button {
 	padding: 3em 3em !important;
 }
 
+
 @media (max-width: 768px) {
 	#Label24 {
-		height: 60px;
+			height: 60px;
 	}
 
 	#FileUpLoad2 {
-		width: 95%;
-		text-align: center;
-		font-size: 0.85rem;
+			width: 95%;
+			text-align: center;
+			font-size: .85rem;
 	}
 }
+
 
 /* Panel Mercado Pago */
 
 .panel-mercado-pago {
 	text-align: center;
 	font-size: 1.5rem;
-	margin: 0.5em 0;
+	margin: .5em 0;
 }
 
 .titulo-panel-mercado-pago {
@@ -620,7 +637,7 @@ input #file-upload-button {
 .info-panel-mercado-pago textarea {
 	width: 90%;
 	height: 80px;
-	padding: 0.5em 0.3em;
+	padding: .5em .3em;
 	text-align: center;
 	resize: none;
 }
@@ -635,26 +652,28 @@ input #file-upload-button {
 	font-size: 1rem;
 }
 
+
+
 @media (max-width: 380px) {
 	.panel-upload-botones {
-		display: block;
-		width: 100%;
-		text-align: center;
+			display: block;
+			width: 100%;
+			text-align: center;
 	}
 
 	.info-panel-mercado-pago textarea {
-		height: 200px;
+			height: 200px;
 	}
 
 	#obutPagaConMercadoPago {
-		background-color: #007bff !important;
-		color: #fff !important;
+	background-color: #007bff !important;
+	color: #fff !important;
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px)  {
 	.info-panel-mercado-pago textarea {
-		height: 160px;
+			height: 160px;
 	}
 }
 
@@ -663,7 +682,7 @@ input #file-upload-button {
 	background-color: #28a745;
 	color: #fff;
 	border-radius: 5px;
-	border: 1px solid black;
+	border: 1px solid black;    
 	display: block;
 	margin: 1em auto;
 	text-transform: uppercase;
@@ -671,12 +690,20 @@ input #file-upload-button {
 	font-family: "Quicksand", sans-serif;
 	font-weight: bold;
 	cursor: pointer;
-	transition: all 0.2s ease-in;
+	transition: all .2s ease-in;
 }
 
 .btn-principal:hover {
 	background-color: green;
 	color: white;
+}
+
+.panel-cvu-oculto {
+	display: none !important;
+}
+
+#TextBox1, #TextBox2 {
+	display: none !important;
 }
 
 /*Panel Transferencia*/
@@ -687,15 +714,16 @@ input #file-upload-button {
 	gap: 1rem;*/
 }
 
-.panel-transferencia input {
+/*.panel-transferencia input {
 	width: 100%;
 	height: fit-content;
-}
+}*/
+
 
 .titulo-nro-de-transferencia span:first-child {
 	display: block;
 	text-align: center;
-	margin: 0 0 0.5em 0;
+	margin: 0 0 .5em 0;
 	font-family: "Quicksand", sans-serif;
 	font-weight: bold;
 }
@@ -710,11 +738,10 @@ input #file-upload-button {
 	font-family: sans-serif;
 }
 
-#Label13,
-#otxtValorTransferenciaNumero {
+#Label13, #otxtValorTransferenciaNumero {
 	display: inline-block;
 	width: 40%;
-	padding: 0.2em 0.1em;
+	padding: .2em .1em;
 }
 
 #Label13 {
@@ -723,8 +750,8 @@ input #file-upload-button {
 }
 
 #otxtValorTransferenciaNumero {
-	padding: 0.3em 0.3em;
-	font-size: 0.9rem;
+	padding: .3em .3em;
+	font-size: .9rem;
 	background-color: #f0f0f0;
 	border-radius: 3px;
 	border: 1px solid #ccc;
@@ -739,24 +766,23 @@ input #file-upload-button {
 	padding: 5px 10px;
 	border-radius: 5px;
 	cursor: pointer;
-	transition: transform 0.3s ease-in-out;
+	transition: transform .3s ease-in-out;
 }
 
 .btn-copiar-cvu-alias:hover {
-	transform: scale(1.025);
+	transform: scale(1.025)
 }
 
 @media (max-width: 768px) {
 	.nro-de-transferencia {
-		flex-direction: column;
+			flex-direction: column;
 	}
-	#Label13,
-	#otxtValorTransferenciaNumero {
-		width: 90vw;
+	#Label13, #otxtValorTransferenciaNumero {
+			width: 90vw;
 	}
 
 	.btn-principal {
-		width: 100%;
+			width: 100%;
 	}
 }
 
@@ -769,9 +795,10 @@ input #file-upload-button {
 	height: 50%;
 }
 
-@media (max-width: 768px) {
+@media(max-width: 768px) {
+
 	.img-transferencia img {
-		width: 100%;
+			width: 100%;
 	}
 }
 
@@ -781,34 +808,37 @@ input #file-upload-button {
 	text-align: center;
 }
 
+
 .transaccion-cliente textarea {
 	font-size: 1rem;
 	font-family: "Quicksand", sans-serif;
 	background: var(--th-color);
-	background-color: #c8e6c9;
-	background-color: #a0bea1;
-	background-color: #32cd32;
+	background-color: #C8E6C9;
+	background-color: #A0BEA1;
+	background-color: #32CD32;
 	text-align: center;
 	color: #fff;
 	text-shadow: 1px 1px 5px black;
 	font-weight: bold;
 	height: 60px;
 	width: 90%;
-	padding: 0.5em;
+	padding: .5em;
 	padding-top: 1.5em !important;
 	border-radius: 5px;
 }
 
 @media (max-width: 500px) {
+	
 	.transaccion-cliente textarea {
-		height: 85px;
+			height: 85px;
 	}
 }
 
 @media (max-width: 768px) {
 	.transaccion-cliente textarea {
-		font-size: 0.9rem;
+			font-size: .9rem;
 	}
+	
 }
 /* Formulario Cliente */
 
@@ -819,7 +849,7 @@ input #file-upload-button {
 	max-width: 800px;
 	font-family: "Quicksand", sans-serif;
 	font-weight: bold;
-	padding: 0.5em;
+	padding: .5em;
 	margin: 0 auto;
 }
 
@@ -833,6 +863,7 @@ input #file-upload-button {
 	text-align: center;
 }
 
+
 .formulario-cliente span {
 	display: block;
 	text-align: center;
@@ -840,13 +871,13 @@ input #file-upload-button {
 
 .formulario-cliente input[type="text"] {
 	display: block;
-	padding: 0.3em 0.3em;
-	font-size: 0.9rem;
+	padding: .3em .3em;
+	font-size: .9rem;
 	width: 98% !important;
 	background-color: #f0f0f0;
 	border-radius: 3px;
 	border: 1px solid #ccc;
-	margin: 0.5em auto;
+	margin: .5em auto;
 }
 
 .formulario-cliente br {
@@ -854,10 +885,11 @@ input #file-upload-button {
 }
 
 @media (max-width: 768px) {
-	.formulario-cliente input,
-	.formulario-cliente span {
-		width: 100%;
+
+	.formulario-cliente input, .formulario-cliente span {
+			width: 100%;
 	}
+
 }
 
 .contenedor-inputs {
@@ -870,7 +902,7 @@ input #file-upload-button {
 	display: block;
 	min-width: 50%;
 	margin: 1em auto 1em auto;
-	background-color: #007bff;
+	background-color: #007BFF;
 	color: #fff;
 	border-radius: 5px;
 	border: none;
@@ -884,28 +916,35 @@ input #file-upload-button {
 }
 
 .msj-validador-whatsapp {
-	display: block;
-	padding-top: 1em !important;
-	width: 90%;
-	height: 80px;
-	margin: 0 auto;
+			display: block;
+			padding-top: 1em !important;
+			width: 90%;
+			height: 80px;
+			margin: 0 auto;
 }
 
 @media (max-width: 768px) {
 	.msj-validador-whatsapp {
-		height: 130px;
-		width: 90%;
-		padding: 1em 0;
+			height: 130px;
+			width: 90%;
+			padding: 1em 0;
 	}
 }
 
 @media (max-width: 350px) {
 	.msj-validador-whatsapp {
-		height: 150px;
+			height: 150px;
 	}
 }
 
-/*Panel Encuesta*/
+/*Panel Encuesta*/ 
+
+.texto-compra-confirmada {
+	display: none;
+}
+
+
+
 
 .panel-encuesta {
 	font-family: "Quicksand", sans-serif;
@@ -913,6 +952,7 @@ input #file-upload-button {
 	font-weight: bold;
 	margin-left: auto;
 	margin-right: auto;
+
 }
 
 .panel-encuesta table {
@@ -935,7 +975,7 @@ input #file-upload-button {
 	background-color: var(--th-color);
 	color: #fff;
 	letter-spacing: 2px;
-	border: 3px solid rgba(0, 0, 0, 0.5);
+	border: 3px solid rgba(0, 0, 0, .5);
 }
 
 .seccion-encuesta {
@@ -956,9 +996,10 @@ input #file-upload-button {
 	background-color: #fff;
 	padding: 1em 0;
 	text-align: center;
-	color: rgba(0, 0, 0, 0.7);
-	border: 0.5px solid rgba(0, 0, 0, 0.5);
+	color: rgba(0, 0, 0, .7);
+	border: .5px solid rgba(0, 0, 0, .5);
 	font-weight: bold;
+
 }
 
 .seccion-encuesta td:hover {
@@ -973,7 +1014,7 @@ input #file-upload-button {
 .seccion-encuesta input[type="radio"] {
 	width: 20px;
 	height: 20px;
-	margin-right: 0.5em;
+	margin-right: .5em;
 	cursor: pointer;
 }
 
@@ -982,109 +1023,129 @@ input #file-upload-button {
 }
 
 .highlight {
-	background-color: yellow;
+ background-color: yellow;
+
 }
 
 .titulo-1 {
-	background-color: #4292f5;
+	background-color: #4292F5;
 }
 
 .section-1 tbody tr td {
-	background-color: #a3cfff;
+	background-color: #A3CFFF;
+
 }
 
 .titulo-2 {
-	background-color: #425af5;
+	background-color: #425AF5;
 }
 
 .seccion-2 tbody tr td {
-	background-color: #d6ecf3;
+	background-color: #D6ECF3;
+
 }
 
 .titulo-3 {
-	background-color: var(--th-color);
+	background-color:var(--th-color);
+
 }
 
 .seccion-3 tbody tr td {
-	background-color: #a6e6fd;
+	background-color:#A6E6FD;
+
 }
 
 .titulo-4 {
-	background-color: #4292f5;
+ background-color: #4292F5;
+
 }
 
 .seccion-4 tbody tr td {
-	background-color: #a3cfff;
+	background-color: #A3CFFF;
 }
 
 .titulo-5 {
-	background-color: #425af5;
+	background-color: #425AF5;
+
 }
 
 .seccion-5 tbody tr td {
-	background-color: #d6ecf3;
+	background-color: #D6ECF3;
 }
 
 /*Ventana de premios del sorteo de la encuesta */
-
 body {
-	font-family: Arial, sans-serif;
+font-family: Arial, sans-serif;
 }
 
 .open-modal-btn {
-	display: block;
-	margin: 1em auto;
-	padding: 10px 20px;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	cursor: pointer;
+display: block;
+margin: 1em auto;
+padding: 10px 20px;
+background-color: #007bff;
+color: white;
+border: none;
+cursor: pointer;
 }
 
 .modal {
-	display: none; /* Oculto por defecto */
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%; /* Asegura que el modal cubra toda la pantalla */
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .modal-content {
-	background-color: white;
-	padding: 20px;
-	border-radius: 5px;
-	position: relative;
-	width: 80%;
-	max-width: 600px;
+background-color: white;
+padding: 20px;
+border-radius: 5px;
+position: relative;
+width: 100%;
+max-width: 500px; /* Ajusta este valor si es necesario */
+max-height: 80%; /* Limita la altura del contenido del modal */
+overflow-y: auto; /* Habilita el scroll en el modal */
 }
 
+.no-scroll {
+overflow: hidden;
+}
+
+
 .close-modal {
-	position: absolute;
-	top: 10px;
-	right: 15px;
-	font-size: 24px;
-	cursor: pointer;
+position: absolute;
+top: 10px;
+right: 15px;
+font-size: 44px;
+cursor: pointer;
 }
 
 .modal-images {
-	display: flex;
-	justify-content: space-around;
+display: flex;
+justify-content: space-around;
 }
 
 @media (max-width: 768px) {
 	.modal-images {
-		flex-direction: column;
-		align-items: center;
+			flex-direction: column;
+			align-items: center;
 	}
 }
 
 .modal-images img {
-	width: 150px;
-	height: 150px;
-	object-fit: cover;
+width: 150px;
+height: 150px;
+object-fit: cover;
+}
+
+@media (max-width: 768px) {
+	.modal-images figure {
+			width: 90vw;
+			text-align: center;
+	}
 }
