@@ -1,7 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-	//const btnConfirmarOp = document.getElementById("obutConfirmaOperacion");
+	const validarCelular = document.getElementById("olblCelularNumeroMensaje");
+	const msjInicial = document.getElementById("msj-inicial");
+
+	if (validarCelular.textContent === "Celular validado") {
+		msjInicial.textContent =
+			"Usted está participando por los sorteos de Diciembre";
+	} else {
+		msjInicial.textContent =
+			"Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp.";
+	}
+
+	const btnRealizarPago = document.getElementById("obutRealizarPago");
+
 	const modal = document.getElementById("myModal");
 	const openModalBtn = document.getElementById("openModalBtn");
+	const btnConfirmarOperacion = document.getElementById(
+		"obutConfirmaOperacion",
+	);
+
 	const closeModalBtn = document.getElementById("closeModalBtn");
 
 	// Asegura de que el modal esté oculto al cargar la página
@@ -9,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Abre el modal cuando se hace clic en el botón
 	openModalBtn.addEventListener("click", (event) => {
+		console.log(event);
 		// Previene que el botón recargue la página
 		event.preventDefault();
 		modal.style.display = "flex";
@@ -18,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Cierra el modal cuando se hace clic en el botón de cerrar
 	closeModalBtn.addEventListener("click", () => {
 		modal.style.display = "none";
+		console.log("Cerrando");
 		document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
 	});
 
@@ -28,12 +46,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
 		}
 	});
-
-	const validarCelular = document.getElementById("olblCelularNumeroMensaje");
-	const msjInicial = document.getElementById("msj-inicial");
-
-	if (validarCelular.textContent === "Celular validado") {
-		msjInicial.textContent =
-			"Usted está participando por los sorteos de Diciembre";
-	}
 });
