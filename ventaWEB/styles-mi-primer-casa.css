@@ -83,16 +83,62 @@ body {
 	}
 }
 
+/*Panel Cliente*/
+
+.msj-whatsapp {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.msj-whatsapp p {
+	text-align: center;
+}
+
+.msj-whatsapp ~ p {
+	text-align: center;
+}
+
+@media (max-width: 900px) {
+	.msj-whatsapp {
+		flex-direction: column;
+	}
+}
+
 /*Botón al whatsapp*/
 .btn-whatsapp {
-	margin-top: 20px;
-	display: flex;
-	justify-content: center;
+	margin-left: 5px;
+	margin-right: 5px;
+	cursor: pointer;
 }
 
 .btn-whatsapp i {
 	font-size: 40px;
 	color: green;
+}
+
+/*Imagen verifica*/
+
+#oimgCelularVerifica {
+	display: none;
+}
+
+/*Contenedor inputs*/
+
+.btn-formulario {
+	display: none;
+}
+
+.contenedor-inputs input {
+	padding: 10px;
+	font-size: 1.5rem;
+}
+
+/*Botón verificar*/
+
+#obutValidacionVerifica {
+	/*display: inline;
+	transform: scale(.8);*/
 }
 
 /*Chevrón - Flecha indicadora de scroll*/
@@ -683,17 +729,18 @@ input #file-upload-button {
 	display: none !important;
 }
 
-#TextBox1,
-#TextBox2 {
+/*#TextBox1, #TextBox2 {
 	display: none !important;
-}
+}*/
 
 /*Panel Transferencia*/
 
 .panel-transferencia {
-	/*display: flex;
-	flex-direction: column;
-	gap: 1rem;*/
+	/*background-color: #EDEDED;
+	background-color: rgb(0,158,227);
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;*/
 }
 
 /*.panel-transferencia input {
@@ -707,26 +754,31 @@ input #file-upload-button {
 	color: white;
 	padding: 10px;
 	border-radius: 5px;
-	width: 80%;
 	font-weight: bold;
+	border: solid 1px white;
 }
 
 /*Botones copíar alias y cvu*/
 .btn-copiar-cvu-alias {
+	background-color: rgba(71, 154, 209, 0.15);
+	color: #009ee3;
 	display: block;
+	font-weight: 600;
+	line-height: 1;
 	font-size: 1.1rem;
 	margin: 10px 0;
 	border: none;
-	width: fit-content;
-	height: unset;
-	padding: 10px 20px;
-	border-radius: 5px;
+	padding: 16px 24px;
+	border-radius: 0.375em;
 	cursor: pointer;
-	transition: transform 0.3s ease-in-out;
+	transition: all 0.3s ease;
 }
 
 .btn-copiar-cvu-alias:hover {
 	transform: scale(1.025);
+	background-color: rgba(71, 154, 209, 0.3);
+	color: #33b3e0;
+	color: #009ee3;
 }
 
 .titulo-nro-de-transferencia span:first-child {
@@ -801,6 +853,7 @@ input #file-upload-button {
 
 .transaccion-cliente {
 	text-align: center;
+	padding: 0.5em;
 }
 
 .transaccion-cliente textarea {
@@ -818,6 +871,22 @@ input #file-upload-button {
 	width: 90%;
 	padding: 0.5em;
 	padding-top: 1.5em !important;
+	border-radius: 5px;
+}
+
+.transaccion-cliente p {
+	font-size: 1rem;
+	font-family: "Quicksand", sans-serif;
+	background-color: #32cd32;
+	text-align: center;
+	color: #fff;
+	text-shadow: 1px 1px 5px black;
+	font-weight: bold;
+	height: fit-content;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em 0.5em !important;
 	border-radius: 5px;
 }
 
@@ -875,11 +944,20 @@ input #file-upload-button {
 	display: none;
 }
 
+.formulario-cliente input {
+	text-align: center;
+}
+
 @media (max-width: 768px) {
 	.formulario-cliente input,
 	.formulario-cliente span {
 		width: 100%;
 	}
+}
+
+.msj-validar-celular {
+	display: block;
+	text-align: center;
 }
 
 .contenedor-inputs {
@@ -925,6 +1003,13 @@ input #file-upload-button {
 	.msj-validador-whatsapp {
 		height: 150px;
 	}
+}
+
+/*Mensaje validar celular*/
+#olblCelularNumeroMensaje {
+	color: red;
+	display: block;
+	text-align: center;
 }
 
 /*Panel Encuesta*/
@@ -1077,6 +1162,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 99999;
 }
 
 .modal-content {
