@@ -123,6 +123,10 @@ body {
 	display: none;
 }
 
+.no-msj {
+	display: none;
+}
+
 /*Contenedor inputs*/
 
 .btn-formulario {
@@ -914,6 +918,10 @@ input #file-upload-button {
 	margin: 0 auto;
 }
 
+.texto-rojo {
+	color: red;
+}
+
 .formulario-cliente h3 {
 	text-align: center;
 }
@@ -931,13 +939,14 @@ input #file-upload-button {
 
 .formulario-cliente input[type="text"] {
 	display: block;
-	padding: 0.3em 0.3em;
-	font-size: 0.9rem;
+	padding: 0.3em 0.5em;
+	font-size: 1rem;
 	width: 98% !important;
 	background-color: #f0f0f0;
 	border-radius: 3px;
 	border: 1px solid #ccc;
 	margin: 0.5em auto;
+	letter-spacing: 1px;
 }
 
 .formulario-cliente br {
@@ -1008,8 +1017,14 @@ input #file-upload-button {
 /*Mensaje validar celular*/
 #olblCelularNumeroMensaje {
 	color: red;
+	display: none;
+	text-align: center;
+}
+
+.celular-validado {
 	display: block;
 	text-align: center;
+	color: red;
 }
 
 /*Panel Encuesta*/
