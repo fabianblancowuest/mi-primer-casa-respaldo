@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const validarCelular = document.getElementById("olblCelularNumeroMensaje");
-	const msjInicial = document.getElementById("msj-inicial");
-
-	if (validarCelular.textContent === "Celular validado") {
-		msjInicial.textContent =
-			"Usted está participando por los sorteos de Diciembre";
-	} else {
-		msjInicial.textContent =
-			"Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp.";
-	}
-
 	const btnRealizarPago = document.getElementById("obutRealizarPago");
 
 	const modal = document.getElementById("myModal");
@@ -20,19 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const closeModalBtn = document.getElementById("closeModalBtn");
 
-	// Asegura de que el modal esté oculto al cargar la página
 	modal.style.display = "none";
 
-	// Abre el modal cuando se hace clic en el botón
 	openModalBtn.addEventListener("click", (event) => {
 		console.log(event);
-		// Previene que el botón recargue la página
 		event.preventDefault();
 		modal.style.display = "flex";
+
 		document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
 	});
 
-	// Cierra el modal cuando se hace clic en el botón de cerrar
+	// Cierra modal
 	closeModalBtn.addEventListener("click", () => {
 		modal.style.display = "none";
 		console.log("Cerrando");
@@ -45,5 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
 			modal.style.display = "none";
 			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
 		}
+	});
+
+	//Simula un clic automático en el botón openModalBtn una vez al cargar la página
+	setTimeout(() => {
+		openModalBtn.click();
+	}, 1000);
+
+	const btnPremiosPrincipales = document.getElementById("obutPremios");
+
+	btnPremiosPrincipales.click(() => {
+		alert("Click");
 	});
 });
