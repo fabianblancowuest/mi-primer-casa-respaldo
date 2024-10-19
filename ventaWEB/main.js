@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	);
 	const msjInicial = document.getElementById("msj-inicial");
 	const msjWhatsapp = document.getElementById("msj-whatsapp");
+	const nroCelular = document.getElementById("contenedor-nro-celular");
 
 	// Mensaje inicial según el estado del celular
 	msjInicial.textContent =
@@ -15,14 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
 			: "Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp.";
 
 	// Mostrar/ocultar mensaje de WhatsApp según el estado de validación
-	msjWhatsapp.style.display =
-		celNoValidado.textContent === "Número de celular no validado"
-			? "flex"
-			: "none";
+	//msjWhatsapp.style.display = celNoValidado.textContent === "Número de celular no validado" ? "flex" : "none";
+	if (celNoValidado.textContent === "Número de celular no validado") {
+		msjWhatsapp.style.display = "flex";
+	} else if (validarCelular.textContent === "Celular validado") {
+		msjWhatsapp.style.display = "none";
+		const msjNoValidado = document.createElement("span");
+		msjNoValidado.textContent = "Celular Validado";
+		msjNoValidado.className = "celular-validado";
+		nroCelular.appendChild(msjNoValidado);
+	}
 
 	// Mostrar/ocultar mensaje de validación de celular
-	validarCelular.style.display =
-		validarCelular.textContent === "Celular validado" ? "block" : "none";
+	//validarCelular.style.display = validarCelular.textContent === "Celular validado" ? "block" : "none";
 
 	window.addEventListener("scroll", function () {
 		const chevron = document.getElementById("chevron");
@@ -48,17 +54,37 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
-	// Función para hacer scroll a una sección específica
+	// Seleccionamos los botones por su ID
+	const btnNumeros = document.getElementById("obutNumeros");
+	const btnPremios = document.getElementById("obutPremios");
+
+	// La función para hacer scroll a la sección específica
 	function scrollToSection(sectionId) {
-		document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+		const section = document.getElementById(sectionId);
+		if (section) {
+			section.scrollIntoView({ behavior: "smooth" });
+		}
 	}
 
-	const btnNumeros = document.getElementById("obutNumeros");
+	// Asignamos eventos de clic a los botones
+	if (btnNumeros) {
+		btnNumeros.addEventListener("click", function (event) {
+			event.preventDefault(); // Prevenimos el comportamiento por defecto (si es necesario)
+			scrollToSection("panel-numeros"); // Desplazamos hacia la sección 'panel-numeros'
+		});
+	}
+
+	if (btnPremios) {
+		btnPremios.addEventListener("click", function (event) {
+			event.preventDefault();
+			scrollToSection("panel-premios"); // Desplazamos hacia la sección 'panel-premios'
+		});
+	}
+
 	btnNumeros.addEventListener("click", (event) => {
 		event.preventDefault();
 		panelNumeros.scrollIntoView({ behavior: "smooth" });
 	});
-	const btnPremios = document.getElementById("obutPremios");
 	btnPremios.addEventListener("click", (event) => {
 		event.preventDefault();
 		panelPremios.scrollIntoView({ behavior: "smooth" });
