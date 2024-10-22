@@ -13,7 +13,7 @@ a {
 body {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0.5em;
+	padding: 0 0.5em;
 	font-family: sans-serif;
 }
 
@@ -32,10 +32,11 @@ body {
 
 .logo {
 	position: fixed;
-	top: 10px;
+	top: 13px;
 	left: 10px;
 	width: 80px;
 	z-index: 999999999;
+	border-radius: 5px;
 }
 
 .header h1 {
@@ -48,6 +49,7 @@ body {
 	color: rgba(0, 0, 0, 0.8);
 	text-shadow: 1px 1px 2px black;
 	background-color: #fd343a;
+	background-color: #bb0001;
 	color: white;
 	width: 100%;
 	padding: 10px 5px;
@@ -82,7 +84,7 @@ h3 {
 	.logo {
 		/*display: none;*/
 		position: static;
-		margin-top: 30px;
+		margin-top: 40px;
 	}
 
 	.header h1 {
@@ -126,8 +128,8 @@ h3 {
 }
 
 .btn-whatsapp i {
-	font-size: 40px;
-	color: green;
+	font-size: 50px;
+	color: #00d757;
 }
 
 /*Imagen verifica*/
@@ -164,7 +166,9 @@ h3 {
 	bottom: 20px;
 	right: 30px;
 	cursor: pointer;
-	/*animation: ilustrationAnimate ease-in .7s infinite alternate;*/
+	border-radius: 10px;
+	animation: ilustrationAnimate ease-in 0.7s infinite alternate;
+	z-index: 99999999999;
 }
 
 @keyframes ilustrationAnimate {
@@ -174,8 +178,13 @@ h3 {
 	}
 	100% {
 		opacity: 1;
+		background-color: black;
 		transform: scale(1.025);
 	}
+}
+
+.chevron img {
+	width: 50px;
 }
 
 /* Animación de parpadeo */
@@ -271,6 +280,20 @@ h3 {
 	}
 }
 
+.btn-basic {
+	padding: 10px 20px;
+	margin: 1em auto;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease-in;
+	font-family: Consolas;
+	font-weight: bold;
+}
+
+.btn-basic:hover {
+	transform: scale(1.015);
+}
+
 .btn {
 	font-size: 1.5rem;
 	font-family: Consolas;
@@ -287,6 +310,25 @@ h3 {
 	border: 1px solid #55a6c1;
 	cursor: pointer;
 	transition: all 0.3s ease-in;
+}
+
+.btn-muestra {
+	width: 101.3px;
+	height: 29.5px;
+	font-size: 0.7rem;
+	display: inline-block;
+	text-align: center;
+	line-height: 29.5px;
+	padding: 0;
+	font-family: Consolas;
+	letter-spacing: 1px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background: linear-gradient(to right, #00b4db, #0083b0) !important;
+	color: white;
+	border: 1px solid #55a6c1;
+	border-radius: 5px;
+	margin-left: 5px;
 }
 
 #obutCobrar {
@@ -519,6 +561,19 @@ img {
 	resize: none;
 	text-align: center;
 	border-radius: 5px;
+}
+
+.msj-footer-panel-premios p {
+	margin: 1em auto;
+	display: block;
+	width: 90%;
+	padding: 1.2em 0.5em;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid gray;
+	font-family: sans-serif;
+	font-weight: normal;
+	line-height: 1.5;
 }
 
 .msj-error-premios {
@@ -778,6 +833,27 @@ input #file-upload-button {
 	border: solid 1px white;
 }
 
+.cuenta-mp span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cuenta-mp span i {
+	display: inline-block;
+	margin: 8px 5px 0 5px;
+	color: white;
+	background-color: #00d757;
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+	.cuenta-mp span {
+		flex-direction: column;
+	}
+}
+
 /*Botones copíar alias y cvu*/
 .btn-copiar-cvu-alias {
 	background-color: rgba(71, 154, 209, 0.15);
@@ -878,25 +954,6 @@ input #file-upload-button {
 
 .transaccion-cliente {
 	text-align: center;
-	padding: 0.5em;
-}
-
-.transaccion-cliente textarea {
-	font-size: 1rem;
-	font-family: "Quicksand", sans-serif;
-	background: var(--th-color);
-	background-color: #c8e6c9;
-	background-color: #a0bea1;
-	background-color: #32cd32;
-	text-align: center;
-	color: #fff;
-	text-shadow: 1px 1px 5px black;
-	font-weight: bold;
-	height: 60px;
-	width: 100%;
-	padding: 0.5em;
-	padding-top: 1.5em !important;
-	border-radius: 5px;
 }
 
 .transaccion-cliente p {
@@ -907,13 +964,12 @@ input #file-upload-button {
 	color: #fff;
 	text-shadow: 1px 1px 5px black;
 	font-weight: bold;
-	height: fit-content;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 1em 0.5em !important;
 	border-radius: 5px;
-	padding: 20px 10px;
+	padding: 30px;
+	line-height: 1.5;
 }
 
 @media (max-width: 500px) {
@@ -941,9 +997,10 @@ input #file-upload-button {
 }
 
 .texto-rojo {
-	display: block;
+	display: flex;
 	color: red;
-	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .formulario-cliente h3 {
@@ -1202,7 +1259,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 999999;
+	z-index: 9999999999;
 }
 
 .modal-content {
@@ -1228,6 +1285,13 @@ body {
 	font-size: 44px;
 	cursor: pointer;
 	transition: transform 0.2s ease;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
 }
 
 .close-modal:hover {
@@ -1259,18 +1323,50 @@ body {
 		width: 90vw;
 		text-align: center;
 	}
+
+	.modal-images img {
+		max-height: 350px;
+	}
 }
 
 .modal-images-principales {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	gap: 5px;
 }
+
+.modal-images-principales figure {
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	padding: 20px;
+	background-color: #fd343a;
+	width: 100%;
+}
+
+/*.modal-images figure {
+	background-color: transparent;
+	box-shadow: none;
+	border: 1px solid gray;
+}*/
 
 .modal-images-principales img {
 	width: 100%;
 	max-height: 100%;
 	border-radius: 5px;
+}
+
+.modal-images-principales figcaption div,
+.modal-images figcaption div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-images-principales figcaption div img,
+.modal-images figcaption div img {
+	width: 70px;
 }
 
 @media (max-width: 768px) {
@@ -1281,13 +1377,45 @@ body {
 	}
 
 	.modal-images img {
-		width: 200px;
+		width: 300px;
 		object-fit: cover;
 	}
 }
 
 .link-encuesta {
-	cursor: pointer;
-	color: var(--th-color);
+	background-color: #4292f5;
+	color: white;
+	padding: 5px 10px;
+}
+
+.img-sorteo {
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.white-text {
+	color: white;
+	text-shadow: 1px 1px 3px black;
+	font-family: "Quicksand", sans-serif;
+	font-size: 1.5rem;
+	letter-spacing: 1px;
+}
+
+/*Ref texto rojo*/
+.texto-con-sombra {
+	text-shadow: 1px 1px 2px red;
+	letter-spacing: 2px;
+	font-size: 1.2rem;
 	font-weight: bold;
+	line-height: 1.5;
+}
+
+.texto-cerrar {
+	font-size: 1.5rem;
+}
+
+.texto-modal {
+	margin-top: 35px;
 }
