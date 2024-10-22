@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		const chevron = document.getElementById("chevron");
 		const hasScroll = document.body.scrollHeight > window.innerHeight;
 
+		// Calcular si se debe mostrar el chevron
+		const isAtBottom =
+			window.innerHeight + window.scrollY >= document.body.scrollHeight;
+
 		// Mostrar u ocultar chevron
-		chevron.style.display =
-			hasScroll &&
-			window.innerHeight + window.scrollY < document.body.scrollHeight
-				? "block"
-				: "none";
+		chevron.style.display = hasScroll && !isAtBottom ? "block" : "none";
 	});
 
 	// Scroll suave al hacer clic en el chevron
