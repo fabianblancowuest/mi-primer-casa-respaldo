@@ -2,6 +2,10 @@
 	--th-color: #337ab7;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 a {
 	text-decoration: none !important;
 }
@@ -9,7 +13,7 @@ a {
 body {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 0.5em 1.5em 0.5em;
+	padding: 0.5em;
 	font-family: sans-serif;
 }
 
@@ -17,38 +21,48 @@ body {
 
 .header {
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	height: fit-content;
 	text-align: center;
-	margin-top: -5px;
+	margin-top: -30px;
 }
 
 .logo {
-	position: absolute;
-	margin-top: 8px;
-	margin-left: 5px;
-	top: 0;
-	left: 0;
-	width: 70px;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: 80px;
+	z-index: 999999999;
 }
 
 .header h1 {
-	display: inline-block;
 	text-transform: uppercase;
-	font-size: 2.5rem;
+	font-size: 3rem;
 	font-family: "Quicksand", sans-serif;
 	font-weight: bold;
 	margin-bottom: 10px;
-	letter-spacing: 0.1rem;
+	letter-spacing: 1px;
 	color: rgba(0, 0, 0, 0.8);
+	text-shadow: 1px 1px 2px black;
+	background-color: #fd343a;
+	color: white;
+	width: 100%;
+	padding: 10px 5px;
+	border-radius: 5px;
+}
+
+h3 {
+	text-align: center;
 }
 
 /* Subtítulo */
 #Label1 {
 	font-family: "Quicksand", sans-serif;
 	color: rgba(0, 0, 0, 0.8);
+	letter-spacing: 1px;
 }
 
 .info-header textarea {
@@ -64,16 +78,15 @@ body {
 	}
 }
 
-@media (max-width: 550px) {
+@media (max-width: 900px) {
 	.logo {
 		/*display: none;*/
 		position: static;
+		margin-top: 30px;
 	}
 
 	.header h1 {
-		font-size: 2rem;
-		margin-top: 10px;
-		margin-bottom: -15px;
+		font-size: 2.4rem;
 	}
 
 	/* Subtítulo */
@@ -149,29 +162,31 @@ body {
 .chevron {
 	position: fixed;
 	bottom: 20px;
-	right: 20px;
+	right: 30px;
 	cursor: pointer;
+	/*animation: ilustrationAnimate ease-in .7s infinite alternate;*/
 }
 
-.arrow {
-	width: 0;
-	height: 0;
-	border-left: 20px solid black;
-	border-right: 20px solid black;
-	border-top: 40px solid yellow; /* Color de la flecha */
-	animation: pulse 2s infinite; /* Efecto de parpadeo */
-	border-radius: 5px;
-}
-
-/* Animación de parpadeo */
-@keyframes pulse {
+@keyframes ilustrationAnimate {
 	0% {
+		transform: scale(1);
 		opacity: 0;
 	}
 	100% {
 		opacity: 1;
+		transform: scale(1.025);
 	}
 }
+
+/* Animación de parpadeo */
+/*@keyframes pulse {
+	0% {
+			opacity: 0; 
+	}
+	100% {
+			opacity: 1;
+	}
+}*/
 
 .contenedor-principal {
 	width: 100%;
@@ -500,8 +515,7 @@ img {
 	margin: 1em auto;
 	display: block;
 	width: 90%;
-	height: 65px;
-	padding: 1.2em 0.5em 0;
+	padding: 1.2em 0.5em;
 	resize: none;
 	text-align: center;
 	border-radius: 5px;
@@ -553,6 +567,8 @@ img {
 }
 
 .btn-pago {
+	margin-top: 30px;
+	margin-bottom: 30px;
 	font-family: "Quicksand", sans-serif;
 	border-radius: 5px;
 	border: 1px solid black;
@@ -778,6 +794,11 @@ input #file-upload-button {
 	transition: all 0.3s ease;
 }
 
+.panel-transferencia p:nth-of-type(1) {
+	margin: 0;
+	padding: 1em 0.5em;
+}
+
 .btn-copiar-cvu-alias:hover {
 	transform: scale(1.025);
 	background-color: rgba(71, 154, 209, 0.3);
@@ -872,14 +893,14 @@ input #file-upload-button {
 	text-shadow: 1px 1px 5px black;
 	font-weight: bold;
 	height: 60px;
-	width: 90%;
+	width: 100%;
 	padding: 0.5em;
 	padding-top: 1.5em !important;
 	border-radius: 5px;
 }
 
 .transaccion-cliente p {
-	font-size: 1rem;
+	font-size: 1.1rem;
 	font-family: "Quicksand", sans-serif;
 	background-color: #32cd32;
 	text-align: center;
@@ -887,11 +908,12 @@ input #file-upload-button {
 	text-shadow: 1px 1px 5px black;
 	font-weight: bold;
 	height: fit-content;
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 1em 0.5em !important;
 	border-radius: 5px;
+	padding: 20px 10px;
 }
 
 @media (max-width: 500px) {
@@ -919,7 +941,9 @@ input #file-upload-button {
 }
 
 .texto-rojo {
+	display: block;
 	color: red;
+	text-align: center;
 }
 
 .formulario-cliente h3 {
@@ -1037,8 +1061,7 @@ input #file-upload-button {
 	font-family: "Quicksand", sans-serif;
 	width: 100%;
 	font-weight: bold;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 3em auto;
 }
 
 .panel-encuesta table {
@@ -1047,9 +1070,11 @@ input #file-upload-button {
 }
 
 .titulo-panel-encuesta {
-	font-size: 2.8rem;
+	font-size: 1.8rem;
 	letter-spacing: 2px;
 	width: 100%;
+	margin: 0;
+	margin: 1em 0;
 }
 
 .titulo-seccion-encuesta {
@@ -1177,17 +1202,18 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 99999;
+	z-index: 999999;
 }
 
 .modal-content {
 	background-color: white;
-	padding: 20px;
+	padding: 40px 20px;
+	margin-top: 30px;
 	border-radius: 5px;
 	position: relative;
-	width: 100%;
-	max-width: 900px; /* Ajusta este valor si es necesario */
-	max-height: 80%; /* Limita la altura del contenido del modal */
+	width: 1100px;
+	max-width: 100%; /* Ajusta este valor si es necesario */
+	max-height: 100%; /* Limita la altura del contenido del modal */
 	overflow-y: auto; /* Habilita el scroll en el modal */
 }
 
@@ -1201,6 +1227,12 @@ body {
 	right: 15px;
 	font-size: 44px;
 	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+.close-modal:hover {
+	transform: scale(1.1);
+	color: red;
 }
 
 .modal-images {
@@ -1208,17 +1240,18 @@ body {
 	justify-content: space-around;
 }
 
-@media (max-width: 768px) {
-	.modal-images {
-		flex-direction: column;
-		align-items: center;
-	}
+.modal-images img {
+	width: 90%;
+	height: auto;
+	max-height: 300px;
+	object-fit: cover;
 }
 
-.modal-images img {
-	width: 150px;
-	height: 150px;
-	object-fit: cover;
+.modal-images p,
+.modal-images-principales p,
+.modal-images h3,
+.modal-images-principales h3 {
+	text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -1226,4 +1259,35 @@ body {
 		width: 90vw;
 		text-align: center;
 	}
+}
+
+.modal-images-principales {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-images-principales img {
+	width: 100%;
+	max-height: 100%;
+	border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+	.modal-images,
+	.modal-images-principales {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.modal-images img {
+		width: 200px;
+		object-fit: cover;
+	}
+}
+
+.link-encuesta {
+	cursor: pointer;
+	color: var(--th-color);
+	font-weight: bold;
 }
