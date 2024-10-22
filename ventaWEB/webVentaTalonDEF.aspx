@@ -11,9 +11,9 @@
 
             <head runat="server">
                 <%-- Título --%>
-                    <title>Venta de billetes sorteo día de la Madre Mi Primer Casa - 20 de Octubre de 2024 - </title>
+                    <title>Mi Primer Casa S.A. - Venta Billetes - Sorteo</title>
                     <%-- Metadatos --%>
-                        <meta charset="utf-8" />
+                        <meta charset="UTF-8" />
                         <meta name="viewport"
                             content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" />
                         <%-- <meta http-equiv="refresh" content="5" />--%>
@@ -36,8 +36,7 @@
                                 <%-- Styles Sheets --%>
                                     <link href="../ventaWEB/styles-mi-primer-casa.css" rel="stylesheet" />
                                     <%-- Favicon --%>
-                                        <link rel="shortcut icon" href="./mi-primer-casa-logo-wbg.png"
-                                            type="image/x-icon" />
+                                        <link rel="shortcut icon" href="images/logos/favicon.png" type="image/x-icon" />
                                         <%-- Scripts --%>
                                             <script type="text/javascript">
                                                 function OpenWindows(url) {
@@ -54,19 +53,12 @@
 
                         <ContentTemplate>
                             --%>
-                            <div class="header">
-                                <img class="logo" src="mi-primer-casa-logo-wbg.png" alt="mi-primer-casa-logo" />
-                                <h1>
-                                    <asp:Label ID="Label2" runat="server" Text="Mi Primer Casa S.A." Font-Bold="true">
-                                    </asp:Label>
-                                </h1>
-                            </div>
-                            <div align="center">
-                                <h2>
-                                    <asp:Label ID="Label1" runat="server" Text="Una forma diferente de comprar">
-                                    </asp:Label>
-                                </h2>
-                            </div>
+                            <header class="header">
+                                <img class="logo" src="images/logos/logo-def.jpeg" alt="mi-primer-casa-logo" />
+                                <h1 id="Label12-">Mi Primer Casa S.A.</h1>
+                                <h2 id="Label1" class="subtitulo">Una forma diferente de comprar</h2>
+                            </header>
+
 
                             <asp:Label ID="olblSession" runat="server" Text="" Visible="false" CssClass=""></asp:Label>
                             <asp:Label ID="olblIdOperador" runat="server" Text="" Visible="false"></asp:Label>
@@ -95,43 +87,59 @@
                                             Visible="false"></asp:Label>
 
 
-                                        <div class="transaccion-cliente">
+                                        <div id="transaccion-cliente" class="transaccion-cliente">
 
                                             <%-- <asp:TextBox ID="Label14" runat="server"
                                                 Text="Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp."
                                                 TextMode="MultiLine" Enabled="false" BorderWidth="0"></asp:TextBox>--%>
                                                 <p id="msj-inicial">
-                                                    Complete sus datos para que podamos enviarle sus comprobantes a su
+                                                    Completá tus datos para que podamos enviarte tus comprobantes a tu
                                                     correo electrónico y Whatsapp.
+                                                </p>
+                                                <p id="msj-inicial-validado">
+                                                    Selecciona tus números y participa por los tres grandes premios de
+                                                    fin de año. También tendrás la chance de ganar $100.000 cada semana
+                                                    por Canal 11 Litoral. ¡Aprovecha esta GRAN OPORTUNIDAD, es tu
+                                                    momento de ganar!
                                                 </p>
 
                                         </div>
 
 
                                         <div class="contenedor-inputs">
-                                            <asp:Label ID="Label4" runat="server" Text="Número de celular:"></asp:Label>
-                                            <asp:TextBox ID="otxtCelularNumero" runat="server" Enabled="false"
-                                                Width="45%"></asp:TextBox>
+                                            <div id="contenedor-nro-celular">
+                                                <asp:Label ID="Label4" runat="server" Text="Número de celular:">
+                                                </asp:Label>
+                                                <asp:TextBox ID="otxtCelularNumero" runat="server" Enabled="false"
+                                                    Width="45%"></asp:TextBox>
+                                            </div>
+
                                             <asp:Label ID="olblCelularNumeroValidadoMensaje"
                                                 CssClass="msj-validar-celular" runat="server" Text="" Font-Bold="true"
                                                 ForeColor="Red"></asp:Label>
                                         </div>
                                         <div class="xxxxcontenedor-inputsxxxx">
 
-                                            <asp:Label ID="olblCelularNumeroMensaje" runat="server" Text="Hola"
-                                                Font-Bold="true"></asp:Label>
                                             <div>
-                                                <div id="msj-whatsapp" class="msj-whatsapp">
-                                                    <p>Envíe un mensaje por Whatsapp solo con su Apellido y Nombre</p>
-                                                    <a class="btn-whatsapp"
-                                                        href="https://wa.me/543704779106?text=Apellido y Nombre: "
-                                                        target="_blank" rel="noopener noreferrer">
-                                                        <i class="bi bi-whatsapp"></i>
-                                                    </a>
+                                                <asp:Label ID="olblCelularNumeroMensaje" runat="server" Text="Hola"
+                                                    Font-Bold="true"></asp:Label>
+                                                <div id="msj-whatsapp">
+                                                    <div class="msj-whatsapp">
+                                                        <span class="texto-rojo">Envía un mensaje por Whatsapp solo con
+                                                            tu APELLIDO y NOMBRE</span>
+                                                        <a class="btn-whatsapp"
+                                                            href="https://wa.me/543704779106?text=Apellido y Nombre: "
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            <i class="bi bi-whatsapp"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="texto-rojo">
+                                                        Luego, hacé clic en el botón<div class="btn-muestra">Verificar
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <p>Luego, haga clic en el botón</p>
 
-                                                <asp:Button ID="obutValidacionVerifica" runat="server" Text="Verifica"
+                                                <asp:Button ID="obutValidacionVerifica" runat="server" Text="Verificar"
                                                     CssClass="btn btn-numeros" />
                                             </div>
                                             <asp:Image ID="oimgCelularVerifica" runat="server" Height="27px"
@@ -145,7 +153,7 @@
 
                                             <%-- Chevrón - Flecha indicadora que hay que hacer scroll --%>
                                                 <div id="chevron" class="chevron" style="display: none;">
-                                                    <div class="arrow"></div>
+                                                    <img src="images/chevron-abajo.png" alt="chevron" />
                                                 </div>
 
 
@@ -161,7 +169,6 @@
                                                             Text="Apellido y Nombres:"></asp:Label>
                                                         <asp:TextBox ID="otxtClienteApyNom" runat="server"
                                                             Enabled="false"></asp:TextBox>
-
                                                     </div>
                                                     <div class="contenedor-inputs">
                                                         <asp:Label ID="Label3" runat="server"
@@ -197,8 +204,7 @@
 
                                                         <%-- Botón Números --%>
                                                             <asp:Button ID="obutNumeros" runat="server" Text="Números"
-                                                                CssClass="btn btn-numeros"
-                                                                OnClientClick="scrollToSection('panel-numeros'); return false;" />
+                                                                CssClass="btn btn-numeros" />
 
 
                                                             <asp:Panel ID="PanelNumeros" runat="server">
@@ -351,8 +357,7 @@
                                                                 class="btn-premios-container">
                                                                 <asp:Button ID="obutPremios" runat="server"
                                                                     Text="Premios" CssClass="btn btn-premios"
-                                                                    Enabled="false"
-                                                                    OnClientClick="scrollToSection('panel-premios'); return false;" />
+                                                                    Enabled="false" />
                                                             </div>
 
 
@@ -451,51 +456,125 @@
                                                                             </Columns>
                                                                         </asp:GridView>
                                                                     </div>
-                                                                    <%--Footer Panel Premios--%>
-                                                                        <div class="footer-panel-premios">
-                                                                            <asp:Label ID="Label7" runat="server"
-                                                                                Text="Cantidad de talones seleccionados :  ">
-                                                                            </asp:Label>
-                                                                            <asp:Label ID="olblCantidadTotal"
-                                                                                runat="server" Text="0"></asp:Label>
+                                                                    <%-- Modal Premios Principales --%>
+                                                                        <div id="premiosPrincipales" class="modal">
+                                                                            <div class="modal-content">
+                                                                                <span id="closeModalPremios"
+                                                                                    class="close-modal"><span
+                                                                                        class="texto-cerrar">Cerrar</span>&times;</span>
+                                                                                <div class="transaccion-cliente">
+                                                                                    <p class="texto-modal">¡Elegí cuáles
+                                                                                        de estos increíbles premios te
+                                                                                        gustaría GANAR! 🤩🎉🎊</p>
+                                                                                </div>
+                                                                                <div class="modal-images-principales">
+                                                                                    <figure>
+                                                                                        <img src="images/premios-sorteo/principales/sandero.png"
+                                                                                            alt="Auto" />
+                                                                                        <img src="images/premios-sorteo/principales/terreno.jpg"
+                                                                                            alt="Terreno" />
+                                                                                        <figcaption>
+                                                                                            <div>
+                                                                                                <img
+                                                                                                    src="images/premios-sorteo/principales/primer-premio.png" />
+                                                                                                <h3 class="white-text">
+                                                                                                    Un Terreno y Un 0km.
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                    <figure>
+                                                                                        <img src="images/premios-sorteo/principales/terreno.jpg"
+                                                                                            alt="Terreno" />
+                                                                                        <figcaption>
+                                                                                            <div>
+                                                                                                <img
+                                                                                                    src="images/premios-sorteo/principales/segundo-premio.png" />
+                                                                                                <h3 class="white-text">
+                                                                                                    Un Terreno</h3>
+                                                                                            </div>
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                    <figure>
+                                                                                        <img src="images/premios-sorteo/principales/dinero-1.jpg"
+                                                                                            alt="Dinero" />
+                                                                                        <figcaption>
+                                                                                            <div>
+                                                                                                <img
+                                                                                                    src="images/premios-sorteo/principales/tercer-premio.png" />
+                                                                                                <h3 class="white-text">
+                                                                                                    $5.000.000</h3>
+                                                                                            </div>
+
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-
-
-                                                                        <div class="footer-panel-premios">
-                                                                            <asp:Label ID="Label8" runat="server"
-                                                                                Text="Importe de los talones seleccionados : ">
-                                                                            </asp:Label>
-                                                                            <div class="total">
-                                                                                <asp:Label ID="Label9" runat="server"
-                                                                                    Text="$"></asp:Label>
-                                                                                <asp:Label ID="olblMontoTotal"
+                                                                        <%--Footer Panel Premios--%>
+                                                                            <div class="footer-panel-premios">
+                                                                                <asp:Label ID="Label7" runat="server"
+                                                                                    Text="Cantidad de talones seleccionados :  ">
+                                                                                </asp:Label>
+                                                                                <asp:Label ID="olblCantidadTotal"
                                                                                     runat="server" Text="0"></asp:Label>
                                                                             </div>
-                                                                        </div>
-                                                                        <div>
-                                                                            <asp:Label ID="olblValidacionMensajeErrores"
-                                                                                runat="server" Text="0" Font-Bold="true"
-                                                                                ForeColor="Red" Visible="false"
-                                                                                Font-Size="Small"></asp:Label>
-                                                                            <asp:Label CssClass="msj-error-premios"
-                                                                                ID="olblValidacionMensajeErrorPremio"
-                                                                                runat="server" Text=""></asp:Label>
-                                                                        </div>
 
-                                                                        <div class="msj-footer-panel-premios">
-                                                                            <asp:TextBox ID="otxtLeyendaPago"
-                                                                                runat="server"
-                                                                                Text="Compra confirmada. Si deseas agregar/quitar o cambiar NUMEROS, usa los botones NUMEROS y PREMIOS. Luego, presiona PAGAR."
-                                                                                TextMode="MultiLine" BackColor="White"
-                                                                                Enabled="false" Visible="false">
-                                                                            </asp:TextBox>
-                                                                        </div>
-                                                                        <%-- Boton Verde Pagar --%>
-                                                                            <div style="text-align: center;">
-                                                                                <asp:Button CssClass="btn-pago"
-                                                                                    ID="obutRealizarPago" runat="server"
-                                                                                    Text="PAGAR" Visible="false" />
+
+                                                                            <div class="footer-panel-premios">
+                                                                                <asp:Label ID="Label8" runat="server"
+                                                                                    Text="Importe de los talones seleccionados : ">
+                                                                                </asp:Label>
+                                                                                <div class="total">
+                                                                                    <asp:Label ID="Label9"
+                                                                                        runat="server" Text="$">
+                                                                                    </asp:Label>
+                                                                                    <asp:Label ID="olblMontoTotal"
+                                                                                        runat="server" Text="0">
+                                                                                    </asp:Label>
+                                                                                </div>
                                                                             </div>
+                                                                            <div>
+                                                                                <asp:Label
+                                                                                    ID="olblValidacionMensajeErrores"
+                                                                                    runat="server" Text="0"
+                                                                                    Font-Bold="true" ForeColor="Red"
+                                                                                    Visible="false" Font-Size="Small">
+                                                                                </asp:Label>
+                                                                                <asp:Label CssClass="msj-error-premios"
+                                                                                    ID="olblValidacionMensajeErrorPremio"
+                                                                                    runat="server" Text=""></asp:Label>
+                                                                            </div>
+
+                                                                            <div class="msj-footer-panel-premios">
+
+                                                                                <%-- Oculto --%>
+                                                                                    <asp:TextBox ID="otxtLeyendaPago"
+                                                                                        CssClass="panel-cvu-oculto"
+                                                                                        runat="server"
+                                                                                        Text="Si deseas agregar, quitar o cambiar NUMEROS, usa los botones números y premios, luego elija su FORMA DE PAGO."
+                                                                                        TextMode="MultiLine"
+                                                                                        BackColor="White"
+                                                                                        Enabled="false" Visible="false">
+                                                                                    </asp:TextBox>
+
+                                                                                    <%-- Éste es el que se muestra en
+                                                                                        pantalla --%>
+                                                                                        <p id="otxtLeyendaPago">
+                                                                                            Si desea agregar, quitar o
+                                                                                            cambiar NÚMEROS, use los
+                                                                                            botones números y premios,
+                                                                                            luego elija su FORMA DE
+                                                                                            PAGO.
+                                                                                        </p>
+                                                                            </div>
+                                                                            <%-- Boton Verde Pagar --%>
+                                                                                <div style="text-align: center;">
+                                                                                    <asp:Button CssClass="btn-pago"
+                                                                                        ID="obutRealizarPago"
+                                                                                        runat="server" Text="PAGAR"
+                                                                                        Visible="false" />
+                                                                                </div>
                                                                 </asp:Panel>
                                                     </div>
                                             </div>
@@ -511,7 +590,6 @@
                                             </div>
                                         </div>
                                     </div>
-
 
 
                                     <%-- Panel Premio --%>
@@ -594,7 +672,7 @@
                                                         Text="CVU : 0000003100050215684489" Font-Bold="true"
                                                         ClientIDMode="Static"></asp:TextBox>--%>
                                                         <p class="cuenta-mp" name="otxtDatosBancoParaTransferencia02"
-                                                            id="otxtDatosBancoParaTransferencia02">"CVU :
+                                                            id="otxtDatosBancoParaTransferencia02">CVU :
                                                             0000003100050215684489</p>
                                                         <button type="button" id="btn-copiar-cvu"
                                                             class="btn-copiar-cvu-alias">Copiar CVU</button>
@@ -605,7 +683,7 @@
                                                         Text="ALIAS : sorteo.billete.mpc " Font-Bold="true"
                                                         ClientIDMode="Static"></asp:TextBox>--%>
                                                         <p class="cuenta-mp" id="otxtDatosBancoParaTransferencia03">
-                                                            "ALIAS : sorteo.billete.mpc"</p>
+                                                            ALIAS : sorteo.billete.mpc</p>
                                                         <button type="button" id="btn-copiar-alias"
                                                             class="btn-copiar-cvu-alias">Copiar Alias</button>
                                                 </div>
@@ -616,36 +694,43 @@
                                                             Text="Una vez que realice la transferencia a la cuenta de la Empresa, deberá enviar la captura de pantalla de la misma al teléfono del Vendedor asignado , para que este confeccione los billetes seleccionado con sus datos y los ingrese en la urna luego de corroborar la acreditaciónm de la operación"
                                                             Font-Bold="true" TextMode="MultiLine"></asp:TextBox>--%>
                                                             <p class="cuenta-mp">
-                                                                Una vez que realice la transferencia a la cuenta de la
-                                                                Empresa, deberá enviar la captura de pantalla de la
-                                                                misma al teléfono del vendedor asignado, para que éste
-                                                                confeccione los billetes seleccionados con sus datos y
-                                                                los ingrese en la urna luego de corroborar la
-                                                                acreditación de la operación.
+                                                                <%-- Una vez que realice la transferencia a la cuenta de
+                                                                    la Empresa, deberá enviar la captura de pantalla de
+                                                                    la misma al teléfono del vendedor asignado, para que
+                                                                    éste confeccione los billetes seleccionados con sus
+                                                                    datos y los ingrese en la urna luego de corroborar
+                                                                    la acreditación de la operación.--%>
+                                                                    <%-- <asp:TextBox ID="TextBox2" runat="server"
+                                                                        BackColor="LightGray" Width="90%"
+                                                                        Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
+                                                                        Font-Bold="true" TextMode="MultiLine">
+                                                                        </asp:TextBox>--%>
+                                                                        <span>Tras completar su pago, el vendedor Ramón
+                                                                            Quintana (+54 9 370 501 9399) se comunicará
+                                                                            con usted para mayor seguridad en su compra.
+                                                                            <a class="btn-whatsapp"
+                                                                                href="https://wa.me/543705019399?text=Apellido y Nombre: "
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer">
+                                                                                <i class="bi bi-whatsapp"></i>
+                                                                            </a>
+                                                                        </span>
                                                             </p>
-                                                    </div>
-                                                    <div align="center">
-                                                        <%-- <asp:TextBox ID="TextBox2" runat="server"
-                                                            BackColor="LightGray" Width="90%"
-                                                            Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
-                                                            Font-Bold="true" TextMode="MultiLine"></asp:TextBox>--%>
-                                                            <p class="cuenta-mp">
-                                                                Vendedor Martin Ramon Quintana - Número de Celular +54 9
-                                                                370 501 9399
-                                                            </p>
+                                                            <div class="texto-rojo cuenta-mp texto-con-sombra">LUEGO
+                                                                CONFIRME SU COMPRA</div>
                                                     </div>
                                                     <div align="center">
                                                         <asp:Button ID="obutConfirmaOperacion" runat="server"
-                                                            Text="Confirmar Operacion" CssClass="btn-pago" />
+                                                            Text="CONFIRMAR OPERACIÓN" CssClass="btn-pago" />
                                                     </div>
 
-                                                    <div class="transaccion-cliente texto-compra-confirmada">
+                                                    <%-- <div class="transaccion-cliente texto-compra-confirmada">
                                                         <p>
                                                             Felicitaciones por su compra - Rellene la encuesta y
                                                             participe del sorteo de 3 electrodomesticos: foto de
                                                             heladera, cocina, freidora. 28 de diciembre 2024.
                                                         </p>
-                                                    </div>
+                                                </div>--%>
                                                 </div>
 
 
@@ -655,41 +740,80 @@
                                             <%-- Modal premios de encuesta --%>
                                                 <div id="myModal" class="modal">
                                                     <div class="modal-content">
-                                                        <span id="closeModalBtn" class="close-modal">&times;</span>
+                                                        <span id="closeModalBtn" class="close-modal"><span
+                                                                class="texto-cerrar">Cerrar</span>&times;</span>
                                                         <div class="transaccion-cliente">
-                                                            <p>¡¡¡Felicitaciones!!! 🎉🎊 ¡Usted ya está participando por
-                                                                los premios mayores de los sorteos! 🎁 Complete la
-                                                                encuesta y participice por estos premios: </p>
-
+                                                            <p class="texto-modal">
+                                                                ¡Felicidades! 🎉🎊 ¡Ya estás participando en los grandes
+                                                                sorteos de diciembre! Completá la encuesta y aprovechá
+                                                                la oportunidad de seguir ganando increíbles premios. 🎁
+                                                                ¡No te lo pierdas!
+                                                            </p>
                                                         </div>
                                                         <div class="modal-images">
                                                             <figure>
-                                                                <img src="premios-sorteo/heladera-midea-2.jpg"
-                                                                    alt="Heladera con freezer Midea" />
+                                                                <article class="img-sorteo">
+                                                                    <img src="images/premios-sorteo/heladera-midea-2.jpg"
+                                                                        alt="Heladera con freezer Midea" />
+                                                                </article>
                                                                 <figcaption>
-                                                                    <p>Heladera con Congelador Midea</p>
-                                                                    <p>MDRT294FGG23</p>
-                                                                    <p>300 Litros</p>
+                                                                    <div>
+                                                                        <img
+                                                                            src="images/premios-sorteo/principales/primer-premio.png" />
+                                                                        <h3>Heladera con Congelador Midea</h3>
+
+                                                                    </div>
+                                                                    <article>
+
+                                                                        <%--<p>MDRT294FGG23</p>--%>
+                                                                            <%--<p>Color Silver</p>--%>
+                                                                                <p>Capacidad 300 Litros</p>
+                                                                                <p>Control de temperatura ajustable</p>
+                                                                                <p>Vidrio templado</p>
+                                                                                <%--<p>Puerta reversible</p>--%>
+                                                                    </article>
                                                                 </figcaption>
                                                             </figure>
                                                             <figure>
-                                                                <img src="premios-sorteo/cocina-atlas-2.jpg"
-                                                                    alt="Cocina Atlas" />
+                                                                <article class="img-sorteo">
+                                                                    <img src="images/premios-sorteo/cocina-atlas-2.jpg"
+                                                                        alt="Cocina Atlas" />
+                                                                </article>
                                                                 <figcaption>
-                                                                    <p>Cocina Atlas Coliseum Plus</p>
-                                                                    <p>Cuatro hornallas</p>
-                                                                    <p>Tapa de vidrio</p>
+                                                                    <div>
+                                                                        <img
+                                                                            src="images/premios-sorteo/principales/segundo-premio.png" />
+                                                                        <h3>Cocina Atlas Coliseum Plus</h3>
+
+                                                                    </div>
+                                                                    <article>
+
+                                                                        <p>Cuatro hornallas</p>
+                                                                        <p>Tapa de vidrio</p>
+                                                                        <p>Capacidad de horno: 50 Lts</p>
+                                                                    </article>
                                                                 </figcaption>
                                                             </figure>
                                                             <figure>
-                                                                <img src="premios-sorteo/freidora-marylan-2.jpg"
-                                                                    alt="Freidora de aire Marylan" />
+                                                                <article class="img-sorteo">
+                                                                    <img src="images/premios-sorteo/freidora-marylan-2.jpg"
+                                                                        alt="Freidora de aire Marylan" />
+                                                                </article>
                                                                 <figcaption>
-                                                                    <p>Air Fryer Marylan</p>
-                                                                    <p>1400Watts</p>
-                                                                    <p>5.5 Litros</p>
-                                                                    <p>Hasta 200 grados</p>
-                                                                    <p>Apagado automático</p>
+                                                                    <div>
+                                                                        <img
+                                                                            src="images/premios-sorteo/principales/tercer-premio.png" />
+
+                                                                        <h3>Air Fryer Marylan</h3>
+
+                                                                    </div>
+                                                                    <article>
+
+                                                                        <p>1400Watts</p>
+                                                                        <p>Capacidad 5.5 Litros</p>
+                                                                        <p>Hasta 200 grados</p>
+                                                                        <%--<p>Apagado automático</p>--%>
+                                                                    </article>
                                                                 </figcaption>
                                                             </figure>
                                                         </div>
@@ -701,23 +825,28 @@
                                                     <asp:Panel class="panel-encuesta" ID="PanelEncuesta" runat="server"
                                                         Visible="false">
                                                         <div align="center">
-                                                            <h4 class="titulo-panel-encuesta">
-                                                                <asp:Label ID="Label19" runat="server" Text="ENCUESTA"
+                                                            <%-- <h4 class="titulo-panel-encuesta">
+                                                                <asp:Label ID="Label19" runat="server"
+                                                                    Text="¡Complete ésta breve encuesta y participe por excelentes premios!"
                                                                     Font-Bold="true"></asp:Label>
-                                                            </h4>
-
+                                                                </h4>--%>
+                                                                <div id="Label19" class="titulo-panel-encuesta">
+                                                                    ¡Completá ésta breve <span id="link-encuesta"
+                                                                        class="btn-basic link-encuesta">encuesta</span>
+                                                                    y participá por nuevos premios!</div>
                                                         </div>
                                                         <div class="transaccion-cliente">
 
 
                                                             <%-- Botón mostrar premio de encuesta --%>
                                                                 <button id="openModalBtn" class="open-modal-btn btn"
-                                                                    type="button">Mostrar premios</button>
+                                                                    type="button">Ver premios</button>
                                                         </div>
 
                                                         <asp:Panel CssClass="seccion-encuesta"
                                                             ID="PanelEncuesta_inversion" runat="server">
-                                                            <div align="center" class="section-1">
+                                                            <div align="center" class="section-1"
+                                                                id="contenido-encuesta">
                                                                 <asp:Label CssClass="titulo-seccion-encuesta titulo-1"
                                                                     ID="Label18" runat="server"
                                                                     Text="¿Quiere invertir? ¿En qué rango de cuota se situaría?">
@@ -849,8 +978,8 @@
                         <%-- Script JS --%>
                             <%--<script src="app.js" type="text/javascript"></script>--%>
 
-                                <script src="main.js" type="text/javascript"></script>
-                                <script src="modals.js" type="text/javascript"></script>
+                                <script src="scripts/main.js" type="text/javascript" defer></script>
+                                <script src="scripts/modals.js" type="text/javascript" defer></script>
 
             </body>
 
