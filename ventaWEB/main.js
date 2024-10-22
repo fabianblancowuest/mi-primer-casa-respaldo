@@ -8,12 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
 	const msjInicial = document.getElementById("msj-inicial");
 	const msjWhatsapp = document.getElementById("msj-whatsapp");
 	const nroCelular = document.getElementById("contenedor-nro-celular");
+	const transaccionCliente = document.getElementById("transaccion-cliente");
 
 	// Mensaje inicial según el estado del celular
-	msjInicial.textContent =
-		validarCelular.textContent === "Celular validado"
-			? "Seleccione los números y participe de los sorteos mayores y también de los sorteos semanales."
-			: "Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp.";
+	//msjInicial.textContent = validarCelular.textContent === "Celular validado" ?
+	//    `Elige tus números y participa en los sorteos principales, así como en los sorteos semanales. ¡No te pierdas la oportunidad de ganar!` :
+	//    `Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp.`;
+
+	const msjInicialValidado = document.getElementById("msj-inicial-validado");
+	if (validarCelular.textContent === "Celular validado") {
+		msjInicial.style.display = "none";
+		msjInicialValidado.style.display = "flex";
+	} else {
+		msjInicialValidado.style.display = "none";
+		msjInicial.style.display = "flex";
+	}
 
 	// Mostrar/ocultar mensaje de WhatsApp según el estado de validación
 	//msjWhatsapp.style.display = celNoValidado.textContent === "Número de celular no validado" ? "flex" : "none";
@@ -44,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Scroll suave al hacer clic en el chevron
 	document.getElementById("chevron").addEventListener("click", function () {
-		const scrollAmount = 300;
+		const scrollAmount = 450;
 		const nextScrollY = window.scrollY + scrollAmount;
 		const maxScrollY = document.body.scrollHeight - window.innerHeight;
 
@@ -57,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Seleccionamos los botones por su ID
 	const btnNumeros = document.getElementById("obutNumeros");
 	const btnPremios = document.getElementById("obutPremios");
+	const linkEncuesta = document.getElementById("link-encuesta");
 
 	// La función para hacer scroll a la sección específica
 	function scrollToSection(sectionId) {
@@ -81,6 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
+	if (linkEncuesta) {
+		linkEncuesta.addEventListener("click", function (event) {
+			event.preventDefault();
+			scrollToSection("contenido-encuesta"); // Desplazamos hacia la sección 'encuesta'
+		});
+	}
+
 	btnNumeros.addEventListener("click", (event) => {
 		event.preventDefault();
 		panelNumeros.scrollIntoView({ behavior: "smooth" });
@@ -89,6 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		event.preventDefault();
 		panelPremios.scrollIntoView({ behavior: "smooth" });
 	});
+
+	//linkEncuesta.addEventListener("click", (event) => {
+	//    event.preventDefault();
+	//panelPremios.scrollIntoView({ behavior: 'smooth' });
+	//})
 
 	// Función para copiar texto al portapapeles
 	function copyToClipboard(event, textboxId, prefix) {
@@ -113,6 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
+	btnPremios.addEventListener("click", () => {
+		document.getElementById("prueba").style.display = "block";
+	});
 	// Eventos para botones de copiar
 	document
 		.getElementById("btn-copiar-cvu")
