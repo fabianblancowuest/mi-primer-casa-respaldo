@@ -9,6 +9,76 @@ document.addEventListener("DOMContentLoaded", () => {
 	const msjWhatsapp = document.getElementById("msj-whatsapp");
 	const nroCelular = document.getElementById("contenedor-nro-celular");
 	const transaccionCliente = document.getElementById("transaccion-cliente");
+	const btnWhatsapp = document.getElementById("btn-whatsapp");
+
+	//const navegador = navigator.userAgent;
+	//console.log(navigator);
+	//const fecha = new Date().toISOString();
+	//console.log(fecha);
+	//const hashInput = `${navegador}${fecha}`;
+	//const hash = CryptoJS.SHA256(hashInput).toString();
+
+	//const mensaje = `Identificador de usuario: ${hash}, Nombre y Apellido: `
+	//const url = `https://wa.me/543704779106?text=${encodeURIComponent(mensaje)}`;
+	//window.open(url, '_blank');
+	// Obtener la fecha y hora con milisegundos
+	// const fecha = new Date().toISOString();
+
+	// // Crear el mensaje con la fecha y hora
+	// const mensaje = `Fecha y Hora: ${fecha}, Nombre y Apellido: `;
+
+	// btnWhatsapp.addEventListener("click", () => {
+	// 	// Obtener la fecha y hora con milisegundos
+	// 	const fecha = new Date().toISOString();
+
+	// 	// Crear el mensaje con la fecha y hora
+	// 	const mensaje = `Fecha y Hora: ${fecha}, Nombre y Apellido: `;
+
+	// 	// Crear la URL de WhatsApp con el mensaje
+	// 	const url = `https://wa.me/12345678?text=${encodeURIComponent(mensaje)}`;
+
+	// 	// Abrir la URL en una nueva pestaña
+	// 	window.open(url, "_blank");
+	// });
+
+	btnWhatsapp.addEventListener("click", () => {
+		const fecha = new Date();
+
+		// Convertir la fecha a la hora de Argentina (UTC-3)
+		const opciones = {
+			timeZone: "America/Argentina/Buenos_Aires",
+			year: "numeric",
+			month: "2-digit",
+			day: "2-digit",
+			hour: "2-digit",
+			minute: "2-digit",
+			second: "2-digit",
+			hour12: false,
+		};
+		let fechaArgentina = fecha.toLocaleString("es-AR", opciones);
+
+		// Obtener los milisegundos
+		const milisegundos = fecha.getMilliseconds().toString().padStart(3, "0");
+
+		// Limpiar el formato (eliminar caracteres no deseados)
+		fechaArgentina = fechaArgentina.replace(/[\/,\s:]/g, "");
+
+		// Insertar guiones cada dos caracteres, excepto en los milisegundos
+		let fechaFormateada = fechaArgentina.match(/.{1,2}/g).join("-");
+
+		// Crear el ID concatenando la fecha formateada con los milisegundos
+		const idUnico = `Identificador:${fechaFormateada}-${milisegundos} Apellido y Nombre:`;
+
+		console.log(idUnico); // Ejemplo de salida: "20-24-10-23-19-15-16-993"
+
+		// Crear la URL de WhatsApp con el mensaje
+		const url = `https://wa.me/543704779106?text=${encodeURIComponent(
+			idUnico,
+		)}`;
+
+		// Abrir la URL en una nueva pestaña
+		window.open(url, "_blank");
+	});
 
 	// Mensaje inicial según el estado del celular
 	//msjInicial.textContent = validarCelular.textContent === "Celular validado" ?
