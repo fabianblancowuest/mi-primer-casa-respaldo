@@ -14,6 +14,7 @@
                     <title>Mi Primer Casa S.A. - Venta Billetes - Sorteo</title>
                     <%-- Metadatos --%>
                         <meta charset="UTF-8" />
+                        <meta lang="es" />
                         <meta name="viewport"
                             content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" />
                         <%-- <meta http-equiv="refresh" content="5" />--%>
@@ -43,7 +44,9 @@
                                                     window.open(url, " Título", "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no");
                                                 }
                                             </script>
-
+                                            <%-- Biblioteca Crypto --%>
+                                                <script
+                                                    src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
             </head>
 
             <body>
@@ -99,84 +102,126 @@
                                                 <p id="msj-inicial-validado">
                                                     Selecciona tus números y participa por los tres grandes premios de
                                                     fin de año. También tendrás la chance de ganar $100.000 cada semana
-                                                    por Canal 11 Litoral. ¡Aprovecha esta GRAN OPORTUNIDAD, es tu
-                                                    momento de ganar!
+                                                    que se sortearán en el programa Desde el Litoral por Canal 11.
+                                                    ¡Aprovecha esta GRAN OPORTUNIDAD, es tu momento de ganar!
                                                 </p>
 
                                         </div>
 
-
-                                        <div class="contenedor-inputs">
-                                            <div id="contenedor-nro-celular">
-                                                <asp:Label ID="Label4" runat="server" Text="Número de celular:">
-                                                </asp:Label>
-                                                <asp:TextBox ID="otxtCelularNumero" runat="server" Enabled="false"
-                                                    Width="45%"></asp:TextBox>
+                                        <%-- Modal Bases y Condiciones --%>
+                                            <div id="basesYCondiciones" class="modal modal-bases">
+                                                <article class="modal-content bases-y-condiciones">
+                                                    <h2 class="text-center">BASES Y CONDICIONES</h2>
+                                                    <ol>
+                                                        <li>Participan las personas mayores de 18 años, sin obligación
+                                                            de compra, excepto los empleados de MPC(Mi Primer Casa S.A.)
+                                                            El Cupón (numero) tiene un valor equivalente a US$ 1, US$ 4
+                                                            y US$ 6.
+                                                        </li>
+                                                        <li>El participante llevará como constancia de su participación
+                                                            un billete publicitario con la base del presente concurso.
+                                                        </li>
+                                                        <li>Para participar deberá completar sus datos y una breve
+                                                            encuesta.
+                                                        </li>
+                                                        <li>PREMIO MENOR: Se sorteará por semana $100.000(pesos
+                                                            Argentinos) en el programa "Desde el Litoral" que se emite
+                                                            por el canal 11 todos los sábados de 18 a 21hs. A partir del
+                                                            mes Julio/24 hasta Diciembre/28, ante las autoridades del
+                                                            canal cuya entrega quedará asentada en un acta. Mi Primer
+                                                            Casa S.A. se reserva el derecho a publicitar.
+                                                        </li>
+                                                        <li>PREMIOS MAYORES: Se sorteará en el Diciembre 28 del 2024
+                                                            ante escribano público.
+                                                        </li>
+                                                        <p>COMERCIALIZA: MI PRIMER CASA - FOTHERINGHAM 1089(FORMOSA)</p>
+                                                    </ol>
+                                                    <span style="display: flex; justify-content: center" id="closeBases"
+                                                        class="btn-bases">Aceptar</span>
+                                                </article>
                                             </div>
 
-                                            <asp:Label ID="olblCelularNumeroValidadoMensaje"
-                                                CssClass="msj-validar-celular" runat="server" Text="" Font-Bold="true"
-                                                ForeColor="Red"></asp:Label>
-                                        </div>
-                                        <div class="xxxxcontenedor-inputsxxxx">
+                                            <span id="btnBases" class="btn-bases btn-ver-bases">
+                                                Ver Bases y Condiciones
+                                            </span>
 
-                                            <div>
-                                                <asp:Label ID="olblCelularNumeroMensaje" runat="server" Text="Hola"
-                                                    Font-Bold="true"></asp:Label>
-                                                <div id="msj-whatsapp">
-                                                    <div class="msj-whatsapp">
-                                                        <span class="texto-rojo">Envía un mensaje por Whatsapp solo con
-                                                            tu APELLIDO y NOMBRE</span>
-                                                        <a class="btn-whatsapp"
-                                                            href="https://wa.me/543704779106?text=Apellido y Nombre: "
-                                                            target="_blank" rel="noopener noreferrer">
-                                                            <i class="bi bi-whatsapp"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="texto-rojo">
-                                                        Luego, hacé clic en el botón<div class="btn-muestra">Verificar
+
+
+                                            <div class="contenedor-inputs">
+                                                <div id="contenedor-nro-celular">
+                                                    <asp:Label ID="Label4" runat="server" Text="Número de celular:">
+                                                    </asp:Label>
+                                                    <asp:TextBox ID="otxtCelularNumero" runat="server" Enabled="false"
+                                                        Width="45%"></asp:TextBox>
+                                                </div>
+
+                                                <asp:Label ID="olblCelularNumeroValidadoMensaje"
+                                                    CssClass="msj-validar-celular" runat="server" Text=""
+                                                    Font-Bold="true" ForeColor="Red"></asp:Label>
+                                            </div>
+                                            <div class="xxxxcontenedor-inputsxxxx">
+
+                                                <div>
+                                                    <asp:Label ID="olblCelularNumeroMensaje" runat="server" Text="Hola"
+                                                        Font-Bold="true"></asp:Label>
+                                                    <div id="msj-whatsapp">
+                                                        <div class="msj-whatsapp">
+                                                            <span class="texto-rojo">Envía un mensaje por Whatsapp solo
+                                                                con tu APELLIDO y NOMBRE</span>
+                                                            <%--<a class="btn-whatsapp"
+                                                                href="https://wa.me/543704779106?text=Apellido y Nombre:"
+                                                                target="_blank" rel="noopener noreferrer">
+                                                                <i class="bi bi-whatsapp"></i>
+                                                                </a>--%>
+                                                                <a id="btn-whatsapp" class="btn-whatsapp">
+                                                                    <i class="bi bi-whatsapp"></i>
+                                                                </a>
+                                                        </div>
+                                                        <div class="texto-rojo">
+                                                            Luego, hacé clic en el botón<div class="btn-muestra">
+                                                                Verificar</div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <asp:Button ID="obutValidacionVerifica" runat="server" Text="Verificar"
-                                                    CssClass="btn btn-numeros" />
+                                                    <asp:Button ID="obutValidacionVerifica" runat="server"
+                                                        Text="Verificar" CssClass="btn btn-numeros" />
+                                                </div>
+                                                <asp:Image ID="oimgCelularVerifica" runat="server" Height="27px"
+                                                    ImageUrl="~/ventaWEB/images/botonVerificaCelular.jpg"
+                                                    Width="102px" />
+                                                <asp:Label ID="olblCelularNumeroValidado" runat="server" Text="">
+                                                </asp:Label>
                                             </div>
-                                            <asp:Image ID="oimgCelularVerifica" runat="server" Height="27px"
-                                                ImageUrl="~/ventaWEB/images/botonVerificaCelular.jpg" Width="102px" />
-                                            <asp:Label ID="olblCelularNumeroValidado" runat="server" Text="">
-                                            </asp:Label>
-                                        </div>
 
-                                        <%-- Botón que dirija al whatsapp --%>
+                                            <%-- Botón que dirija al whatsapp --%>
 
 
-                                            <%-- Chevrón - Flecha indicadora que hay que hacer scroll --%>
-                                                <div id="chevron" class="chevron" style="display: none;">
-                                                    <img src="images/chevron-abajo.png" alt="chevron" />
-                                                </div>
-
-
-                                                <div class="btn-formulario contenedor-inputs">
-                                                    <div class="contenedor-inputs">
+                                                <%-- Chevrón - Flecha indicadora que hay que hacer scroll --%>
+                                                    <div id="chevron" class="chevron" style="display: none;">
+                                                        <img src="images/chevron-abajo.png" alt="chevron" />
                                                     </div>
-                                                    <asp:Label ID="olblMensajeValidacion" runat="server" Text=""
-                                                        ForeColor="Red"></asp:Label>
-                                                </div>
-                                                <%-- Formulario Cliente --%>
-                                                    <div class="contenedor-inputs">
-                                                        <asp:Label ID="Label15" runat="server"
-                                                            Text="Apellido y Nombres:"></asp:Label>
-                                                        <asp:TextBox ID="otxtClienteApyNom" runat="server"
-                                                            Enabled="false"></asp:TextBox>
-                                                    </div>
-                                                    <div class="contenedor-inputs">
-                                                        <asp:Label ID="Label3" runat="server"
-                                                            Text="Correo electrónico:"></asp:Label>
-                                                        <asp:TextBox ID="otxtCorreoElectronico" runat="server"
-                                                            Enabled="false"></asp:TextBox>
 
+
+                                                    <div class="btn-formulario contenedor-inputs">
+                                                        <div class="contenedor-inputs">
+                                                        </div>
+                                                        <asp:Label ID="olblMensajeValidacion" runat="server" Text=""
+                                                            ForeColor="Red"></asp:Label>
                                                     </div>
+                                                    <%-- Formulario Cliente --%>
+                                                        <div class="contenedor-inputs">
+                                                            <asp:Label ID="Label15" runat="server"
+                                                                Text="Apellido y Nombres:"></asp:Label>
+                                                            <asp:TextBox ID="otxtClienteApyNom" runat="server"
+                                                                Enabled="false"></asp:TextBox>
+                                                        </div>
+                                                        <div class="contenedor-inputs">
+                                                            <asp:Label ID="Label3" runat="server"
+                                                                Text="Correo electrónico:"></asp:Label>
+                                                            <asp:TextBox ID="otxtCorreoElectronico" runat="server"
+                                                                Enabled="false"></asp:TextBox>
+
+                                                        </div>
 
 
 
@@ -721,7 +766,7 @@
                                                     </div>
                                                     <div align="center">
                                                         <asp:Button ID="obutConfirmaOperacion" runat="server"
-                                                            Text="CONFIRMAR OPERACIÓN" CssClass="btn-pago" />
+                                                            Text="CONFIRMAR COMPRA" CssClass="btn-pago" />
                                                     </div>
 
                                                     <%-- <div class="transaccion-cliente texto-compra-confirmada">
@@ -839,8 +884,9 @@
 
 
                                                             <%-- Botón mostrar premio de encuesta --%>
-                                                                <button id="openModalBtn" class="open-modal-btn btn"
-                                                                    type="button">Ver premios</button>
+                                                                <button id="openModalBtn"
+                                                                    class="open-modal-btn btn-bases btn-ver-bases btn-premios-encuesta"
+                                                                    type="button">VER PREMIOS ENCUESTA</button>
                                                         </div>
 
                                                         <asp:Panel CssClass="seccion-encuesta"
