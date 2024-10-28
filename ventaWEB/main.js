@@ -1,223 +1,120 @@
-document.addEventListener("DOMContentLoaded", () => {
-	const panelNumeros = document.getElementById("panel-numeros");
-	const panelPremios = document.getElementById("panel-premios");
-	const validarCelular = document.getElementById("olblCelularNumeroMensaje");
-	const celNoValidado = document.getElementById(
-		"olblCelularNumeroValidadoMensaje",
+document.addEventListener("DOMContentLoaded", function () {
+	const modalPremios = document.getElementById("premiosPrincipales");
+	const botonPremios = document.getElementById("obutPremios");
+	const closePremios = document.getElementById("closeModalPremios");
+	const closeBases = document.getElementById("closeBases");
+	const btnBases = document.getElementById("btnBases");
+
+	// Modal Bases y Condiciones
+	const modalBases = document.getElementById("basesYCondiciones");
+	if (modalBases) {
+		modalBases.style.display = "none"; // Ocultar inicialmente
+	}
+
+	// Verifica si el modal de Bases y Condiciones ya fue mostrado en esta sesión
+	const modalBasesShown = sessionStorage.getItem("modalBasesShown");
+
+	if (!modalBasesShown) {
+		// Mostrar el modal de Bases y Condiciones solo la primera vez en la sesión
+		setTimeout(function () {
+			modalBases.style.display = "flex";
+			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+		}, 1000);
+
+		// Marcar que ya fue mostrado para no volver a mostrarlo
+		sessionStorage.setItem("modalBasesShown", "true");
+	}
+
+	// Mostrar el modal de Bases y Condiciones al hacer clic en el botón
+	if (btnBases) {
+		btnBases.addEventListener("click", function () {
+			modalBases.style.display = "flex";
+			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+		});
+	}
+
+	// Cerrar el modal de Bases y Condiciones
+	if (closeBases) {
+		closeBases.addEventListener("click", function () {
+			modalBases.style.display = "none";
+			console.log("Cerrando");
+			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+		});
+	}
+
+	if (modalPremios) {
+		modalPremios.style.display = "none"; // Ocultar el modal de premios inicialmente
+	}
+
+	if (botonPremios) {
+		botonPremios.addEventListener("click", function (event) {
+			console.log("Click botón premios");
+			event.preventDefault();
+			//modalPremios.style.display = "flex";
+			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+		});
+	}
+
+	if (closePremios) {
+		closePremios.addEventListener("click", function () {
+			modalPremios.style.display = "none";
+			console.log("Cerrando");
+			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+		});
+	}
+
+	const btnRealizarPago = document.getElementById("obutRealizarPago");
+	const modal = document.getElementById("myModal");
+	const openModalBtn = document.getElementById("openModalBtn");
+	const btnConfirmarOperacion = document.getElementById(
+		"obutConfirmaOperacion",
 	);
-	const msjInicial = document.getElementById("msj-inicial");
-	const msjWhatsapp = document.getElementById("msj-whatsapp");
-	const nroCelular = document.getElementById("contenedor-nro-celular");
-	const transaccionCliente = document.getElementById("transaccion-cliente");
-	const btnWhatsapp = document.getElementById("btn-whatsapp");
+	const closeModalBtn = document.getElementById("closeModalBtn");
 
-	//const navegador = navigator.userAgent;
-	//console.log(navigator);
-	//const fecha = new Date().toISOString();
-	//console.log(fecha);
-	//const hashInput = `${navegador}${fecha}`;
-	//const hash = CryptoJS.SHA256(hashInput).toString();
-
-	//const mensaje = `Identificador de usuario: ${hash}, Nombre y Apellido: `
-	//const url = `https://wa.me/543704779106?text=${encodeURIComponent(mensaje)}`;
-	//window.open(url, '_blank');
-	// Obtener la fecha y hora con milisegundos
-	// const fecha = new Date().toISOString();
-
-	// // Crear el mensaje con la fecha y hora
-	// const mensaje = `Fecha y Hora: ${fecha}, Nombre y Apellido: `;
-
-	// btnWhatsapp.addEventListener("click", () => {
-	// 	// Obtener la fecha y hora con milisegundos
-	// 	const fecha = new Date().toISOString();
-
-	// 	// Crear el mensaje con la fecha y hora
-	// 	const mensaje = `Fecha y Hora: ${fecha}, Nombre y Apellido: `;
-
-	// 	// Crear la URL de WhatsApp con el mensaje
-	// 	const url = `https://wa.me/12345678?text=${encodeURIComponent(mensaje)}`;
-
-	// 	// Abrir la URL en una nueva pestaña
-	// 	window.open(url, "_blank");
-	// });
-
-	btnWhatsapp.addEventListener("click", () => {
-		const fecha = new Date();
-
-		// Convertir la fecha a la hora de Argentina (UTC-3)
-		const opciones = {
-			timeZone: "America/Argentina/Buenos_Aires",
-			year: "numeric",
-			month: "2-digit",
-			day: "2-digit",
-			hour: "2-digit",
-			minute: "2-digit",
-			second: "2-digit",
-			hour12: false,
-		};
-		let fechaArgentina = fecha.toLocaleString("es-AR", opciones);
-
-		// Obtener los milisegundos
-		const milisegundos = fecha.getMilliseconds().toString().padStart(3, "0");
-
-		// Limpiar el formato (eliminar caracteres no deseados)
-		fechaArgentina = fechaArgentina.replace(/[\/,\s:]/g, "");
-
-		// Insertar guiones cada dos caracteres, excepto en los milisegundos
-		let fechaFormateada = fechaArgentina.match(/.{1,2}/g).join("-");
-
-		// Crear el ID concatenando la fecha formateada con los milisegundos
-		const idUnico = `Identificador:${fechaFormateada}-${milisegundos} Apellido y Nombre:`;
-
-		console.log(idUnico); // Ejemplo de salida: "20-24-10-23-19-15-16-993"
-
-		// Crear la URL de WhatsApp con el mensaje
-		const url = `https://wa.me/543704779106?text=${encodeURIComponent(
-			idUnico,
-		)}`;
-
-		// Abrir la URL en una nueva pestaña
-		window.open(url, "_blank");
-	});
-
-	// Mensaje inicial según el estado del celular
-	//msjInicial.textContent = validarCelular.textContent === "Celular validado" ?
-	//    `Elige tus números y participa en los sorteos principales, así como en los sorteos semanales. ¡No te pierdas la oportunidad de ganar!` :
-	//    `Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp.`;
-
-	const msjInicialValidado = document.getElementById("msj-inicial-validado");
-	if (validarCelular.textContent === "Celular validado") {
-		msjInicial.style.display = "none";
-		msjInicialValidado.style.display = "flex";
-	} else {
-		msjInicialValidado.style.display = "none";
-		msjInicial.style.display = "flex";
+	if (modal) {
+		modal.style.display = "none"; // Ocultar el modal inicialmente
 	}
 
-	// Mostrar/ocultar mensaje de WhatsApp según el estado de validación
-	//msjWhatsapp.style.display = celNoValidado.textContent === "Número de celular no validado" ? "flex" : "none";
-	if (celNoValidado.textContent === "Número de celular no validado") {
-		msjWhatsapp.style.display = "flex";
-	} else if (validarCelular.textContent === "Celular validado") {
-		msjWhatsapp.style.display = "none";
-		const msjNoValidado = document.createElement("span");
-		msjNoValidado.textContent = "Celular Validado";
-		msjNoValidado.className = "celular-validado";
-		nroCelular.appendChild(msjNoValidado);
-	}
-
-	// Mostrar/ocultar mensaje de validación de celular
-	//validarCelular.style.display = validarCelular.textContent === "Celular validado" ? "block" : "none";
-
-	window.addEventListener("scroll", function () {
-		const chevron = document.getElementById("chevron");
-		const hasScroll = document.body.scrollHeight > window.innerHeight;
-
-		// Calcular si se debe mostrar el chevron
-		const isAtBottom =
-			window.innerHeight + window.scrollY >= document.body.scrollHeight;
-
-		// Mostrar u ocultar chevron
-		chevron.style.display = hasScroll && !isAtBottom ? "block" : "none";
-	});
-
-	// Scroll suave al hacer clic en el chevron
-	document.getElementById("chevron").addEventListener("click", function () {
-		const scrollAmount = 450;
-		const nextScrollY = window.scrollY + scrollAmount;
-		const maxScrollY = document.body.scrollHeight - window.innerHeight;
-
-		window.scrollTo({
-			top: Math.min(nextScrollY, maxScrollY),
-			behavior: "smooth",
-		});
-	});
-
-	// Seleccionamos los botones por su ID
-	const btnNumeros = document.getElementById("obutNumeros");
-	const btnPremios = document.getElementById("obutPremios");
-	const linkEncuesta = document.getElementById("link-encuesta");
-
-	// La función para hacer scroll a la sección específica
-	function scrollToSection(sectionId) {
-		const section = document.getElementById(sectionId);
-		if (section) {
-			section.scrollIntoView({ behavior: "smooth" });
-		}
-	}
-
-	// Asignamos eventos de clic a los botones
-	if (btnNumeros) {
-		btnNumeros.addEventListener("click", function (event) {
-			event.preventDefault(); // Prevenimos el comportamiento por defecto (si es necesario)
-			scrollToSection("panel-numeros"); // Desplazamos hacia la sección 'panel-numeros'
-		});
-	}
-
-	if (btnPremios) {
-		btnPremios.addEventListener("click", function (event) {
+	if (openModalBtn) {
+		openModalBtn.addEventListener("click", function (event) {
+			console.log(event);
 			event.preventDefault();
-			scrollToSection("panel-premios"); // Desplazamos hacia la sección 'panel-premios'
+			modal.style.display = "flex";
+			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+		});
+	}
+	// Cerrar el modal principal
+	if (closeModalBtn) {
+		closeModalBtn.addEventListener("click", function () {
+			modal.style.display = "none";
+			console.log("Cerrando");
+			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
 		});
 	}
 
-	if (linkEncuesta) {
-		linkEncuesta.addEventListener("click", function (event) {
-			event.preventDefault();
-			scrollToSection("contenido-encuesta"); // Desplazamos hacia la sección 'encuesta'
-		});
-	}
-
-	btnNumeros.addEventListener("click", (event) => {
-		event.preventDefault();
-		panelNumeros.scrollIntoView({ behavior: "smooth" });
-	});
-	btnPremios.addEventListener("click", (event) => {
-		event.preventDefault();
-		panelPremios.scrollIntoView({ behavior: "smooth" });
-	});
-
-	//linkEncuesta.addEventListener("click", (event) => {
-	//    event.preventDefault();
-	//panelPremios.scrollIntoView({ behavior: 'smooth' });
-	//})
-
-	// Función para copiar texto al portapapeles
-	function copyToClipboard(event, textboxId, prefix) {
-		event.preventDefault();
-		const textBox = document.getElementById(textboxId);
-		const text = textBox.innerText;
-		let textToCopy = text.split(prefix + " : ")[1];
-
-		if (textToCopy) {
-			const tempInput = document.createElement("input");
-			tempInput.style.position = "absolute";
-			tempInput.style.left = "-1000px";
-			tempInput.style.top = "-1000px";
-			tempInput.value = textToCopy;
-			document.body.appendChild(tempInput);
-			tempInput.select();
-			document.execCommand("copy");
-			document.body.removeChild(tempInput);
-			alert(prefix + " copiado: " + textToCopy);
-		} else {
-			alert("No se encontró el texto para copiar.");
+	// Cierra los modales cuando se hace clic fuera del contenido del modal
+	window.addEventListener("click", function (event) {
+		if (event.target === modal) {
+			modal.style.display = "none";
+			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
 		}
-	}
 
-	btnPremios.addEventListener("click", () => {
-		document.getElementById("prueba").style.display = "block";
+		if (event.target === modalPremios) {
+			modalPremios.style.display = "none";
+			console.log("Cerrando modal de premios");
+			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+		}
+
+		if (event.target === modalBases) {
+			modalBases.style.display = "none";
+			console.log("Cerrando modal de bases y condiciones");
+			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+		}
 	});
-	// Eventos para botones de copiar
-	document
-		.getElementById("btn-copiar-cvu")
-		.addEventListener("click", (event) => {
-			copyToClipboard(event, "otxtDatosBancoParaTransferencia02", "CVU");
-		});
-
-	document
-		.getElementById("btn-copiar-alias")
-		.addEventListener("click", (event) => {
-			copyToClipboard(event, "otxtDatosBancoParaTransferencia03", "ALIAS");
-		});
+	//Simula un clic automático en el botón openModalBtn una vez al cargar la página
+	if (openModalBtn) {
+		setTimeout(function () {
+			openModalBtn.click();
+		}, 500);
+	}
 });
