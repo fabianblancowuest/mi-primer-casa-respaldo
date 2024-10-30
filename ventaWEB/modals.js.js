@@ -47,13 +47,15 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	if (botonPremios) {
-		botonPremios.addEventListener("click", function (event) {
-			console.log("Click botón premios");
+		botonPremios.addEventListener("click", (event) => {
 			event.preventDefault();
-			//modalPremios.style.display = "flex";
+			console.log("Click botón premios");
+			modalPremios.style.display = "flex";
 			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
 		});
 	}
+
+	console.log("Botón Premios", botonPremios);
 
 	if (closePremios) {
 		closePremios.addEventListener("click", function () {
@@ -66,9 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	const btnRealizarPago = document.getElementById("obutRealizarPago");
 	const modal = document.getElementById("myModal");
 	const openModalBtn = document.getElementById("openModalBtn");
-	const btnConfirmarOperacion = document.getElementById(
-		"obutConfirmaOperacion",
-	);
 	const closeModalBtn = document.getElementById("closeModalBtn");
 
 	if (modal) {
@@ -112,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 	//Simula un clic automático en el botón openModalBtn una vez al cargar la página
-	if (openModalBtn) {
-		setTimeout(function () {
-			openModalBtn.click();
-		}, 500);
-	}
+	// if (openModalBtn) {
+	//     setTimeout(function () {
+	//         openModalBtn.click();
+	//     }, 500);
+	// }
 });
