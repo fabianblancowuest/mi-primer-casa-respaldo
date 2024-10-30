@@ -1,120 +1,226 @@
 document.addEventListener("DOMContentLoaded", function () {
-	const modalPremios = document.getElementById("premiosPrincipales");
-	const botonPremios = document.getElementById("obutPremios");
-	const closePremios = document.getElementById("closeModalPremios");
-	const closeBases = document.getElementById("closeBases");
-	const btnBases = document.getElementById("btnBases");
-
-	// Modal Bases y Condiciones
-	const modalBases = document.getElementById("basesYCondiciones");
-	if (modalBases) {
-		modalBases.style.display = "none"; // Ocultar inicialmente
-	}
-
-	// Verifica si el modal de Bases y Condiciones ya fue mostrado en esta sesión
-	const modalBasesShown = sessionStorage.getItem("modalBasesShown");
-
-	if (!modalBasesShown) {
-		// Mostrar el modal de Bases y Condiciones solo la primera vez en la sesión
-		setTimeout(function () {
-			modalBases.style.display = "flex";
-			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
-		}, 1000);
-
-		// Marcar que ya fue mostrado para no volver a mostrarlo
-		sessionStorage.setItem("modalBasesShown", "true");
-	}
-
-	// Mostrar el modal de Bases y Condiciones al hacer clic en el botón
-	if (btnBases) {
-		btnBases.addEventListener("click", function () {
-			modalBases.style.display = "flex";
-			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
-		});
-	}
-
-	// Cerrar el modal de Bases y Condiciones
-	if (closeBases) {
-		closeBases.addEventListener("click", function () {
-			modalBases.style.display = "none";
-			console.log("Cerrando");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
-		});
-	}
-
-	if (modalPremios) {
-		modalPremios.style.display = "none"; // Ocultar el modal de premios inicialmente
-	}
-
-	if (botonPremios) {
-		botonPremios.addEventListener("click", function (event) {
-			console.log("Click botón premios");
-			event.preventDefault();
-			//modalPremios.style.display = "flex";
-			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
-		});
-	}
-
-	if (closePremios) {
-		closePremios.addEventListener("click", function () {
-			modalPremios.style.display = "none";
-			console.log("Cerrando");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
-		});
-	}
-
-	const btnRealizarPago = document.getElementById("obutRealizarPago");
-	const modal = document.getElementById("myModal");
-	const openModalBtn = document.getElementById("openModalBtn");
 	const btnConfirmarOperacion = document.getElementById(
 		"obutConfirmaOperacion",
 	);
-	const closeModalBtn = document.getElementById("closeModalBtn");
+	const msjCompradorAlVendedor = document.getElementById(
+		"olblMensajeCompradorAlVendedor",
+	);
 
-	if (modal) {
-		modal.style.display = "none"; // Ocultar el modal inicialmente
+	const panelNumeros = document.getElementById("panel-numeros");
+	const panelPremios = document.getElementById("panel-premios");
+
+	const msjWhatsapp = document.getElementById("msj-whatsapp");
+	const nroCelular = document.getElementById("contenedor-nro-celular");
+	const transaccionCliente = document.getElementById("transaccion-cliente");
+	const btnWhatsapp = document.getElementById("btn-whatsapp");
+	const btnCloseModalEncuesta = document.getElementById("closeModalBtn");
+	const panelEncuesta = document.getElementById("contenido-encuesta");
+	const celularNoInformado = document.getElementById("celular-no-informado");
+	const sessionUsuarioVendedor = document
+		.getElementById("olblSession")
+		.textContent.trim();
+	const nombreVendedor = document.getElementById(
+		"olblVendedorReferenciaNombre",
+	);
+	const celularVendedor = document.getElementById(
+		"olblVendedorReferenciaCelular",
+	);
+	const celularVendedorSpan = document.getElementById("vendedor-celular");
+	const nombreVendedorSpan = document.getElementById("vendedor-nombre");
+
+	const textoValidadorCelular = document.getElementById(
+		"texto-validador-celular",
+	);
+
+	const btnWhatsAppSession = document.getElementById("btn-whatsapp-session");
+
+	const inputNombre = document.getElementById("otxtClienteApyNom");
+
+	const panelConfirmacion = document.getElementById("PanelConfirmaOperacion");
+
+	//Actualiza el vendedor din�micamente
+	if (nombreVendedorSpan) {
+		nombreVendedorSpan.innerText = nombreVendedor.textContent;
+	}
+	if (celularVendedorSpan) {
+		celularVendedorSpan.innerText = celularVendedor.textContent;
 	}
 
-	if (openModalBtn) {
-		openModalBtn.addEventListener("click", function (event) {
-			console.log(event);
-			event.preventDefault();
-			modal.style.display = "flex";
-			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+	const celNoValidado = document.getElementById(
+		"olblCelularNumeroValidadoMensaje",
+	);
+	const msjInicial = document.getElementById("msj-inicial");
+	const msjInicialValidado = document.getElementById("msj-inicial-validado");
+	const validarCelular = document.getElementById("olblCelularNumeroMensaje");
+
+	let estaValidado = false;
+
+	if (!inputNombre.value) {
+		msjInicial.style.display = "flex";
+		msjInicialValidado.style.display = "none";
+
+		textoValidadorCelular.textContent = "Celular No Validado❌";
+		btnWhatsAppSession.addEventListener("click", function () {
+			const encodedMessage = encodeURIComponent(sessionUsuarioVendedor);
+			const url = `https://wa.me/543704779106?text=${encodedMessage}`;
+			window.open(url, "_blank");
 		});
+	} else {
+		msjInicial.style.display = "none";
+		msjInicialValidado.style.display = "flex";
+
+		estaValidado = true;
+		textoValidadorCelular.textContent = "Celular Validado✅️";
+		textoValidadorCelular.style.color = "green";
 	}
-	// Cerrar el modal principal
-	if (closeModalBtn) {
-		closeModalBtn.addEventListener("click", function () {
-			modal.style.display = "none";
-			console.log("Cerrando");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
-		});
+
+	console.log(msjInicial);
+	console.log(sessionUsuarioVendedor);
+
+	if (panelConfirmacion) {
+		const enlaceWhatsappVendedor = document.getElementById(
+			"enlace-whatsapp-vendedor",
+		);
+
+		let whatsAppVendedor = celularVendedor.textContent.trim();
+
+		// Mensaje comprador al vendedor
+		encodedMessage = encodeURIComponent(
+			msjCompradorAlVendedor.innerText.trim(),
+		);
+
+		// encodedMessage = encodedMessage.replace(/\./g, '.%0A');
+
+		enlaceWhatsappVendedor.href = `https://wa.me/${whatsAppVendedor}?text=${encodedMessage}`;
+
+		if (btnConfirmarOperacion) {
+			btnConfirmarOperacion.addEventListener("click", () => {
+				window.open(enlaceWhatsappVendedor, "_blank");
+			});
+		}
 	}
 
-	// Cierra los modales cuando se hace clic fuera del contenido del modal
-	window.addEventListener("click", function (event) {
-		if (event.target === modal) {
-			modal.style.display = "none";
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
-		}
+	window.addEventListener("scroll", function () {
+		const chevron = document.getElementById("chevron");
+		const hasScroll = document.body.scrollHeight > window.innerHeight;
 
-		if (event.target === modalPremios) {
-			modalPremios.style.display = "none";
-			console.log("Cerrando modal de premios");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
-		}
+		// Calcular si se debe mostrar el chevron
+		const isAtBottom =
+			window.innerHeight + window.scrollY >= document.body.scrollHeight;
 
-		if (event.target === modalBases) {
-			modalBases.style.display = "none";
-			console.log("Cerrando modal de bases y condiciones");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
-		}
+		// Mostrar u ocultar chevron
+		chevron.style.display = hasScroll && !isAtBottom ? "block" : "none";
 	});
-	//Simula un clic automático en el botón openModalBtn una vez al cargar la página
-	if (openModalBtn) {
-		setTimeout(function () {
-			openModalBtn.click();
-		}, 500);
+
+	// Scroll suave al hacer clic en el chevron
+	document.getElementById("chevron").addEventListener("click", function () {
+		const scrollAmount = 450;
+		const nextScrollY = window.scrollY + scrollAmount;
+		const maxScrollY = document.body.scrollHeight - window.innerHeight;
+
+		window.scrollTo({
+			top: Math.min(nextScrollY, maxScrollY),
+			behavior: "smooth",
+		});
+	});
+
+	// Seleccionamos los botones por su ID
+	const btnNumeros = document.getElementById("obutNumeros");
+	const btnPremios = document.getElementById("obutPremios");
+	const linkEncuesta = document.getElementById("link-encuesta");
+
+	// La funci�n para hacer scroll a la secci�n espec�fica
+	function scrollToSection(sectionId) {
+		const section = document.getElementById(sectionId);
+		if (section) {
+			section.scrollIntoView({ behavior: "smooth" });
+		}
+	}
+
+	// Asignamos eventos de clic a los botones
+	if (btnNumeros) {
+		btnNumeros.addEventListener("click", function (event) {
+			event.preventDefault();
+			scrollToSection("panel-numeros");
+		});
+	}
+
+	if (btnPremios) {
+		btnPremios.addEventListener("click", function (event) {
+			event.preventDefault();
+			scrollToSection("panel-premios");
+		});
+	}
+
+	// console.log(btnPremios);
+
+	if (linkEncuesta) {
+		linkEncuesta.addEventListener("click", function (event) {
+			event.preventDefault();
+			scrollToSection("contenido-encuesta");
+		});
+	}
+
+	if (btnCloseModalEncuesta) {
+		btnCloseModalEncuesta.addEventListener("click", function (event) {
+			event.preventDefault();
+			scrollToSection("contenido-encuesta");
+		});
+	}
+
+	// Botones vuelve a seleccionar Método de Pago
+	const btnVuelveSelecMetodoPago = {
+		efectivo: document.getElementById(
+			"obutVuelveSeleccionFormaPagoDesdeEfectivo",
+		),
+		mercadoPago: document.getElementById("obutVuelveSeleccionFormaPagoDesdeMP"),
+		tranferencia: document.getElementById(
+			"obutVuelveSeleccionFormaPagoDesdeTransferencia",
+		),
+	};
+
+	if (linkEncuesta) {
+		linkEncuesta.addEventListener("click", (event) => {
+			event.preventDefault();
+			panelPremios.scrollIntoView({ behavior: "smooth" });
+		});
+	}
+
+	// Funci�n para copiar texto al portapapeles
+	function copyToClipboard(event, textboxId, prefix) {
+		event.preventDefault();
+		const textBox = document.getElementById(textboxId);
+		const text = textBox.innerText;
+		let textToCopy = text.split(prefix + " : ")[1];
+
+		if (textToCopy) {
+			const tempInput = document.createElement("input");
+			tempInput.style.position = "absolute";
+			tempInput.style.left = "-1000px";
+			tempInput.style.top = "-1000px";
+			tempInput.value = textToCopy;
+			document.body.appendChild(tempInput);
+			tempInput.select();
+			document.execCommand("copy");
+			document.body.removeChild(tempInput);
+			alert(prefix + " copiado: " + textToCopy);
+		} else {
+			alert("No se encontr� el texto para copiar.");
+		}
+	}
+
+	// Eventos para botones de copiar
+	const btnCopiarCvu = document.getElementById("btn-copiar-cvu");
+	if (btnCopiarCvu) {
+		btnCopiarCvu.addEventListener("click", function (event) {
+			copyToClipboard(event, "otxtDatosBancoParaTransferencia02", "CVU");
+		});
+	}
+
+	const btnCopiarAlias = document.getElementById("btn-copiar-alias");
+	if (btnCopiarAlias) {
+		btnCopiarAlias.addEventListener("click", function (event) {
+			copyToClipboard(event, "otxtDatosBancoParaTransferencia03", "ALIAS");
+		});
 	}
 });
