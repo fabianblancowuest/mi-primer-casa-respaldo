@@ -17,7 +17,7 @@
                         <meta lang="es" />
                         <meta name="viewport"
                             content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" />
-                        <%-- <meta http-equiv="refresh" content="5" />--%>
+                        <!-- <meta http-equiv ="refresh" content ="5" /> -->
                         <style type="text/css">
                             .btn-success {
                                 margin-top: 0px;
@@ -35,7 +35,7 @@
                                 <link rel="stylesheet"
                                     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
                                 <%-- Styles Sheets --%>
-                                    <link href="../ventaWEB/styles-mi-primer-casa.css" rel="stylesheet" />
+                                    <link href="../ventaWEB/styles/styles-mi-primer-casa.css" rel="stylesheet" />
                                     <%-- Favicon --%>
                                         <link rel="shortcut icon" href="images/logos/favicon.png" type="image/x-icon" />
                                         <%-- Scripts --%>
@@ -75,6 +75,9 @@
                                             <asp:Label ID="olblVendedorReferenciaCelular" runat="server" Text=""
                                                 Visible="true"></asp:Label>
                                             <br />
+                                            <asp:Label ID="olblVendedorReferenciaCelularWhatsapp" runat="server" Text=""
+                                                Visible="true"></asp:Label>
+                                            <br />
                                             <!-- Mensaje comprador al vendedor -->
                                             <asp:Label ID="olblMensajeCompradorAlVendedor" runat="server" Text=""
                                                 Visible="true"></asp:Label>
@@ -89,8 +92,6 @@
                             <asp:Label ID="olblOperador" runat="server" Text="" Visible="false"></asp:Label>
                             <asp:Label ID="olblEfectivoMonto" runat="server" Text="0" Visible="false"></asp:Label>
                             <asp:Label ID="olblTransferenciaMonto" runat="server" Text="0" Visible="false"></asp:Label>
-                            <asp:Label ID="olblTransferenciaOrigen" runat="server" Text="0" Visible="false"></asp:Label>
-
 
 
                             <div class="info-header">
@@ -115,20 +116,15 @@
 
 
                                         <div id="transaccion-cliente" class="transaccion-cliente">
+                                            <span id="btnBases" class="btn-bases btn-ver-bases">Ver Bases y Condiciones
+                                            </span>
 
                                             <%-- <asp:TextBox ID="Label14" runat="server"
                                                 Text="Complete sus datos para que podamos enviarle sus comprobantes a su correo electrónico y Whatsapp."
                                                 TextMode="MultiLine" Enabled="false" BorderWidth="0"></asp:TextBox>--%>
                                                 <p id="msj-inicial">
-                                                    Completá tus datos para que podamos enviarte tus comprobantes a tu
-                                                    correo electrónico y Whatsapp.
-
-                                                </p>
-                                                <p id="msj-inicial-validado" class="oculto">
-                                                    Seleccioná tus números y participá por los tres grandes PREMIOS de
-                                                    fin de año. También tendrás la chance de GANAR $100.000 cada semana
-                                                    que se sortearán en el programa "Desde el Litoral" por Canal 11.
-                                                    ¡Aprovechá esta GRAN OPORTUNIDAD, es tu momento de GANAR!
+                                                    Completá tus datos, te enviaremos tus comprobantes por Whatsapp y
+                                                    Correo Electrónico.
                                                 </p>
 
                                         </div>
@@ -136,6 +132,11 @@
                                         <%-- Modal Bases y Condiciones --%>
                                             <div id="basesYCondiciones" class="modal modal-bases">
                                                 <article class="modal-content bases-y-condiciones">
+                                                    <video id="video-inicial" width="550" controls autoplay loop muted
+                                                        class="video-inicial">
+                                                        <source src="videos/video-mi-primer-casa-comp.mp4"
+                                                            type="video/mp4">
+                                                    </video>
                                                     <h2 class="text-center">BASES Y CONDICIONES</h2>
                                                     <ol>
                                                         <li>Participan las personas mayores de 18 años, sin obligación
@@ -149,16 +150,16 @@
                                                         <li>Para participar deberá completar sus datos y una breve
                                                             encuesta.
                                                         </li>
-                                                        <li>PREMIO MENOR: Se sortearán AR$100.000 (pesos argentinos) por
-                                                            semana, en el programa "Desde el Litoral" que se emite por
-                                                            la señal Canal 11 todos los sábados de 18 a 21hs. A partir
-                                                            del 24 de Julio del 2024 hasta el 28 de Diciembre del mismo
-                                                            año, ante las autoridades del canal. Cuya entrega quedará
-                                                            asentada en un acta. Mi Primer Casa S.A. se reserva el
-                                                            derecho a publicitar.
+                                                        <li><strong>PREMIOS MENORES:</strong> Se sortearán AR$100.000
+                                                            (pesos argentinos) por semana, en el programa "Desde el
+                                                            Litoral" que se emite por la señal Canal 11 todos los
+                                                            sábados de 18 a 21hs. A partir del 24 de Julio del 2024
+                                                            hasta el 28 de Diciembre del mismo año, ante las autoridades
+                                                            del canal. Cuya entrega quedará asentada en un acta. Mi
+                                                            Primer Casa S.A. se reserva el derecho a publicitar.
                                                         </li>
-                                                        <li>PREMIOS MAYORES: Se sortearán el 28 de Diciembre del 2024
-                                                            ante escribano público.
+                                                        <li><strong>PREMIOS MAYORES:</strong> Se sortearán el 28 de
+                                                            Diciembre del 2024 ante escribano público.
                                                         </li>
                                                         <p>COMERCIALIZA: MI PRIMER CASA - FOTHERINGHAM 1089 - FORMOSA
                                                         </p>
@@ -168,8 +169,7 @@
                                                 </article>
                                             </div>
 
-                                            <span id="btnBases" class="btn-bases btn-ver-bases">Ver Bases y Condiciones
-                                            </span>
+
 
 
 
@@ -254,11 +254,12 @@
                                                                 <asp:Label ID="olblSinNumeroCelularMensaje"
                                                                     runat="server"
                                                                     Text="¡Hola! Necesitamos validar tu celular para enviarte las notificaciones que la Empresa requiere para informar el resultado de los sorteos semanales."
-                                                                    Font-Bold="False"></asp:Label>
+                                                                    Font-Bold="False" style="display: none;">
+                                                                </asp:Label>
 
                                                                 <asp:Label ID="olblSinNumeroCelularMensaje2"
-                                                                    runat="server"
-                                                                    Text="Al completar los datos de tu apellido y nombres y correo electrónico, aparecerá un boton de Whatsapp con el que podrás enviarnos el código personal que figura abajo de manera automática."
+                                                                    runat="server" Text="¡Hola! Necesitamos validar tu celular para informarte si saliste GANADOR,
+                                 usá el botón de WhatsApp para enviarnos tu CÓDIGO PERSONAL automáticamente."
                                                                     Font-Bold="False"></asp:Label>
 
                                                                 <asp:Label CssClas="codigo-personal"
@@ -280,7 +281,7 @@
                                                                     <i class="bi bi-whatsapp"></i>
                                                                     </a>
                                                                     <asp:Button ID="obutValidacionVerifica"
-                                                                        runat="server" Text="Verificar"
+                                                                        runat="server" Text="VALIDAR CELULAR"
                                                                         CssClass="btn btn-numeros" />
 
                                                                     <%-- Imagen botón verificar --%>
@@ -292,6 +293,9 @@
 
                                                                         <asp:Label ID="olblCelularNumeroValidado"
                                                                             runat="server" Text=""></asp:Label>
+
+
+
                                                         </asp:Panel>
                                                     </asp:Panel>
 
@@ -322,6 +326,14 @@
                                     </div>
 
                                 </asp:Panel>
+
+
+                                <p id="msj-inicial-validado" class="oculto cuadro-verde">
+                                    Seleccioná tus números y participá por los tres grandes PREMIOS de fin de año.
+                                    También tendrás la chance de GANAR $100.000 cada semana que se sortearán en el
+                                    programa "Desde el Litoral" por Canal 11. ¡Aprovechá esta GRAN OPORTUNIDAD, es tu
+                                    momento de GANAR!
+                                </p>
 
 
 
@@ -487,22 +499,22 @@
                                                 <%--<span class="text">
                                                     <asp:Label ID="Label4" runat="server" Text="Paso 2 ->"></asp:Label>
                                                     </span>--%>
-                                                    <div>
 
-                                                        <asp:Panel ID="PanelPremio" runat="server" Visible="true">
-                                                            <%-- Botón Premios --%>
-                                                                <!-- <div id="btn-premios-container" class="btn-premios-container">
+                                                    <asp:Panel ID="PanelPremio" runat="server" Visible="true">
+                                                        <%-- Botón Premios --%>
+                                                            <!-- <div id="btn-premios-container" class="btn-premios-container">
                         </div> -->
-                                                                <asp:Button ID="obutPremios" runat="server"
-                                                                    Text="VER PREMIOS" CssClass="btn btn-premios" />
+                                                            <asp:Button ID="obutPremios" runat="server"
+                                                                Text="VER PREMIOS" CssClass="btn btn-premios" />
 
-                                                                <%-- Panel Premios --%>
+                                                            <%-- Panel Premios --%>
 
-                                                                    <div align="center">
+                                                                <div align="center">
+                                                                    <div id="elegi-tus-premios">
                                                                         <asp:Label ID="Label6" runat="server"
-                                                                            Text="Complete cada talón con el premio y luego confirme ">
-                                                                        </asp:Label>
-
+                                                                            Text="¡Elegí tus premios!"
+                                                                            style="font-size: 1.2rem;"></asp:Label>
+                                                                        <div style="font-size: 1.2rem;">⏬⏬⏬</div>
                                                                     </div>
 
                                                                     <div class="panel-premios">
@@ -645,7 +657,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <%--Footer Panel Premios--%>
-                                                                            <div class="footer-panel-premios">
+                                                                            <div class="footer-panel-premios oculto">
                                                                                 <asp:Label ID="Label7" runat="server"
                                                                                     Text="Cantidad de talones seleccionados :  ">
                                                                                 </asp:Label>
@@ -656,7 +668,7 @@
 
                                                                             <div class="footer-panel-premios">
                                                                                 <asp:Label ID="Label8" runat="server"
-                                                                                    Text="Importe de los talones seleccionados : ">
+                                                                                    Text="Importe de los billetes seleccionados: ">
                                                                                 </asp:Label>
                                                                                 <div class="total">
                                                                                     <asp:Label ID="Label9"
@@ -704,24 +716,25 @@
                                                                             <%-- Panel Opciones de Pago --%>
                                                                                 <div style="text-align: center;"
                                                                                     id="panel-opciones-de-pago">
+                                                                                    <button id="pagar-con-mp"
+                                                                                        class="btn-copiar-cvu-alias text-center btn-pago-altura">PAGAR
+                                                                                        CON MERCADO PAGO</button>
                                                                                     <asp:Button
                                                                                         ID="obutPagarConMercadoPAgo"
                                                                                         runat="server"
                                                                                         Text="PAGAR CON MERCADO PAGO "
-                                                                                        CssClass="btn-pago" />
+                                                                                        CssClass="btn-copiar-cvu-alias text-center btn-pago-altura" />
                                                                                     <asp:Button
                                                                                         ID="obutPagarConTransferencia"
                                                                                         runat="server"
                                                                                         Text="PAGAR CON TRANSFERENCIA"
-                                                                                        CssClass="btn-pago" />
+                                                                                        CssClass="btn-copiar-cvu-alias text-center btn-pago-altura btn-transferencia" />
                                                                                     <asp:Button
                                                                                         ID="obutPagarConEfectivo"
                                                                                         runat="server"
                                                                                         Text="CON EFECTIVO"
-                                                                                        CssClass="btn-pago" />
-                                                                                </div>
-                                                        </asp:Panel>
-                                                    </div>
+                                                                                        CssClass="btn-copiar-cvu-alias text-center btn-pago-altura btn-efectivo" />
+                                                    </asp:Panel>
                                             </div>
                                             <div>
                                                 <%-- <span class="text">
@@ -744,19 +757,24 @@
 
                                         <asp:Panel ID="PanelConfirmaOperacion" runat="server" Visible="false">
                                             <asp:Panel ID="PanelValores" runat="server" Visible="false">
-                                                <div class="container-monto-a-pagar">
-                                                    <div>
+                                                <div class="container-monto-a-pagar texto-medio-de-pago">
+                                                    <div class="texto-medio-de-pago">
                                                         <asp:Label ID="olblMedioPagoSeleccionado" runat="server"
                                                             Text=""></asp:Label>
-                                                        <br />
+                                                    </div>
+                                                    <div class="texto-medio-de-pago">
+                                                        <asp:Label ID="olblTransferenciaOrigen" runat="server" Text=""
+                                                            Visible="true" CssClass="caja-azul"></asp:Label>
                                                     </div>
 
-                                                    <asp:Label ID="Label12" runat="server" Text="Monto a pagar :">
-                                                    </asp:Label>
+                                                    <div class="texto-medio-de-pago">
+                                                        <asp:Label ID="Label12" runat="server" Text="Monto a pagar :">
+                                                        </asp:Label>
+                                                    </div>
                                                     <div class="monto-a-pagar">
                                                         <%-- <span>$</span>--%>
                                                             <asp:Label ID="olblPagoConfirmadoMonto" runat="server"
-                                                                Text=""></asp:Label>
+                                                                Text="" CssClass="caja-azul"></asp:Label>
                                                     </div>
                                                 </div>
                                                 <%--Botones medios de pago--%>
@@ -816,18 +834,14 @@
                                             <%--Panel Mercado Pago --%>
                                                 <asp:Panel ID="PanelMercadoPago2" runat="server" Visible="false">
                                                     <div>
-                                                        <p class="cuenta-mp">
-                                                            <span>Sera dirigido a su cuenta de Mercado Pago para abonar
-                                                                el importe seleccionado. Presione el Boton "Pagar con mi
-                                                                Mercado Pago"
-                                                            </span>
-                                                        </p>
-
-                                                        <a id="btn-pagar-mp" class="btn-copiar-cvu-alias text-center"
-                                                            href="https://link.mercadopago.com.ar/pagobilletesorteo"
-                                                            target="_blank">
-                                                            Confirmo compra con mi Mercado Pago
-                                                        </a>
+                                                        <!-- <p class="cuenta-mp">
+                        <span class="text-center">Sera dirigido a su cuenta de Mercado Pago para abonar el importe seleccionado. Presione el Boton "Pagar con mi Mercado Pago"
+                        </span>
+                    </p> -->
+                                                        <!--    
+                        <a id="btn-pagar-mp" class="btn-copiar-cvu-alias text-center" href="https://link.mercadopago.com.ar/pagobilletesorteo" target="_blank">
+                            Confirmo compra con mi Mercado Pago
+                        </a> -->
 
                                                         <asp:Button
                                                             CssClass="btn-copiar-cvu-alias btn-navigation no-style"
@@ -886,55 +900,57 @@
 
                                                     <div align="center">
                                                         <asp:Button ID="obutConfirmaOperacion" runat="server"
-                                                            Text="CONFIRMAR COMPRA" CssClass="btn-pago" Visible="true"
-                                                            Width="90%" />
+                                                            Text="CONFIRMAR COMPRA"
+                                                            CssClass="btn-copiar-cvu-alias text-center btn-pago-altura btn-transferencia btn-animado"
+                                                            Visible="true" Width="90%" TextMode="MultiLine" />
                                                     </div>
-                                                    <div>
+                                                    <div class="nro-operacion">
                                                         <asp:Label ID="mensajeOperacionConfirmada" runat="server"
                                                             Text=""></asp:Label>
-
                                                     </div>
                                                     <asp:Panel ID="PanelDialogoVendedor" runat="server" Visible="false">
 
 
                                                         <div>
-                                                            <div align="center">
+                                                            <div align="center" class="datos-vendedor">
                                                                 <%-- <asp:TextBox ID="TextBox1" runat="server"
                                                                     BackColor="LightGray" Width="90%"
                                                                     Text="Una vez que realice la transferencia a la cuenta de la Empresa, deberá enviar la captura de pantalla de la misma al teléfono del Vendedor asignado , para que este confeccione los billetes seleccionado con sus datos y los ingrese en la urna luego de corroborar la acreditaciónm de la operación"
                                                                     Font-Bold="true" TextMode="MultiLine"></asp:TextBox>
                                                                     --%>
-                                                                    <p class="cuenta-mp">
-                                                                        <%-- Una vez que realice la transferencia a la
-                                                                            cuenta de la Empresa, deberá enviar la
-                                                                            captura de pantalla de la misma al teléfono
-                                                                            del vendedor asignado, para que éste
-                                                                            confeccione los billetes seleccionados con
-                                                                            sus datos y los ingrese en la urna luego de
-                                                                            corroborar la acreditación de la
-                                                                            operación.--%>
-                                                                            <%-- <asp:TextBox ID="TextBox2"
-                                                                                runat="server" BackColor="LightGray"
-                                                                                Width="90%"
-                                                                                Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
-                                                                                Font-Bold="true" TextMode="MultiLine">
-                                                                                </asp:TextBox>--%>
-                                                                                <span>Para confirmar su compra, el
-                                                                                    vendedor <span
-                                                                                        id="vendedor-nombre"></span><span
-                                                                                        id="vendedor-celular"></span> se
-                                                                                    comunicará con usted en la brevedad,
-                                                                                    o tiene la opcion de comunicarse
-                                                                                    mediante este link<a
-                                                                                        class="btn-whatsapp"
-                                                                                        id="enlace-whatsapp-vendedor"
-                                                                                        href="https://wa.me/543705019399?text=Apellido y Nombre: "
-                                                                                        target="_blank"
-                                                                                        rel="noopener noreferrer">
-                                                                                        <i class="bi bi-whatsapp"></i>
-                                                                                    </a>
-                                                                                </span>
-                                                                    </p>
+                                                                    <%-- Una vez que realice la transferencia a la
+                                                                        cuenta de la Empresa, deberá enviar la captura
+                                                                        de pantalla de la misma al teléfono del vendedor
+                                                                        asignado, para que éste confeccione los billetes
+                                                                        seleccionados con sus datos y los ingrese en la
+                                                                        urna luego de corroborar la acreditación de la
+                                                                        operación.--%>
+                                                                        <%-- <asp:TextBox ID="TextBox2" runat="server"
+                                                                            BackColor="LightGray" Width="90%"
+                                                                            Text="Datos del Vendedor  Martin Ramon Quintana , Celular Número + 54 9 370 501 9399"
+                                                                            Font-Bold="true" TextMode="MultiLine">
+                                                                            </asp:TextBox>--%>
+                                                                            <!-- <div>
+                                    Datos del Vendedor:
+                                </div> -->
+                                                                            <div>
+                                                                                Vendedor: <span
+                                                                                    id="vendedor-nombre"></span>
+                                                                            </div>
+                                                                            <!-- <div>
+                                    Teléfono Celular: 
+                                    <span id="vendedor-celular"></span>
+                                </div> -->
+                                                                            <div>
+                                                                                Contactarse:
+                                                                                <a class="btn-whatsapp"
+                                                                                    id="enlace-whatsapp-vendedor"
+                                                                                    href="https://wa.me/543705019399?text=Apellido y Nombre: "
+                                                                                    target="_blank"
+                                                                                    rel="noopener noreferrer">
+                                                                                    <i class="bi bi-whatsapp"></i>
+                                                                                </a>
+                                                                            </div>
                                                             </div>
 
 
@@ -966,61 +982,21 @@
                                                                 <div class="modal-images">
                                                                     <figure>
                                                                         <article class="img-sorteo">
-                                                                            <img src="images/premios-sorteo/heladera-midea-2.jpg"
-                                                                                alt="Heladera con freezer Midea" />
+                                                                            <img src="images/premios-encuesta/moto electrica-2.png"
+                                                                                alt="Moto eléctrica" />
                                                                         </article>
                                                                         <figcaption>
                                                                             <div>
                                                                                 <img
                                                                                     src="images/premios-sorteo/principales/primer-premio.png" />
-                                                                                <h3>Heladera con Congelador Midea</h3>
+
+                                                                                <h3>Moto Eléctrica Scooter</h3>
 
                                                                             </div>
                                                                             <article>
-
-                                                                                <p>Capacidad 300 Litros</p>
-                                                                                <p>Control de temperatura ajustable</p>
-                                                                                <p>Vidrio templado</p>--%>
-                                                                            </article>
-                                                                        </figcaption>
-                                                                    </figure>
-                                                                    <figure>
-                                                                        <article class="img-sorteo">
-                                                                            <img src="images/premios-sorteo/cocina-atlas-2.jpg"
-                                                                                alt="Cocina Atlas" />
-                                                                        </article>
-                                                                        <figcaption>
-                                                                            <div>
-                                                                                <img
-                                                                                    src="images/premios-sorteo/principales/segundo-premio.png" />
-                                                                                <h3>Cocina Atlas Coliseum Plus</h3>
-
-                                                                            </div>
-                                                                            <article>
-
-                                                                                <p>Cuatro hornallas</p>
-                                                                                <p>Tapa de vidrio</p>
-                                                                                <p>Capacidad de horno: 50 Lts</p>
-                                                                            </article>
-                                                                        </figcaption>
-                                                                    </figure>
-                                                                    <figure>
-                                                                        <article class="img-sorteo">
-                                                                            <img src="images/premios-sorteo/freidora-marylan-2.jpg"
-                                                                                alt="Freidora de aire Marylan" />
-                                                                        </article>
-                                                                        <figcaption>
-                                                                            <div>
-                                                                                <img
-                                                                                    src="images/premios-sorteo/principales/tercer-premio.png" />
-
-                                                                                <h3>Air Fryer Marylan</h3>
-
-                                                                            </div>
-                                                                            <article>
-                                                                                <p>1400Watts</p>
-                                                                                <p>Capacidad 5.5 Litros</p>
-                                                                                <p>Hasta 200 grados</p>s
+                                                                                <p>Autonomía 40km por carga</p>
+                                                                                <p>Velocida Máxima 45km/h</p>
+                                                                                <p>Asiento para acompañante</p>
                                                                             </article>
                                                                         </figcaption>
                                                                     </figure>
@@ -1035,14 +1011,14 @@
                                                                 <div align="center">
                                                                     <%-- <h4 class="titulo-panel-encuesta">
                                                                         <asp:Label ID="Label19" runat="server"
-                                                                            Text="¡Complete ésta breve encuesta y participe por excelentes premios!"
+                                                                            Text="¡Completá ésta breve encuesta y participá por $100.000 semanales!"
                                                                             Font-Bold="true"></asp:Label>
                                                                         </h4>--%>
                                                                         <div id="Label19" class="titulo-panel-encuesta">
                                                                             ¡Completá ésta breve <span
                                                                                 id="link-encuesta"
                                                                                 class="btn-basic link-encuesta">encuesta</span>
-                                                                            y participá por nuevos premios!</div>
+                                                                            y participá por $100.000 semanales!</div>
                                                                 </div>
                                                                 <div class="transaccion-cliente">
 
@@ -1051,6 +1027,8 @@
                                                                         <button id="openModalBtn"
                                                                             class="open-modal-btn btn-bases btn-ver-bases btn-premios-encuesta"
                                                                             type="button">VER PREMIOS ENCUESTA</button>
+                                                                        <!-- <button id="btn-premios-sorteo" class="open-modal-btn btn-bases btn-ver-bases btn-premios-encuesta">VER PREMIOS SORTEO</button> -->
+
                                                                 </div>
 
                                                                 <asp:Panel CssClass="seccion-encuesta"
@@ -1156,34 +1134,31 @@
                                                             </asp:Panel>
 
 
-
-                                                            <asp:Panel ID="PanelAlta" runat="server" Visible="false">
+                                                            <asp:Panel ID="PanelAlta" CssClass="panel-alta"
+                                                                runat="server" Visible="false">
 
 
                                                                 <div align="center">
-                                                                    <asp:TextBox CssClass="msj-felicitaciones"
-                                                                        ID="Label25" runat="server"
-                                                                        Text="¡¡Felicitaciones!! 🎉 ¡Usted ya está participando por los premios mayores de los sorteos de Octubre! 🎁"
-                                                                        TextMode="MultiLine" Enabled="false"
-                                                                        BorderWidth="0"></asp:TextBox>
-                                                                    <div
-                                                                        class="botones-medios-de-pago contenedor-inputs">
-                                                                    </div>
+                                                                    <!-- <asp:TextBox CssClass="msj-felicitaciones" ID="Label25" runat="server" Text="¡¡Felicitaciones!! 🎉 ¡Usted ya está participando por los premios mayores de los sorteos de Octubre! 🎁" TextMode="MultiLine" Enabled="false" BorderWidth="0"></asp:TextBox>
+                    <div class="botones-medios-de-pago contenedor-inputs">
+                    </div>
+                    
+                                       <asp:Label ID="olblOperacionRealizada" runat="server" Text="" Font-Bold="true" ForeColor="#0033cc"></asp:Label>
+                   
+                     <br /> -->
 
-                                                                    <asp:Label ID="olblOperacionRealizada"
-                                                                        runat="server" Text="" Font-Bold="true"
-                                                                        ForeColor="#0033cc"></asp:Label>
 
-                                                                    <br />
                                                                     <asp:Button ID="obutOperacionRealizada"
-                                                                        runat="server" Text="Volver para nueva compra"
-                                                                        CssClass="btn-primary" Height="30%" Width="50%"
-                                                                        Visible="true" />
-                                                                    <asp:Button ID="obutOperacionRealizadaYPagina"
                                                                         runat="server"
-                                                                        Text="Visitar pagina institucional"
-                                                                        CssClass="btn-primary" Height="30%" Width="50%"
+                                                                        Text="Graba Encuesta y finaliza compra"
+                                                                        CssClass="no-style btn-copiar-cvu-alias btn-hipervinculo"
                                                                         Visible="true" />
+                                                                    <!-- <asp:Button ID="obutOperacionRealizadaYPagina" runat="server" Text="Visitar sitio institucional" CssClass="no-style btn-copiar-cvu-alias btn-hipervinculo" Visible="true" title="Será redireccionado al sitio institucional de la empresa" /> -->
+                                                                    <a href="https://www.miprimercasa.ar/"
+                                                                        class="no-style btn-copiar-cvu-alias btn-hipervinculo"
+                                                                        target="_blank"
+                                                                        rel="no opeener no referrer">Visitar Sitio
+                                                                        institucional</a>
 
                                                                 </div>
 
@@ -1198,15 +1173,15 @@
                                                 </asp:UpdatePanel>--%>
                 </form>
 
-                <%-- Sweet Alert --%>
-                    <%--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>--%>
+                <!-- Sweet Alert -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-                        <%-- Script JS --%>
-                            <%--<script src="app.js" type="text/javascript"></script>--%>
+                <%-- Script JS --%>
+                    <%--<script src="app.js" type="text/javascript"></script>--%>
 
-                                <script src="scripts/main.js" type="text/javascript" charset="UTF-8" defer></script>
-                                <script src="scripts/modals.js" type="text/javascript" charset="UTF-8" defer></script>
-                                <%--<script src="scripts/mercado_pago.js" type="text/javascript" defer></script>--%>
+                        <script src="scripts/main.js" type="text/javascript" charset="UTF-8" defer></script>
+                        <script src="scripts/modals.js" type="text/javascript" charset="UTF-8" defer></script>
+                        <%--<script src="scripts/mercado_pago.js" type="text/javascript" defer></script>--%>
 
             </body>
 
