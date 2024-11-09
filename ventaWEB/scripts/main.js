@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
 	const btnPagarConMercadoPagoAlt = document.getElementById("pagar-con-mp");
 
+	const infoHeader = document.querySelector(".info-header");
+
+	// TextArea Inicial
+	const textareaInfoHeader = document.getElementById("olblInformacionVenta");
+	const spanInfoHeader = document.createElement("span");
+	spanInfoHeader.textContent = textareaInfoHeader.value;
+	textareaInfoHeader.parentNode.replaceChild(
+		spanInfoHeader,
+		textareaInfoHeader,
+	);
+
 	const primerCheckboxNumeros = document.getElementById(
 		"ogvSorteoTalonVendedorVenta_ochSorteoTalonTomado_0",
 	);
@@ -76,6 +87,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	const msjInicialValidado = document.getElementById("msj-inicial-validado");
 	const validarCelular = document.getElementById("olblCelularNumeroMensaje");
 
+	if (infoHeader) {
+		document
+			.getElementById("enlace-whatsapp-vendedor-inicial")
+			.addEventListener("click", () => {
+				const encodedMessage = encodeURIComponent(
+					"¡Hola! Necesito asistencia para la compra.",
+				);
+				const url = `https://wa.me/${celularVendedor.textContent.trim()}?text=${encodedMessage}`;
+				window.open(url, "_blank");
+			});
+	}
+
 	let estaValidado = false;
 
 	// Validación correo electrónico
@@ -98,24 +121,14 @@ document.addEventListener("DOMContentLoaded", function () {
 				const url = `https://wa.me/543704779106?text=${encodedMessage}`;
 				window.open(url, "_blank");
 			} else {
-				// alert("¡Por favor, verifique su Apellido y Nombre!");
 				Swal.fire({
-					title: "¡Por favor, verifique su Apellido y Nombre!",
-					confirmButtonText: "Aceptar",
-					confirmButtonColor: "#007BFF",
-					showClass: {
-						popup: `
-											animate__animated
-											animate__fadeInUp
-											animate__faster
-										`,
-					},
-					hideClass: {
-						popup: `
-											animate__animated
-											animate__fadeOutDown
-											animate__faster
-										`,
+					icon: "error",
+					// title: "Oops...",
+					html: `<span style="font-weight: bold; font-size: 1.8rem">¡Por favor, verifique su Apellido y Nombre!</span>`,
+					confirmButtonText: '<span style="color: white;">Aceptar</span>',
+					confirmButtonColor: "rgb(0, 123, 255)",
+					customClass: {
+						// confirmButton: 'swal2-confirm-green'
 					},
 				});
 			}
@@ -151,7 +164,17 @@ document.addEventListener("DOMContentLoaded", function () {
 				const url = `https://wa.me/543704779106?text=${encodedMessage}`;
 				window.open(url, "_blank");
 			} else {
-				alert("¡Por favor, verifique su Apellido y Nombre!");
+				// alert("¡Por favor, verifique su Apellido y Nombre!");
+				Swal.fire({
+					icon: "error",
+					// title: "Oops...",
+					html: `<span style="font-weight: bold; font-size: 1.8rem">¡Por favor, verifique su Apellido y Nombre!</span>`,
+					confirmButtonText: '<span style="color: white;">Aceptar</span>',
+					confirmButtonColor: "rgb(0, 123, 255)",
+					customClass: {
+						// confirmButton: 'swal2-confirm-green'
+					},
+				});
 			}
 		});
 
@@ -183,6 +206,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		textoValidadorCelular.style.color = "green";
 	}
 
+	const contador = sessionStorage.getItem("contador");
+
+	if (inputTelefono && !contador) {
+		Swal.fire({
+			position: "top-end",
+			icon: "success",
+			title: "¡Celular validado con éxito!",
+			showConfirmButton: false,
+			timer: 1500,
+		});
+		sessionStorage.setItem("contador", "true");
+	}
+	console.log(contador);
 	console.log(msjInicial);
 	console.log(sessionUsuarioVendedor);
 
@@ -232,6 +268,25 @@ document.addEventListener("DOMContentLoaded", function () {
 				btnConfirmarOperacion.classList.toggle("btn-animado");
 				btnConfirmarOperacion.style.pointerEvents = "none";
 				window.open(enlaceWhatsappVendedor, "_blank");
+
+				// Swal.fire({
+				//     title: '<span style="color: green;">¡Muchas gracias por su compra!</span>',
+				//     html: `<button id="okButton" style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer; font-size: 1.2rem">Aceptar</button>`,
+				//     didOpen: () => {
+				//       document.querySelector('.swal2-confirm').style.display = 'none';
+
+				//       const okButton = document.getElementById("okButton");
+				//       okButton.addEventListener("click", () => {
+				//           scrollToSection("seccion-encuesta");
+
+				//       })
+				//     },
+				//   })
+
+				//   Ir a encuesta depues de 7 segundos
+				setTimeout(() => {
+					scrollToSection("Label19");
+				}, 7000);
 			}
 		}
 	}
@@ -367,9 +422,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	btnPagarConTransferencia
-		? (btnPagarConMercadoPagoAlt.style.display = "block")
-		: (btnPagarConMercadoPagoAlt.style.display = "none");
+	if (btnPagarConTransferencia) {
+		btnPagarConMercadoPagoAlt.style.display = "block";
+	} else {
+		btnPagarConMercadoPagoAlt.style.display = "none";
+	}
 
 	if (btnPagarConMercadoPagoAlt) {
 		btnPagarConMercadoPagoAlt.textContent = `PAGAR $${
@@ -383,8 +440,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			Swal.fire({
 				html: `Usted será redireccionado a Mercado Pago en <b id="timer">4</b> segundos.
-									<h2>LUEGO DE SU PAGO<span style="color: red;"> VUELVA Y CONFIRME SU COMPRA</span></h2>
-										 <button id="confirmButton" style="padding: 10px 20px; background-color: #E1EFF8; border: none; cursor: pointer; font-size: 1.2rem;">Confirmar Compra</button>`,
+									<h2>LUEGO DE SU PAGO<span style="color: red;"> VUELVA Y CONTINÚE SU COMPRA</span></h2>
+										 <button id="confirmButton" style="padding: 10px 20px; background-color: #E1EFF8; border: none; cursor: pointer; font-size: 1.2rem;">Clic para continuar con la compra</button>`,
 				didOpen: () => {
 					Swal.showLoading();
 
@@ -400,6 +457,9 @@ document.addEventListener("DOMContentLoaded", function () {
 						button.style.backgroundColor = "#E1EFF8"; // Vuelve al color original
 					});
 
+					const confirmButton = document.getElementById("confirmButton");
+					confirmButton.disabled = true;
+
 					// Inicia el temporizador de 4 segundos
 					let seconds = 4;
 					timerInterval = setInterval(() => {
@@ -409,17 +469,16 @@ document.addEventListener("DOMContentLoaded", function () {
 						if (seconds <= 0) {
 							clearInterval(timerInterval);
 							window.open(mercadoPago, "_blank");
+							confirmButton.disabled = false;
 						}
 					}, 1000);
 
 					// Agrega un evento de escucha al botón "Confirmar Compra"
-					document
-						.getElementById("confirmButton")
-						.addEventListener("click", () => {
-							Swal.close(); // Cierra el SweetAlert
-							btnPagarConMercadoPago.click(); // Dispara el evento en el botón de pago
-							clearInterval(timerInterval); // Detiene el temporizador
-						});
+					confirmButton.addEventListener("click", () => {
+						Swal.close(); // Cierra el SweetAlert
+						btnPagarConMercadoPago.click(); // Dispara el evento en el botón de pago
+						clearInterval(timerInterval); // Detiene el temporizador
+					});
 				},
 				willClose: () => {
 					clearInterval(timerInterval); // Asegura que el temporizador se detiene al cerrar
@@ -428,19 +487,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	if (btnPagarConTransferencia) {
-		btnPagarConTransferencia.addEventListener("click", () => {
-			let whatsAppVendedor = celularVendedor.textContent.trim();
+	// if(btnPagarConTransferencia) {
+	//     btnPagarConTransferencia.addEventListener("click", () => {
+	//         let whatsAppVendedor = celularVendedor.textContent.trim();
 
-			const encodedMessage = encodeURIComponent(
-				msjCompradorAlVendedor.innerText.trim(),
-			);
+	//         const encodedMessage = encodeURIComponent(msjCompradorAlVendedor.innerText.trim());
 
-			const whatsapp = `https://wa.me/${whatsAppVendedor}?text=${encodedMessage}`;
+	//         const whatsapp = `https://wa.me/${whatsAppVendedor}?text=${encodedMessage}`;
 
-			window.open(whatsapp, "_blank");
-		});
-	}
+	//         window.open(whatsapp, "_blank");
+
+	//     })
+	// }
 
 	if (btnPagarConEfectivo) {
 		console.log(btnPagarConEfectivo);
@@ -471,7 +529,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (name === mp || name === tranferencia || name === efectivo) {
 			// hacerScroll = true;
 			sessionStorage.setItem("opcionesDePago", "true");
-			console.log("Variable cambiada a true");
 		}
 	});
 
