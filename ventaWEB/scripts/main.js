@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			icon: "success",
 			title: "¡Celular validado con éxito!",
 			showConfirmButton: false,
-			timer: 1500,
+			timer: 3000,
 		});
 		sessionStorage.setItem("contador", "true");
 	}
@@ -268,6 +268,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				btnConfirmarOperacion.classList.toggle("btn-animado");
 				btnConfirmarOperacion.style.pointerEvents = "none";
 				window.open(enlaceWhatsappVendedor, "_blank");
+
+				msjInicialValidado.style.display = "none";
 
 				// Swal.fire({
 				//     title: '<span style="color: green;">¡Muchas gracias por su compra!</span>',
