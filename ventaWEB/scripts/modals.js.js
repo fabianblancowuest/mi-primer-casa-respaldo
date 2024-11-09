@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const closePremios = document.getElementById("closeModalPremios");
 	const closeBases = document.getElementById("closeBases");
 	const btnBases = document.getElementById("btnBases");
+	const videoInicial = document.getElementById("video-inicial");
 
 	// Modal Bases y Condiciones
 	const modalBases = document.getElementById("basesYCondiciones");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		btnBases.addEventListener("click", function () {
 			modalBases.style.display = "flex";
 			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+			videoInicial.style.display = "block";
 		});
 	}
 
@@ -39,6 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			modalBases.style.display = "none";
 			console.log("Cerrando");
 			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+			videoInicial.pause();
+			videoInicial.currentTime = 0;
+			videoInicial.style.display = "none";
 		});
 	}
 
@@ -55,13 +60,23 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
+	//  const btnPremios  = document.getElementById("btn-premios-sorteo");
+	//  if(btnPremios) {
+	//     btnPremios.addEventListener("click", (event) => {
+	//        event.preventDefault();
+	//        console.log("Click botón premios abajo");
+	//        modalPremios.style.display = "flex";
+	//        document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+	//     });
+	// }
+
 	console.log("Botón Premios", botonPremios);
 
 	if (closePremios) {
 		closePremios.addEventListener("click", function () {
 			modalPremios.style.display = "none";
 			console.log("Cerrando");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+			document.body.classList.remove("no-scroll");
 		});
 	}
 
@@ -71,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const closeModalBtn = document.getElementById("closeModalBtn");
 
 	if (modal) {
-		modal.style.display = "none"; // Ocultar el modal inicialmente
+		modal.style.display = "none";
 	}
 
 	if (openModalBtn) {
@@ -79,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			console.log(event);
 			event.preventDefault();
 			modal.style.display = "flex";
-			document.body.classList.add("no-scroll"); // Bloquea el scroll del fondo
+			document.body.classList.add("no-scroll");
 		});
 	}
 	// Cerrar el modal principal
@@ -87,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		closeModalBtn.addEventListener("click", function () {
 			modal.style.display = "none";
 			console.log("Cerrando");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+			document.body.classList.remove("no-scroll");
 		});
 	}
 
@@ -95,19 +110,19 @@ document.addEventListener("DOMContentLoaded", function () {
 	window.addEventListener("click", function (event) {
 		if (event.target === modal) {
 			modal.style.display = "none";
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+			document.body.classList.remove("no-scroll");
 		}
 
 		if (event.target === modalPremios) {
 			modalPremios.style.display = "none";
 			console.log("Cerrando modal de premios");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+			document.body.classList.remove("no-scroll");
 		}
 
 		if (event.target === modalBases) {
 			modalBases.style.display = "none";
 			console.log("Cerrando modal de bases y condiciones");
-			document.body.classList.remove("no-scroll"); // Restablece el scroll del fondo
+			document.body.classList.remove("no-scroll");
 		}
 	});
 	//Simula un clic automático en el botón openModalBtn una vez al cargar la página
