@@ -37,7 +37,7 @@
                                 <%-- Styles Sheets --%>
                                     <link href="../ventaWEB/styles/styles-mi-primer-casa.css" rel="stylesheet" />
                                     <%-- Favicon --%>
-                                        <link rel="shortcut icon" href="images/logos/favicon.png" type="image/x-icon" />
+                                        <link rel="shortcut icon" href="images/logos/logo.jfif" type="image/x-icon" />
                                         <%-- Scripts --%>
                                             <script type="text/javascript">
                                                 function OpenWindows(url) {
@@ -95,11 +95,14 @@
 
 
                             <div class="info-header">
-
+                                <!-- Nombre Vendedor - Teléfono -->
                                 <asp:TextBox ID="olblInformacionVenta" runat="server" TextMode="MultiLine"
                                     Enabled="false"></asp:TextBox>
-                                <%-- <asp:Label ID="olblInformacionVenta" runat="server" Text="" Font-Bold="true"
-                                    Font-Size="Medium"></asp:Label>--%>
+                                <span class="btn-whatsapp btn-whatsapp-inicial" id="enlace-whatsapp-vendedor-inicial">
+                                    <i class="bi bi-whatsapp"></i>
+                                    </a>
+                                    <%-- <asp:Label ID="olblInformacionVenta" runat="server" Text="" Font-Bold="true"
+                                        Font-Size="Medium"></asp:Label>--%>
                             </div>
                             <div class="msj-personas-comprando">
                                 <asp:Label ID="olblPar02" runat="server" Text="" Visible="false"></asp:Label>
@@ -132,7 +135,7 @@
                                         <%-- Modal Bases y Condiciones --%>
                                             <div id="basesYCondiciones" class="modal modal-bases">
                                                 <article class="modal-content bases-y-condiciones">
-                                                    <video id="video-inicial" width="550" controls autoplay loop muted
+                                                    <video id="video-inicial" width="500" controls autoplay loop muted
                                                         class="video-inicial">
                                                         <source src="videos/video-mi-primer-casa-comp.mp4"
                                                             type="video/mp4">
@@ -161,6 +164,11 @@
                                                         <li><strong>PREMIOS MAYORES:</strong> Se sortearán el 28 de
                                                             Diciembre del 2024 ante escribano público.
                                                         </li>
+                                                        <p><strong>VALIDACIÓN: </strong>La Empresa requerirá por parte
+                                                            del comprador el envío de mensajes al número de WhatsApp +54
+                                                            9 3704 77-9106 a los efectos de validar la compra y luego
+                                                            poder comunicar al cliente el resultado de los distintos
+                                                            sorteos que se realizan.</p>
                                                         <p>COMERCIALIZA: MI PRIMER CASA - FOTHERINGHAM 1089 - FORMOSA
                                                         </p>
                                                     </ol>
@@ -169,13 +177,7 @@
                                                 </article>
                                             </div>
 
-
-
-
-
-
                                             <div class="xxxxcontenedor-inputsxxxx">
-
                                                 <div>
                                                     <asp:Label ID="olblCelularNumeroMensaje" runat="server" Text="Hola"
                                                         Font-Bold="true"></asp:Label>
@@ -389,8 +391,8 @@
                                                                                 Visible="false"></asp:Label>
                                                                             <asp:Label CssClass="msj-talon"
                                                                                 ID="olblGestionDescripcion"
-                                                                                runat="server" Text="" Font-Bold="true">
-                                                                            </asp:Label>
+                                                                                runat="server" Text="" Font-Bold="true"
+                                                                                Visible="false"></asp:Label>
                                                                         </p>
 
                                                                         <asp:SqlDataSource
@@ -482,11 +484,13 @@
                                                                                 <asp:Button
                                                                                     CssClass="btn-footer-panel-numeros"
                                                                                     ID="obutRango01" runat="server"
-                                                                                    Text="Muestra 10 números" />
+                                                                                    Text="Muestra 10 números"
+                                                                                    Visible="false" />
                                                                                 <asp:Button
                                                                                     CssClass="btn-footer-panel-numeros"
                                                                                     ID="obutRango02" runat="server"
-                                                                                    Text="Muestra 30 números" />
+                                                                                    Text="Muestra 30 números"
+                                                                                    Visible="false" />
                                                                             </div>
                                                                     </div>
 
@@ -568,7 +572,7 @@
                                                                                         HorizontalAlign="Center" />
                                                                                 </asp:BoundField>
                                                                                 <asp:TemplateField
-                                                                                    HeaderText="P R E M I O S"
+                                                                                    HeaderText="SELECCIONAR PREMIO"
                                                                                     SortExpression="idSorteoPremio">
                                                                                     <ItemTemplate>
                                                                                         <asp:DropDownList
@@ -607,17 +611,17 @@
                                                                                 <span id="closeModalPremios"
                                                                                     class="close-modal"><span
                                                                                         class="texto-cerrar">Cerrar</span>&times;</span>
-                                                                                <div class="transaccion-cliente">
-                                                                                    <p class="texto-modal">¡Elegí cuáles
-                                                                                        de estos increíbles premios te
-                                                                                        gustaría GANAR! 🤩🎉🎊</p>
+                                                                                <div>
+                                                                                    <p class="texto-premios">¡Elegí
+                                                                                        cuáles de estos increíbles
+                                                                                        premios te gustaría GANAR!
+                                                                                        🤩🎉🎊</p>
                                                                                 </div>
                                                                                 <div class="modal-images-principales">
                                                                                     <figure>
-                                                                                        <img src="images/premios-sorteo/principales/sandero.png"
-                                                                                            alt="Auto" />
-                                                                                        <img src="images/premios-sorteo/principales/terreno.jpg"
-                                                                                            alt="Terreno" />
+                                                                                        <img src="images/premios-sorteo/principales/primer-premio.jpg"
+                                                                                            alt="Auto + Terreno" />
+                                                                                        <!-- <img src="images/premios-sorteo/principales/terreno.jpg" alt="Terreno" /> -->
                                                                                         <figcaption>
                                                                                             <div>
                                                                                                 <img
@@ -629,7 +633,7 @@
                                                                                         </figcaption>
                                                                                     </figure>
                                                                                     <figure>
-                                                                                        <img src="images/premios-sorteo/principales/terreno.jpg"
+                                                                                        <img src="images/premios-sorteo/principales/segundo-premio.jpg"
                                                                                             alt="Terreno" />
                                                                                         <figcaption>
                                                                                             <div>
@@ -641,7 +645,7 @@
                                                                                         </figcaption>
                                                                                     </figure>
                                                                                     <figure>
-                                                                                        <img src="images/premios-sorteo/principales/dinero-1.jpg"
+                                                                                        <img src="images/premios-sorteo/principales/tercer-premio.jpg"
                                                                                             alt="Dinero" />
                                                                                         <figcaption>
                                                                                             <div>
@@ -717,7 +721,7 @@
                                                                                 <div style="text-align: center;"
                                                                                     id="panel-opciones-de-pago">
                                                                                     <button id="pagar-con-mp"
-                                                                                        class="btn-copiar-cvu-alias text-center btn-pago-altura">PAGAR
+                                                                                        class="btn-copiar-cvu-alias text-center btn-pago-altura oculto">PAGAR
                                                                                         CON MERCADO PAGO</button>
                                                                                     <asp:Button
                                                                                         ID="obutPagarConMercadoPAgo"
@@ -733,7 +737,8 @@
                                                                                         ID="obutPagarConEfectivo"
                                                                                         runat="server"
                                                                                         Text="CON EFECTIVO"
-                                                                                        CssClass="btn-copiar-cvu-alias text-center btn-pago-altura btn-efectivo" />
+                                                                                        CssClass="btn-copiar-cvu-alias text-center btn-pago-altura btn-efectivo"
+                                                                                        Visible="false" />
                                                     </asp:Panel>
                                             </div>
                                             <div>
@@ -970,8 +975,8 @@
                                                             <div class="modal-content">
                                                                 <span id="closeModalBtn" class="close-modal"><span
                                                                         class="texto-cerrar">Cerrar</span>&times;</span>
-                                                                <div class="transaccion-cliente">
-                                                                    <p class="texto-modal">
+                                                                <div>
+                                                                    <p class="texto-premios">
                                                                         ¡Felicidades! 🎉🎊 ¡Ya estás participando en los
                                                                         grandes sorteos de diciembre! Completá la
                                                                         encuesta y aprovechá la oportunidad de seguir
@@ -982,21 +987,19 @@
                                                                 <div class="modal-images">
                                                                     <figure>
                                                                         <article class="img-sorteo">
-                                                                            <img src="images/premios-encuesta/moto electrica-2.png"
-                                                                                alt="Moto eléctrica" />
+                                                                            <img src="images/premios-sorteo/principales/dinero-1.jpg"
+                                                                                alt="$100.000" />
                                                                         </article>
                                                                         <figcaption>
                                                                             <div>
                                                                                 <img
                                                                                     src="images/premios-sorteo/principales/primer-premio.png" />
 
-                                                                                <h3>Moto Eléctrica Scooter</h3>
+                                                                                <h3>$100.000</h3>
 
                                                                             </div>
                                                                             <article>
-                                                                                <p>Autonomía 40km por carga</p>
-                                                                                <p>Velocida Máxima 45km/h</p>
-                                                                                <p>Asiento para acompañante</p>
+                                                                                <p>$100.000 Pesos Semanales</p>
                                                                             </article>
                                                                         </figcaption>
                                                                     </figure>
@@ -1150,16 +1153,17 @@
 
                                                                     <asp:Button ID="obutOperacionRealizada"
                                                                         runat="server"
-                                                                        Text="Graba Encuesta y finaliza compra"
+                                                                        Text="Guarda encuesta y finaliza compra"
                                                                         CssClass="no-style btn-copiar-cvu-alias btn-hipervinculo"
-                                                                        Visible="true" />
+                                                                        Visible="false" />
                                                                     <!-- <asp:Button ID="obutOperacionRealizadaYPagina" runat="server" Text="Visitar sitio institucional" CssClass="no-style btn-copiar-cvu-alias btn-hipervinculo" Visible="true" title="Será redireccionado al sitio institucional de la empresa" /> -->
-                                                                    <a href="https://www.miprimercasa.ar/"
+                                                                    <%-- <a href="https://www.miprimercasa.ar/"
                                                                         class="no-style btn-copiar-cvu-alias btn-hipervinculo"
                                                                         target="_blank"
                                                                         rel="no opeener no referrer">Visitar Sitio
                                                                         institucional</a>
 
+                                                                        --%>
                                                                 </div>
 
                                                             </asp:Panel>
