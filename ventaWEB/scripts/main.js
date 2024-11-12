@@ -138,9 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// Convertir la primera letra de los nombres y apellidos a mayúsculas
 		if (inputNombre.value) {
-			inputNombre.value = "Carlos";
-
-			console.log(inputNombre.value);
 			inputNombre.value
 				.split(" ")
 				.map((str) => str[0].toUpperCase() + str.slice(1).toUpperCase())
@@ -230,6 +227,22 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
+	function prevenirRecarga() {
+		window.onbeforeunload = function (event) {
+			event.preventDefault();
+			event.returnValue = ""; // Esto muestra una alerta de confirmación en navegadores compatibles
+		};
+	}
+
+	function evitarIrAtras() {
+		history.pushState(null, "", location.href); // Añade el estado actual al historial
+		window.onpopstate = function () {
+			history.pushState(null, "", location.href); // Si el usuario intenta ir atrás, permanece en la misma página
+		};
+	}
+
+	let yaEstaPagado = false;
+
 	if (panelConfirmacion) {
 		console.log(panelConfirmacion);
 
@@ -271,6 +284,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				msjInicialValidado.style.display = "none";
 
+				yaEstaPagado = true;
+
 				// Swal.fire({
 				//     title: '<span style="color: green;">¡Muchas gracias por su compra!</span>',
 				//     html: `<button id="okButton" style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer; font-size: 1.2rem">Aceptar</button>`,
@@ -292,6 +307,14 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		}
 	}
+
+	if (yaEstaPagado) {
+		prevenirRecarga();
+		evitarIrAtras();
+		btnConfirmarOperacion.disabled = true;
+	}
+
+	console.log(yaEstaPagado);
 
 	window.addEventListener("scroll", function () {
 		const chevron = document.getElementById("chevron");
@@ -424,10 +447,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	if (btnPagarConTransferencia) {
-		btnPagarConMercadoPagoAlt.style.display = "block";
-	} else {
+	if (!btnPagarConTransferencia) {
 		btnPagarConMercadoPagoAlt.style.display = "none";
+	} else if (!btnPagarConTransferencia) {
+		btnPagarConMercadoPagoAlt.style.display = "block";
 	}
 
 	if (btnPagarConMercadoPagoAlt) {
